@@ -120,7 +120,7 @@ nav img {
 }
 
 .burger .lines {
-  width: 25px;
+  width: 35px;
   height: 3px;
   background-color: white;
   margin: 5px;
@@ -148,6 +148,18 @@ nav img {
 }
 
 @media screen and (min-width: 650px) and (max-width: 1024px) {
+  nav {
+    height: 3rem;
+    -ms-grid-columns: 1fr 3em;
+        grid-template-columns: 1fr 3em;
+  }
+  nav .burger .lines {
+    width: 25px;
+  }
+  .side-bar {
+    width: 35%;
+    top: 3rem;
+  }
   .logo {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -168,7 +180,7 @@ nav img {
 }
 
 .nav-links {
-  height: 100%;
+  height: 75%;
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -177,8 +189,9 @@ nav img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -294,6 +307,12 @@ nav a,
   .nav-links-desktop li:hover .tops {
     -webkit-transform: scaleX(1);
             transform: scaleX(1);
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  nav {
+    height: 4rem;
   }
 }
 /*# sourceMappingURL=nav.css.map */

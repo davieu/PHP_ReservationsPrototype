@@ -28,23 +28,23 @@ echo "
             >
           </li>
           <li>
-            <a href=\"#about\"
-              ><div class=\"tops\"></div>
-              About</a
-            >
-          </li>
-          <li>
-            <a href=\"#\"
-              ><div class=\"tops\"></div>
-              View</a
-            >
-          </li>
-          <li>
             <a href=\"../customer-pages/reserveTable.php\"
               ><div class=\"tops\"></div>
-              Reserve Table</a
+              Reserve Table <i class=\"fas fa-calendar-check\"></i></a
             >
           </li>
+          <li>
+          <a href=\"#about\"
+            ><div class=\"tops\"></div>
+            About</a
+          >
+        </li>
+        <li>
+        <a href=\"#\"
+          ><div class=\"tops\"></div>
+          Login</a
+        >
+        </li>
         </ul>
 
         <div class=\"burger\">
@@ -63,9 +63,9 @@ echo "
             <li>
               <a href=\"../index.php\">Home</a>
             </li>
+            <li><a href=\"../customer-pages/reserveTable.php\">Reserve Table <i class=\"fas fa-calendar-check\"></i></a></li>
             <li><a href=\"#about\">About</a></li>
-            <li><a href=\"#\">View</a></li>
-            <li><a href=\"../customer-pages/reserveTable.php\">Reserve Table</a></li>
+            <li><a href=\"#\">Login</a></li>
           </ul>
         </div>
       </div>
