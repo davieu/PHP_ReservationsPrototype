@@ -11,6 +11,7 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+  box-sizing: content-box;
 }
 
 html {
@@ -33,6 +34,9 @@ html {
   align-items: center;
   background-color: var(--dividers);
   // margin-bottom: 6rem;
+  h1:first-child {
+    margin-top: 8rem;
+  }
 }
 
 ////////////// MOBILE FIRST GRID ////////////
@@ -168,6 +172,7 @@ main {
         '. card3 card3 .';
       margin-top: 1.5rem;
       list-style: none;
+      padding-left: 0;
 
       li {
         display: flex;
@@ -222,6 +227,16 @@ main {
 
 // TABLET
 @media screen and (min-width: 650px) and (max-width: 1024px) {
+  #showcase {
+    .showcase-container {
+      top: 3em;
+    }
+    .showcase-background-image {
+      height: 30rem;
+      // top: 20rem;
+    }
+  }
+
   main {
     #section-b {
       ul {
@@ -268,6 +283,18 @@ main {
     .showcase-background-image {
       height: 27.5rem;
       top: 5.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  #showcase {
+    .showcase-container {
+      top: 4em;
+    }
+    .showcase-background-image {
+      height: 29rem;
+      // top: 4rem;
     }
   }
 }

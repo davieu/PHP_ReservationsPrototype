@@ -1,9 +1,11 @@
 nav {
+  font-size: 21px;
+  line-height: 0;
   grid-area: nav-bar;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 4em;
-      grid-template-columns: 1fr 4em;
+  -ms-grid-columns: 1fr 3em;
+      grid-template-columns: 1fr 3em;
       grid-template-areas: 'logo burger';
   position: fixed;
   z-index: 2;
@@ -150,8 +152,13 @@ nav img {
 @media screen and (min-width: 650px) and (max-width: 1024px) {
   nav {
     height: 3rem;
-    -ms-grid-columns: 1fr 3em;
-        grid-template-columns: 1fr 3em;
+    -ms-grid-columns: 1fr 2.3em;
+        grid-template-columns: 1fr 2.3em;
+  }
+  nav h1 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
   }
   nav .burger .lines {
     width: 35px;
@@ -240,7 +247,16 @@ nav a,
   color: white;
 }
 
+h1 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 1025px) {
+  a:hover {
+    color: white;
+  }
   .side-bar {
     display: none;
   }
@@ -251,8 +267,8 @@ nav a,
     grid-area: nav-bar;
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 2fr 40em 1fr;
-        grid-template-columns: 2fr 40em 1fr;
+    -ms-grid-columns: 2fr 31.5em 1fr;
+        grid-template-columns: 2fr 31.5em 1fr;
         grid-template-areas: 'logo desktopLinks';
     width: 100%;
     background: var(--main-app-color);
@@ -274,9 +290,13 @@ nav a,
     display: -ms-flexbox;
     display: flex;
     background: var(--main-app-color);
+    padding: 0;
+    margin-bottom: 8px;
   }
   .nav-links-desktop li {
-    margin-bottom: 8px;
+    -webkit-box-sizing: none;
+            box-sizing: none;
+    font-size: 14px;
     width: 50%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -287,10 +307,14 @@ nav a,
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
   .nav-links-desktop .tops {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     height: 5px;
     content: '';
     background-color: var(--dividers);
@@ -315,4 +339,12 @@ nav a,
     height: 4rem;
   }
 }
-/*# sourceMappingURL=nav.css.map */
+
+nav .dropdown {
+  cursor: pointer;
+}
+
+nav .dropdown ul li:nth-child(n + 2) {
+  margin-top: 1rem;
+}
+/*# sourceMappingURL=nav-copy.css.map */
