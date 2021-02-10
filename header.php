@@ -1,4 +1,5 @@
 <?php
+$signedin = false;
 echo "
     <!DOCTYPE html>
     <html lang=\"en\">
