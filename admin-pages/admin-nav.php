@@ -58,7 +58,8 @@ echo "
   </a>
   <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
     <li><a class=\"dropdown-item\" href=\"admin-dashboard.php\">Dashboard</a></li>
-    <li><a class=\"dropdown-item\" href=\"#\">Another action</a></li>
+    <li><a class=\"dropdown-item\" href=\"admin-reservation-actions.php\">Edit Reservations</a></li>
+    <li><a class=\"dropdown-item\" href=\"admin-systemLogs.php\">System Logs</a></li>
     <li><a class=\"dropdown-item\" href=\"../index.php\">Logout</a></li>
   </ul>
 </div>
