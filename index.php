@@ -1,5 +1,8 @@
 <?php
-include 'nav.php';
+include "fileLinks.php";
+
+include "header.php";
+include "nav.php";
 echo "
 <div class=\"grid\">
 <header id=\"showcase\">
@@ -34,7 +37,7 @@ echo "
   <div class=\"content-wrap\">
     <h2 class=\"content-title\">Make a Dinner Reservation</h2>
     <div class=\"content-text\">
-      <a href=\"../customer-pages/reserveTable.php\" class=\"buttonLinks\"
+      <a href=\"customer-pages/reserveTable.php\" class=\"buttonLinks\"
         >Reserve a Spot
       </a>
       <p>
