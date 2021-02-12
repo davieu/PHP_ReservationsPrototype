@@ -12,6 +12,6 @@ $jsFiles = "<script src=\"../app.js\"></script>";
 // NAV LINKS
 $NavLogoImg = "../assets/wccMountains.png";
 $homeNavLink = "../index.php";
-$reserveTableNavLink = "reserveTable.php";
+$reserveTableNavLink = "../customer-pages/reserveTable.php";
 $loginNavLink = "../admin-pages/login.php";
 ?>

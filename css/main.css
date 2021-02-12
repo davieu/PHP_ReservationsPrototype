@@ -297,6 +297,7 @@ main #section-c p {
     grid-area: card3;
   }
   main #section-b ul li:nth-child(3) img {
+    height: 15rem;
     width: 50%;
     border-radius: 15px 0 0 15px;
   }

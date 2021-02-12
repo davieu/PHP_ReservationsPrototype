@@ -64,12 +64,12 @@ echo "
       <div class=\"side-bar\">
         <div class=\"links-wrapper\">
           <ul class=\"nav-links\">
-            <li>
+            <li class=\"side-links\">
               <a href=\"$homeNavLink\">Home</a>
             </li>
-            <li><a href=\"$reserveTableNavLink\">Reserve Table <i class=\"fas fa-calendar-check\"></i></a></li>
-            <li><a href=\"#about\">About</a></li>
-            <li><a href=\"$loginNavLink\">Login</a></li>
+            <li class=\"side-links\"><a href=\"$reserveTableNavLink\">Reserve Table <i class=\"fas fa-calendar-check\"></i></a></li>
+            <li class=\"side-links\"><a href=\"#about\">About</a></li>
+            <li class=\"side-links\">$loginState</li>
           </ul>
         </div>
       </div>

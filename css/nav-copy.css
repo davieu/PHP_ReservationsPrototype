@@ -149,6 +149,18 @@ nav img {
           transform: rotate(45deg) translate(-5px, -6px);
 }
 
+nav .dropdown {
+  cursor: pointer;
+}
+
+nav .dropdown ul li:nth-child(n + 2) {
+  margin-top: 1rem;
+}
+
+.dropdown ul {
+  background-color: var(--main-app-color);
+}
+
 @media screen and (min-width: 650px) and (max-width: 1024px) {
   nav {
     height: 3rem;
@@ -205,11 +217,11 @@ nav img {
   color: white;
 }
 
-.nav-links li {
+.nav-links .side-links {
   opacity: 0;
 }
 
-.nav-links li::before {
+.nav-links .side-links::before {
   display: block;
   margin-bottom: 0.5rem;
   height: 5px;
@@ -226,7 +238,7 @@ nav img {
   transition: transform ease-out 0.2s, -webkit-transform ease-out 0.2s;
 }
 
-.nav-links li:hover::before {
+.nav-links .side-links:hover::before {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
@@ -254,6 +266,9 @@ h1 {
 }
 
 @media screen and (min-width: 1025px) {
+  .dropdown ul {
+    background-color: white;
+  }
   a:hover {
     color: white;
   }
@@ -338,13 +353,5 @@ h1 {
   nav {
     height: 4rem;
   }
-}
-
-nav .dropdown {
-  cursor: pointer;
-}
-
-nav .dropdown ul li:nth-child(n + 2) {
-  margin-top: 1rem;
 }
 /*# sourceMappingURL=nav-copy.css.map */

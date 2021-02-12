@@ -1,5 +1,6 @@
-must have php installed on your machine
 http://cs.wilkescc.edu/daumana461/PHP_ReservationPrototype/index.php
+
+must have php installed on your machine for these options
 
 to start up PHP server from your cmd
 type in the cmd to start up php server
