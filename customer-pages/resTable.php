@@ -15,7 +15,7 @@ echo "
 $avialabilityCount;
 $inlineStyleAvailabiltyColor;
 
-for ($i = 0; $i < count($test); $i++) {
+for ($i = 0; $i < count($datesArray); $i++) {
   // if no availability these will produce the computed css or html outputs
   if ($availableSeats[$i] == 0) {
     $avialabilityCount = 'Waitlisted: ' . $waitlist[$i];
@@ -29,7 +29,7 @@ for ($i = 0; $i < count($test); $i++) {
   // populates the table
   echo "
   <tr>
-    <td>$test[$i]<br />6:00PM</td>
+    <td>$datesArray[$i]<br />6:00PM</td>
     <td>Moroccan</td>
     <td $inlineStyleAvailabiltyColor>$avialabilityCount</td>
     <td>

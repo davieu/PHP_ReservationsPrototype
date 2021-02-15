@@ -1,6 +1,6 @@
 <?php
 
-$test = array();
+$datesArray = array();
 // sets default timezone for EST
 date_default_timezone_set("America/New_York");
 
@@ -58,7 +58,7 @@ for ($currMonthInt = (int)$currMonth; $currMonthInt < $stopMonth; $currMonthInt+
     $date = date('M d D Y', $time = strtotime($dddParse));
     // if date is a thurs then echo it
     if (strpos($date, 'Thu')) {
-      array_push($test, $ddd);
+      array_push($datesArray, $ddd);
     }
   }
 }
