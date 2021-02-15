@@ -13,10 +13,12 @@ echo "<div class=\"container\">
 <br />
 <br />
 <br />";
-// table
 include "admin-dashboardHTML.html";
-include "dashboardTable.php";
 
+include "../dateGenerator.php";
+// table
+//include "dashboardTableProto.php";
+include "dashboardTable.php";
 echo "
 <br />
 <br />

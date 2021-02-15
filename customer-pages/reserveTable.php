@@ -15,6 +15,9 @@ echo "<div class=\"container\">
 <br />
 <br />";
 // table
+
+include "../dateGenerator.php";
+//include "resTableProto.php";
 include "resTable.php";
 
 echo "
