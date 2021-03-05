@@ -35,7 +35,7 @@ echo "
 <main>
 <section id=\"section-a\">
   <div class=\"content-wrap\">
-    <h2 class=\"content-title\">Make a Dinner Reservation</h2>
+    <h2 class=\"content-title\">Make a Dinnergfhfhf Reservation</h2>
     <div class=\"content-text\">
       <a href=\"customer-pages/reserveTable.php\" class=\"buttonLinks\"
         >Reserve a Spot
