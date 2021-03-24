@@ -4,7 +4,6 @@ $cssFiles = "
 		<link rel=\"stylesheet\" href=\"css/main.css\" />
         <link rel=\"stylesheet\" href=\"css/nav-copy.css\" />
         <link rel=\"stylesheet\" href=\"css/footer.css\" />
-        <link rel=\"stylesheet\" href=\"css/tables.css\" />
 		";
 
 $jsFiles = "<script src=\"app.js\"></script>";

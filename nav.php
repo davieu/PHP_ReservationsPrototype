@@ -67,7 +67,7 @@ echo "
             <li class=\"side-links\">
               <a href=\"$homeNavLink\">Home</a>
             </li>
-            <li class=\"side-links\"><a href=\"$reserveTableNavLink\">Reserve Table <i class=\"fas fa-calendar-check\"></i></a></li>
+            <li class=\"side-links\"><a href=\"$reserveTableNavLink\">Reserve Table</a></li>
             <li class=\"side-links\"><a href=\"#about\">About</a></li>
             <li class=\"side-links\">$loginState</li>
           </ul>

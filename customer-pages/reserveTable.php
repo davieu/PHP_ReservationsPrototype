@@ -10,7 +10,6 @@ echo "<div class=\"container\">
 <br />
 <br />
 <br />
-<br />
 <h1 style=\"text-align: center\">Reserve a Table</h1>
 <br />
 <br />";

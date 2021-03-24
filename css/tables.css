@@ -6,12 +6,22 @@ table {
   border-collapse: collapse;
 }
 
+tr:nth-child(even) {
+  background: #ccc;
+}
+
 table,
 th,
 td {
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
   font-size: 14px;
+  text-align: center;
+}
+
+table select,
+th select,
+td select {
+  padding: 7px;
 }
 
 table th {
@@ -19,8 +29,7 @@ table th {
 }
 
 table td {
-  padding: 0.5em;
-  font-weight: bold;
+  padding: 0.5em 0.25em;
 }
 
 @media screen and (min-width: 500px) {
