@@ -14,7 +14,7 @@ echo "<div class=\"container\">
 <br />
 <br />";
 // table
-
+$stopMonth = 6;
 include "../dateGenerator.php";
 //include "resTableProto.php";
 include "resTable.php";

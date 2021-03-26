@@ -16,7 +16,8 @@ $currMonth = $currDateArray[1];
 $currDay = $currDateArray[0];
 
 // targets only current year (2021) 
-$stopMonth = 5; // Change to stop what month to stop poulating data at
+$stopMonth; // Change to stop what month to stop populating data at- 13 stops on December
+// $stopMonth will be given a value in the page roots
 for ($currMonthInt = (int)$currMonth; $currMonthInt < $stopMonth; $currMonthInt++) {
 
   // string for month-day-year  ex. 12-14-2021
