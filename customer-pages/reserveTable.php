@@ -22,7 +22,9 @@ include "resTable.php";
 echo "
 <br />
 <br />
-<a href=\"userInfo.php\" class=\"buttonLinks2\">Reserve Now</a>
+<a href=\"userInfo.php\" class=\"buttonLinks3\" >Reserve Now</a>
+<br />
+<br />
 <br />
 <br />
 </div>";

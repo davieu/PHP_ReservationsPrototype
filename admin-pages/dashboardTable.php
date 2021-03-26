@@ -4,6 +4,12 @@ include "account.php";
 $sql = "SELECT * FROM dinners
         ORDER BY event_date";
 include "connectToDB.php";
+
+echo "
+Filter by Meals: ALL <br />Moraccan, German, Cajun
+<br /><br />
+";
+
 echo "
 <table>
   <tr>
@@ -19,7 +25,7 @@ echo "
 
 while ($record = mysqli_fetch_array($sql_results)) {
 
-  // temp variable for PROTO
+  // temp variable for PROTO. For the dashboard. Everything else is live from database
   $availableSeats = 32;
   $avialabilityCount = 32;
   $waitlist = 0;
@@ -40,12 +46,18 @@ while ($record = mysqli_fetch_array($sql_results)) {
     $totalReserved = 32 - $avialabilityCount;
   }
 
+  $event_dateArray = explode('-', $record[2]);
+  $event_dateYear = $event_dateArray[0];
+  $event_dateMonth = $event_dateArray[1];
+  $event_dateDay = $event_dateArray[2];
+  $event_dateFormatted = $event_dateMonth . "-" . $event_dateDay . "-" . $event_dateYear;
+
   // formats the SQL data start/end time into hh:mm AM/PM
   $startTime = date_format(date_create($record[3]), "h:i A");
   $endTime = date_format(date_create($record[4]), "h:i A");
   echo "
 		<tr>
-			<td><strong>$record[2]</strong><br />
+			<td><strong>$event_dateFormatted</strong><br />
           $startTime-<br />
           $endTime</td>
 			<td>$record[1]</td>

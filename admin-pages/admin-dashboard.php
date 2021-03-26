@@ -14,8 +14,6 @@ echo "<div class=\"container\">
 <br />
 <br />";
 include "admin-dashboardHTML.html";
-$stopMonth = 7;
-include "../dateGenerator.php";
 
 // table
 //include "dashboardTableProto.php";

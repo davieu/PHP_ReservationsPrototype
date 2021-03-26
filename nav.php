@@ -13,6 +13,8 @@ if ($signedin == true) {
     </a>
     <ul class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">
       <li><a class=\"dropdown-item\" href=\"admin-dashboard.php\">Dashboard</a></li>
+      <li><a class=\"dropdown-item\" href=\"admin-addDinner.php\">Add Dinner</a></li>
+      <li><a class=\"dropdown-item\" href=\"admin-editDinner.php\">Edit Dinner</a></li>
       <li><a class=\"dropdown-item\" href=\"admin-reservation-actions.php\">Edit Reservations</a></li>
       <li><a class=\"dropdown-item\" href=\"admin-systemLogs.php\">System Logs</a></li>
       <li><a class=\"dropdown-item\" href=\"../index.php\">Logout</a></li>

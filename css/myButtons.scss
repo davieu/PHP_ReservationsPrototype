@@ -90,3 +90,31 @@ a.buttonLinks2:active {
   padding-left: 0.5rem;
   margin-left: 1rem;
 }
+
+.buttonLinksWarning {
+  border: none;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  margin: 0 0 0 0;
+  border-radius: 0.3em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  // text-align: center;
+  transition: all 0.2s;
+  background-color: rgb(211, 28, 28);
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+.buttonLinksWarning:hover {
+  color: white;
+  background-color: rgb(161, 27, 27);
+}
+
+.buttonLinksWarning:active {
+  color: white;
+  background-color: var(--main-app-color2);
+}

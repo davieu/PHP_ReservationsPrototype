@@ -98,4 +98,33 @@ a.buttonLinks2:active {
   padding-left: 0.5rem;
   margin-left: 1rem;
 }
+
+.buttonLinksWarning {
+  border: none;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  margin: 0 0 0 0;
+  border-radius: 0.3em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  background-color: #d31c1c;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+.buttonLinksWarning:hover {
+  color: white;
+  background-color: #a11b1b;
+}
+
+.buttonLinksWarning:active {
+  color: white;
+  background-color: var(--main-app-color2);
+}
 /*# sourceMappingURL=myButtons.css.map */
