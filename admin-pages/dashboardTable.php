@@ -1,7 +1,70 @@
 <?php
+include "account.php";
+// query for event dates in ordered form (ascending)
+$sql = "SELECT * FROM dinners
+        ORDER BY event_date";
+include "connectToDB.php";
+echo "
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Entrée<br/>Type</th>
+    <th>
+      Available<br />
+      Seats
+    </th>
+    <th>Total <br />Reserved</th>
+  </tr>
+";
+
+while ($record = mysqli_fetch_array($sql_results)) {
+
+  // temp variable for PROTO
+  $availableSeats = 32;
+  $avialabilityCount = 32;
+  $waitlist = 0;
+  $inlineStyleAvailabiltyColor;
+  $totalReserved = 0;
+
+
+
+  if ($availableSeats == 0) {
+    $avialabilityCount = 'Waitlisted: ' . $waitlist;
+    $inlineStyleAvailabiltyColor = 'style="background-color: rgb(243, 166, 166)"';
+    $totalReserved = 32 + $waitlist;
+  }
+  // if availability these will produce the computed css or html outputs
+  else {
+    $avialabilityCount = $availableSeats;
+    $inlineStyleAvailabiltyColor = 'style="background-color: rgb(148, 226, 148)"';
+    $totalReserved = 32 - $avialabilityCount;
+  }
+
+  // formats the SQL data start/end time into hh:mm AM/PM
+  $startTime = date_format(date_create($record[3]), "h:i A");
+  $endTime = date_format(date_create($record[4]), "h:i A");
+  echo "
+		<tr>
+			<td><strong>$record[2]</strong><br />
+          $startTime-<br />
+          $endTime</td>
+			<td>$record[1]</td>
+			<td $inlineStyleAvailabiltyColor>$avialabilityCount</td>
+			<td>$totalReserved</td>
+
+		</tr>
+	";
+}
 
 echo "
+    </table>
 
+  ";
+
+
+?>
+
+<!-- echo "
 <table>
   <tr>
     <th>Date</th>
@@ -39,7 +102,6 @@ for ($i = 0; $i < count($datesArray); $i++) {
         <td>Moroccan</td>
         <td $inlineStyleAvailabiltyColor>$avialabilityCount</td>
         <td>$totalReserved</td>
-        <!-- <td><a href=\"userInfo.html\" class=\"buttonLinks2\">Reserve Now</a></td> -->
       </tr>
       ";
 }
@@ -47,5 +109,4 @@ for ($i = 0; $i < count($datesArray); $i++) {
 echo "
     </table>
 
-  ";
-?>
+  "; -->

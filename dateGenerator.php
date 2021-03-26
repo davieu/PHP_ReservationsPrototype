@@ -55,6 +55,11 @@ for ($currMonthInt = (int)$currMonth; $currMonthInt < $stopMonth; $currMonthInt+
       $dddParse = $startDay . $dateParseStr;
     }
 
+    // formats the months to have a zerofill if it is a single digit month. for ex. january will be 01.
+    if (strlen($currMonthInt) == 1) {
+      $ddd = "0" . $ddd;
+    }
+
     // date format
     $date = date('M d D Y', $time = strtotime($dddParse));
     // if date is a thurs then echo it

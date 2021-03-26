@@ -14,10 +14,10 @@ echo "
     <br />
 
 		<form style=\"\" name=\"addDinner\" 
-			 action=\"admin-addDinnerProccess.php\"
+			 action=\"admin-addDinnerProcess.php\"
 			 method=\"POST\">
         <div style=\"margin-bottom:1rem;\">
-          <span style=\"margin-bottom:50px\">Entrée Name:</span>
+          Entrée Name:
           <input type=\"text\" 
             name=\"entree_name\"	
             id=\"entree_name\" class=\"inputText\" required/>
