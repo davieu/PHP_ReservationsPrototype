@@ -21,6 +21,7 @@ html {
 // CUSTUM VARIABLES
 :root {
   --main-app-color: #005a87;
+  --main-app-color2: #034d72;
   --sidebar-color: #005a87f3;
   --header-color: #005a87d2;
   --dividers: rgb(246, 246, 242);
@@ -303,44 +304,4 @@ main {
 //////////////////// BUTTONS //////////////////
 .content-text {
   padding-top: 0.75em;
-}
-a.buttonLinks {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #ffffff;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: #ffffff;
-  text-align: center;
-  transition: all 0.2s;
-}
-
-a.buttonLinks:hover {
-  color: #000000;
-  background-color: #ffffff;
-}
-
-a.buttonLinks2 {
-  display: inline-block;
-  padding: 0.35em 1.2em;
-  border: 0.1em solid #080808;
-  margin: 0 0.3em 0.3em 0;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: #000000;
-  text-align: center;
-  transition: all 0.2s;
-  background-color: rgb(148, 226, 148);
-}
-
-a.buttonLinks2:hover {
-  color: white;
-  background-color: rgb(148, 226, 148);
 }

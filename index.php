@@ -38,7 +38,7 @@ echo "
     <h2 class=\"content-title\">Make a Dinner Reservation</h2>
     <div class=\"content-text\">
       <a href=\"customer-pages/reserveTable.php\" class=\"buttonLinks\"
-        >Reserve a Spot
+        >Make Reservation
       </a>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis

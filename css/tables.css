@@ -32,10 +32,9 @@ table td {
   padding: 0.5em 0.25em;
 }
 
-@media screen and (min-width: 500px) {
-  table,
-  th,
-  td {
+@media screen and (min-width: 550px) {
+  table td {
+    padding: 1em;
     font-size: 15px;
   }
 }
