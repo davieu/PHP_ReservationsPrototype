@@ -17,6 +17,11 @@
   padding-left: 7px;
 }
 
+.dashboard-btns {
+  width: 9rem;
+  text-align: center;
+}
+
 .buttonLinks3:hover {
   color: white;
   background-color: var(--main-app-color2);

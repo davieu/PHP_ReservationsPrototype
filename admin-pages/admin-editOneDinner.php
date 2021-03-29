@@ -106,8 +106,26 @@ echo "
           name=\"reset\"	
           value=\"Clear\"/>
           <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
-          <a href=\"admin-delDinnerProcess.php?dinner_id=$dinner_id\" class=\"buttonLinksWarning\" style=\"align-content:center;\">Delete</a>
+          <a href=\"#\" class=\"buttonLinksWarning\" style=\"align-content:center;\" data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">Delete</a>
         </div>
+
+<div class=\"modal fade\" id=\"deleteDinnerModal\" tabindex=\"-1\" aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">
+  <div class=\"modal-dialog\">
+    <div class=\"modal-content\">
+      <div class=\"modal-header\">
+        <h5 class=\"modal-title\" id=\"ModalLabel\">Are you sure?</h5>
+        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
+      </div>
+      <div class=\"modal-body\">
+        Are you sure you want to delete <strong>$entree_name</strong> dinner that is scheduled for <strong>$event_dateFormatted</strong>?
+      </div>
+      <div class=\"modal-footer\">
+        <a href=\"#\" class=\"buttonLinks3\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
+        <a href=\"admin-delDinnerProcess.php?dinner_id=$dinner_id\" class=\"buttonLinksWarning\" style=\"align-content:center; margin-left:1rem;\">Delete Dinner</a>
+      </div>
+    </div>
+  </div>
+</div>
 		</form>
        <br /><br /><br />
 </div>";
