@@ -7,7 +7,7 @@ include "../nav.php";
 
 $stopMonth = 13;
 include "../dateGenerator.php";
-include "admin-addReservationComponent.php";
+include "admin-addDinnerComponent.php";
 
 include "../footer.php";
 ?>

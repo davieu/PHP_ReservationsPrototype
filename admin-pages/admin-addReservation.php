@@ -18,24 +18,22 @@ echo "
   </h1>
   <br />
   <br />
-  ";
 
-echo "
   Filter by Meals: ALL <br />Moraccan, German, Cajun
   <br /><br />
-";
 
-echo "
   <table>
-    <tr>
-      <th>Date</th>
-      <th>Entrée<br/>Type</th>
-      <th>
-        Available<br />
-        Seats
-      </th>
-      <th>Select</th>
-    </tr>
+  <tr>
+    <th>Date</th>
+    <th>
+      Price
+    </th>
+    <th>
+    Available<br />
+    Seats
+  </th>
+    <th>Entrée<br/>Type</th>
+  </tr>
 ";
 
 // query for event dates in ordered form (ascending)
@@ -44,17 +42,18 @@ $sql = "SELECT * FROM dinners
 include "connectToDB.php";
 
 while ($record = mysqli_fetch_array($sql_results)) {
-
+  //$rec[0]=dinner_id, $rec[1]=entree_name, $rec[2]=event_date, $rec[3]=start_time, $rec[4]=end_time, $rec[5]=seats, $rec[6]=price 
   // parses data from the sql and also helps with the table "Available Seats" column coloring.
+  // to understand the parsing and the variables below please view the "sqlDataParser.php" page
   include "sqlDataParser.php";
   echo "
 		<tr>
 			<td><strong>$event_dateFormatted</strong><br />
           $startTime-<br />
           $endTime</td>
-			<td>$record[1]</td>
+			<td>$$record[6]</td>
 			<td $inlineStyleAvailabiltyColor>$avialabilityCount</td>
-      <td><a href=\"admin-addReservationUserInfo.php?dinner_id=$record[0]\" class=\"buttonLinks3\">Edit</a></td>
+      <td><a href=\"admin-addReservationUserInfo.php?dinner_id=$record[0]\" class=\"buttonLinks3\">$record[1]</a></td>
 		</tr>
 	";
 }

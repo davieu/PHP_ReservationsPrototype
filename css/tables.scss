@@ -14,7 +14,7 @@ th,
 td {
   // border-right: 2px solid black;
   border-bottom: 1px solid black;
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   select {
     padding: 7px;
@@ -40,7 +40,7 @@ table {
 //   }
 // }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 499px) {
   table {
     td {
       padding: 1em;

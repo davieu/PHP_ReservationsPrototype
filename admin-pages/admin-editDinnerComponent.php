@@ -16,7 +16,6 @@ echo "
 <table>
   <tr>
     <th>Date</th>
-    <th>Entrée<br/>Type</th>
     <th>
       Seats
     </th>
@@ -24,7 +23,7 @@ echo "
       Price
     </th>
     <th>Total <br />Reserved</th>
-    <th>Select</th>
+    <th>Entrée<br/>Type</th>
   </tr>
 ";
 
@@ -54,18 +53,16 @@ while ($record = mysqli_fetch_array($sql_results)) {
   $startTime = date_format(date_create($record[3]), "h:i A");
   $endTime = date_format(date_create($record[4]), "h:i A");
   echo "
-		<tr>
+		<tr href=\"#\">
 			<td><strong>$event_dateFormatted</strong><br />
           $startTime-<br />
           $endTime</td>
-			<td>$record[1]</td>
 			<td>$record[5]</td>
-      <td>$record[6]</td>
+      <td>$$record[6]</td>
       <td>$totalReserved</td>
-      <td><a href=\"admin-editOneDinner.php?dinner_id=$record[0]\" class=\"buttonLinks3\">Edit</a></td>
-      
-
+      <td><a href=\"admin-editOneDinner.php?dinner_id=$record[0]\" class=\"buttonLinks3\">$record[1]</a></td>
 		</tr>
+
 	";
 }
 

@@ -20,6 +20,10 @@ body {
           box-sizing: content-box;
 }
 
+body h1 {
+  text-align: center;
+}
+
 html {
   scroll-behavior: smooth;
 }

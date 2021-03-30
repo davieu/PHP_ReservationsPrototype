@@ -106,8 +106,11 @@ echo "
           name=\"reset\"	
           value=\"Clear\"/>
           <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
+          </div>
+          <div style=\"text-align:right; margin-top:1.5rem;\">
+          
           <a href=\"#\" class=\"buttonLinksWarning\" style=\"align-content:center;\" data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">Delete</a>
-        </div>
+          </div>
 
 <div class=\"modal fade\" id=\"deleteDinnerModal\" tabindex=\"-1\" aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">

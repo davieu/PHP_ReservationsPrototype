@@ -91,11 +91,18 @@ a.buttonLinks2:active {
   background-color: rgb(148, 226, 148);
 }
 
+// input fields
 .inputText {
   float: right;
-  width: 11rem;
+  width: 7rem;
   padding-left: 0.5rem;
   margin-left: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+  .inputText {
+    width: 10rem;
+  }
 }
 
 .buttonLinksWarning {
@@ -123,5 +130,5 @@ a.buttonLinks2:active {
 
 .buttonLinksWarning:active {
   color: white;
-  background-color: var(--main-app-color2);
+  background-color: rgb(161, 27, 27);
 }

@@ -4,15 +4,20 @@ $availableSeats = 32;
 $avialabilityCount = 32;
 $waitlist = 0;
 $inlineStyleAvailabiltyColor;
+$totalReserved = 0;
+
+
 
 if ($availableSeats == 0) {
   $avialabilityCount = 'Waitlisted: ' . $waitlist;
   $inlineStyleAvailabiltyColor = 'style="background-color: rgb(243, 166, 166)"';
+  $totalReserved = 32 + $waitlist;
 }
 // if availability these will produce the computed css or html outputs
 else {
   $avialabilityCount = $availableSeats;
   $inlineStyleAvailabiltyColor = 'style="background-color: rgb(148, 226, 148)"';
+  $totalReserved = 32 - $avialabilityCount;
 }
 
 $event_dateArray = explode('-', $record[2]);
