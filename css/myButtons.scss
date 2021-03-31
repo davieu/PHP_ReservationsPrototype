@@ -91,20 +91,7 @@ a.buttonLinks2:active {
   background-color: rgb(148, 226, 148);
 }
 
-// input fields
-.inputText {
-  float: right;
-  width: 7rem;
-  padding-left: 0.5rem;
-  margin-left: 1rem;
-}
-
-@media screen and (min-width: 500px) {
-  .inputText {
-    width: 10rem;
-  }
-}
-
+// Delete button
 .buttonLinksWarning {
   border: none;
   display: inline-block;
@@ -131,4 +118,23 @@ a.buttonLinks2:active {
 .buttonLinksWarning:active {
   color: white;
   background-color: rgb(161, 27, 27);
+}
+
+// input fields
+.inputText {
+  float: right;
+  width: 7rem;
+  padding-left: 0.5rem;
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+  .inputText {
+    width: 10rem;
+  }
+}
+
+// gives the table select buttons a uniform width
+.tableSelect {
+  width: 6rem;
 }

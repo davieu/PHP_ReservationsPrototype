@@ -97,19 +97,6 @@ a.buttonLinks2:active {
   background-color: #94e294;
 }
 
-.inputText {
-  float: right;
-  width: 7rem;
-  padding-left: 0.5rem;
-  margin-left: 1rem;
-}
-
-@media screen and (min-width: 500px) {
-  .inputText {
-    width: 10rem;
-  }
-}
-
 .buttonLinksWarning {
   border: none;
   display: inline-block;
@@ -137,5 +124,22 @@ a.buttonLinks2:active {
 .buttonLinksWarning:active {
   color: white;
   background-color: #a11b1b;
+}
+
+.inputText {
+  float: right;
+  width: 7rem;
+  padding-left: 0.5rem;
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 500px) {
+  .inputText {
+    width: 10rem;
+  }
+}
+
+.tableSelect {
+  width: 6rem;
 }
 /*# sourceMappingURL=myButtons.css.map */

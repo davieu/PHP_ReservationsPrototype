@@ -47,7 +47,6 @@ echo
       <br />
 ";
 
-
 // table
 include "admin-dashboardTable.php";
 echo "
