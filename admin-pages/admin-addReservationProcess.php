@@ -38,15 +38,6 @@ include "connectToDB.php";
 
 
 //yyyy-mm-dd hh:mm:ss
-// header('Location: admin-dashboard.php');
-/*
-$timestamp = date('Y-m-d H:i:s');
-echo $timestamp;
-//testing
-$sql = "INSERT INTO `time` 
-(`currTime`) 
-VALUES 
-('$timestamp')";
-include "../connectToDB.php";
-*/
+header('Location: admin-dashboard.php');
+/* $timestamp = date('Y-m-d H:i:s'); echo $timestamp; //testing $sql = "INSERT INTO `time`  (`currTime`)  VALUES  ('$timestamp')"; include "../connectToDB.php"; */
 ?>
