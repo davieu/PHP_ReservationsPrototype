@@ -36,6 +36,12 @@ VALUES
 echo "$sql</br>";
 include "connectToDB.php";
 
+$sql = "UPDATE  `dinners` 
+SET  
+`total_seats_reserved` =  `total_seats_reserved` + '$seats_reserved'
+WHERE  `dinner_id` ='$dinner_id'";
+include "connectToDB.php";
+
 
 //yyyy-mm-dd hh:mm:ss
 header('Location: admin-dashboard.php');

@@ -31,7 +31,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
           $startTime-<br />
           $endTime</td>
 			<td>$record[1]</td>
-			<td $inlineStyleAvailabiltyColor>$avialabilityCount</td>
+			<td $inlineStyleAvailabiltyColor>$availabilityCount</td>
 			<td>$totalReserved</td>
 
 		</tr>

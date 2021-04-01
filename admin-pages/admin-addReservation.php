@@ -55,7 +55,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
           $startTime-<br />
           $endTime</td>
 			<td>$$record[6]</td>
-			<td $inlineStyleAvailabiltyColor>$avialabilityCount</td>
+			<td $inlineStyleAvailabiltyColor>$availabilityCount</td>
       <td><a href=\"admin-addReservationUserInfo.php?dinner_id=$record[0]\" class=\"buttonLinks3 tableSelect\">$record[1]</a></td>
 		</tr>
 	";

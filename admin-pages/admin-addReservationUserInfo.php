@@ -91,7 +91,7 @@ echo "
           </td>
           <td>$entree_name</td>
           <td>$$price</td>
-          <td $inlineStyleAvailabiltyColor>$avialabilityCount</td>
+          <td $inlineStyleAvailabiltyColor>$availabilityCount</td>
           <td>      
             <select name=\"seats_reserved\" id=\"seats_reserved\" required>
               <option value=\"1\">1</option>

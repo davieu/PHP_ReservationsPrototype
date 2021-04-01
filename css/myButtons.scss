@@ -11,16 +11,11 @@
   color: #ffffff;
   // text-align: center;
   transition: all 0.2s;
-  background-color: var(--main-app-color);
+  background-color: var(--main-app-color2);
   padding-right: 7px;
   padding-left: 7px;
   // width: 9rem;
   // text-align: center;
-}
-
-.dashboard-btns {
-  width: 9rem;
-  text-align: center;
 }
 
 .buttonLinks3:hover {
@@ -31,6 +26,11 @@
 .buttonLinks3:active {
   color: white;
   background-color: var(--main-app-color2);
+}
+
+.dashboard-btns {
+  width: 9rem;
+  text-align: center;
 }
 
 // For button groups. 2 buttons per row

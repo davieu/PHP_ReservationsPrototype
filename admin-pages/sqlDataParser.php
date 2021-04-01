@@ -1,23 +1,30 @@
 <?php
 // temp variable for PROTO. For the dashboard. Everything else is live from database
-$availableSeats = 32;
-$avialabilityCount = 32;
-$waitlist = 0;
+$availableSeats = $record['seats'];
+$availabilityCount = $record['seats'] - $record['total_seats_reserved'];
+$waitlist = $record['seats'] - $record['total_seats_reserved'];
+;
 $inlineStyleAvailabiltyColor;
-$totalReserved = 0;
+$totalReserved = $record['total_seats_reserved'];
+$test = $record['seats'];
+$waitlisted = false;
 
 
+if ($availabilityCount > 0) {
+  $waitlisted = false;
+  $inlineStyleAvailabiltyColor = 'style="background-color: rgb(148, 226, 148)"';
 
-if ($availableSeats == 0) {
-  $avialabilityCount = 'Waitlisted: ' . $waitlist;
-  $inlineStyleAvailabiltyColor = 'style="background-color: rgb(243, 166, 166)"';
-  $totalReserved = 32 + $waitlist;
+}
+elseif ($availabilityCount == 0) {
+  $waitlisted = true;
+  $availabilityCount = 'Waitlist:<br/ > ' . $availabilityCount;
+  $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
 }
 // if availability these will produce the computed css or html outputs
 else {
-  $avialabilityCount = $availableSeats;
-  $inlineStyleAvailabiltyColor = 'style="background-color: rgb(148, 226, 148)"';
-  $totalReserved = 32 - $avialabilityCount;
+  $waitlisted = true;
+  $availabilityCount = 'Waitlist:<br/ > ' . substr(strval($availabilityCount), 1);
+  $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
 }
 
 $event_dateArray = explode('-', $record[2]);
