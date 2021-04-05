@@ -1,8 +1,16 @@
 <?php
+include "account.php";
+
 include "fileLinks.php";
 include "../header.php";
 //simulates signed in
 $signedin = true;
+$sqlEventDatesArray = array();
+
+$sql = "SELECT event_date FROM dinners
+        ORDER BY event_date";
+include "connectToDB.php";
+
 include "../nav.php";
 
 // needed to stop the dates of thursdays in the select input at december
@@ -41,11 +49,58 @@ echo "
     <select name=\"event_date\" id=\"event_date\" class=\"inputText\" size=\"6\" required>
   ";
 
-for ($i = 0; $i < count($datesArray); $i++) {
-  echo "
-        <option value=\"$datesArray[$i]\">$datesArray[$i]</option>
-";
+
+// block will push the used dates for dinners and put them in an array.
+while ($record = mysqli_fetch_array($sql_results)) {
+  $event_dateArray = explode('-', $record[0]);
+  $event_dateYear = $event_dateArray[0];
+  $event_dateMonth = $event_dateArray[1];
+  $event_dateDay = $event_dateArray[2];
+  $event_dateFormatted = $event_dateMonth . "-" . $event_dateDay . "-" . $event_dateYear;
+  array_push($sqlEventDatesArray, $event_dateFormatted);
 }
+
+// finds the difference of two arrays. in this case it will find difference of all selectable dates for
+// the year and the dates that are already reserved for dinners.
+$ArrayDifference = array_diff($datesArray, $sqlEventDatesArray);
+
+for ($i = 0; $i < count($datesArray); $i++) {
+  if ($ArrayDifference[$i] != "") {
+    echo "
+    <option value=\"$datesArray[$i]\">$datesArray[$i]</option>";
+  }
+  else {
+    echo "
+    <option value=\"$datesArray[$i]\" style=\"color:red;\" disabled>$datesArray[$i]</option>";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//   if ($datesArray[$i] == $event_dateFormatted) {
+//     echo "
+//     <option value=\"$datesArray[$i]\">$datesArray[$i]</option>
+// ";
+// }
+//$rec[0]=dinner_id, $rec[1]=entree_name, $rec[2]=event_date, $rec[3]=start_time, $rec[4]=end_time, $rec[5]=seats, $rec[6]=price 
+// parses data from the sql and also helps with the table "Available Seats" column coloring.
+// to understand the parsing and the variables below please view the "sqlDataParser.php" page
+//include "sqlDataParser.php";
+
+
+//   echo "
+//         <option value=\"$datesArray[$i]\">$datesArray[$i]</option>
+// ";
+
 
 echo "
     </select>
@@ -83,6 +138,10 @@ echo "
         </div>
 		</form>
        <br /><br /><br />
+        ";
+print_r($ArrayDifference);
+print_r($sqlEventDatesArray);
+echo "
 </div>";
 
 include "../footer.php";

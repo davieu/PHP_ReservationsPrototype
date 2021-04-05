@@ -5,6 +5,7 @@ include "../header.php";
 include "account.php";
 //simulates signed in
 $signedin = true;
+$sqlEventDatesArray = array();
 include "../nav.php";
 
 $stopMonth = 13;
@@ -23,8 +24,17 @@ $end_time = $record['end_time'];
 $seats = $record['seats'];
 $price = $record['price'];
 
+
+
 include "formatToReadableHelper.php";
 include "../dateGenerator.php";
+
+//finds index of current dinner date
+$currDateIndex = array_search($event_dateFormatted, $datesArray);
+
+$sql = "SELECT event_date FROM dinners
+        ORDER BY event_date";
+include "connectToDB.php";
 
 echo "
 <div class=\"container\">
@@ -43,23 +53,48 @@ echo "
 		<form name=\"addDinner\" 
 			 action=\"admin-editOneDinnerProcess.php?dinner_id=$dinner_id\"
 			 method=\"POST\">
-        <div style=\"margin-bottom:1rem;\">
+
         ";
 
-echo "
-          Entrée Name:
-          <input type=\"text\" 
-            name=\"entree_name\"	
-            id=\"entree_name\" class=\"inputText\" value=\"$entree_name\"required/>
+
+echo "        
+        <div style=\"margin-bottom:1rem;\">
+        Entrée Name:
+        <input type=\"text\" 
+          name=\"entree_name\"	
+          id=\"entree_name\" class=\"inputText\" value=\"$entree_name\"required/>
         </div>
         <div style=\"margin-bottom:8rem;\">
           <span>Event Date:</span>
+          <p style=\"float:right;\">$event_dateFormatted</p>
+          <br />
+          <br />
           ";
+
+
 
 echo "
   <select name=\"event_date\" id=\"event_date\" class=\"inputText\" size=\"6\" required>
 ";
+
+// pushes sql query dates into an array. I tried using the mysqli_fetch_array but it did not want to 
+// work with runtime arrays.
+while ($record = mysqli_fetch_array($sql_results)) {
+  $event_dateArray = explode('-', $record[0]);
+  $event_dateYear = $event_dateArray[0];
+  $event_dateMonth = $event_dateArray[1];
+  $event_dateDay = $event_dateArray[2];
+  $test = $event_dateMonth . "-" . $event_dateDay . "-" . $event_dateYear;
+  array_push($sqlEventDatesArray, $test);
+}
+
 // This helps set a default for the select menu of event dates
+// finds the difference of two arrays. in this case it will find difference of all selectable dates for
+// the year and the dates that are already reserved for dinners.
+// this block will highlight current date chosen from the sql db. Will show and have dates that are 
+// already used in other dinners and display them as red and "disabled".
+$ArrayDifference = array_diff($datesArray, $sqlEventDatesArray);
+
 for ($i = 0; $i < count($datesArray); $i++) {
   $selectedDate;
   if ($datesArray[$i] == $event_dateFormatted) {
@@ -69,15 +104,27 @@ for ($i = 0; $i < count($datesArray); $i++) {
     $selectedDate = "";
   }
 
-  echo "
-        <option value=\"$datesArray[$i]\" $selectedDate>$datesArray[$i]</option>
-";
+  if ($ArrayDifference[$i] != "") {
+    echo "
+    <option value=\"$datesArray[$i]\">$datesArray[$i]</option>";
+  }
+  elseif ($datesArray[$i] == $event_dateFormatted) {
+    echo "
+      <option value=\"$datesArray[$i]\" $selectedDate style=\"background-color:rgb(148, 226, 148);\">$datesArray[$i]</option>";
+    $selectedDate = "selected";
+  }
+  else {
+    echo "
+    <option value=\"$datesArray[$i]\" style=\"color:red;\" disabled>$datesArray[$i]</option>";
+  }
 }
 
 echo "
 </select>
 ";
+
 echo "
+        <br />
         </div>
         <div style=\"margin-bottom:1rem;\">
           <span>Start Time:</span>
