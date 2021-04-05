@@ -1,4 +1,5 @@
 http://cs.wilkescc.edu/daumana461/PHP_ReservationPrototype/index.php
+use this link to view the CS server files
 
 must have php installed on your machine for these options
 
