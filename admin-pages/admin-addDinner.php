@@ -75,33 +75,6 @@ for ($i = 0; $i < count($datesArray); $i++) {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-//   if ($datesArray[$i] == $event_dateFormatted) {
-//     echo "
-//     <option value=\"$datesArray[$i]\">$datesArray[$i]</option>
-// ";
-// }
-//$rec[0]=dinner_id, $rec[1]=entree_name, $rec[2]=event_date, $rec[3]=start_time, $rec[4]=end_time, $rec[5]=seats, $rec[6]=price 
-// parses data from the sql and also helps with the table "Available Seats" column coloring.
-// to understand the parsing and the variables below please view the "sqlDataParser.php" page
-//include "sqlDataParser.php";
-
-
-//   echo "
-//         <option value=\"$datesArray[$i]\">$datesArray[$i]</option>
-// ";
-
-
 echo "
     </select>
 ";
@@ -139,8 +112,6 @@ echo "
 		</form>
        <br /><br /><br />
         ";
-print_r($ArrayDifference);
-print_r($sqlEventDatesArray);
 echo "
 </div>";
 

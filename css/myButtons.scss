@@ -11,7 +11,7 @@
   color: #ffffff;
   // text-align: center;
   transition: all 0.2s;
-  background-color: var(--main-app-color2);
+  background-color: var(--main-app-color);
   padding-right: 7px;
   padding-left: 7px;
   // width: 9rem;
@@ -140,4 +140,29 @@ a.buttonLinks2:active {
 // gives the table select buttons a uniform width
 .tableSelect {
   width: 6rem;
+}
+
+// quick fix for centering the hint boxes
+.hint-boxesCentering {
+  display: flex;
+  justify-content: center;
+}
+
+.hint-boxes {
+  display: flex;
+  background-color: var(--main-app-color);
+  color: white;
+  // text-align: center;
+  border-radius: 10px;
+  width: 17rem;
+  padding: 1rem;
+  p {
+    margin-bottom: 0px;
+  }
+}
+
+@media screen and (min-width: 499px) {
+  .hint-boxes {
+    width: 23rem;
+  }
 }

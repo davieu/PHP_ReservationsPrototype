@@ -3,6 +3,7 @@
 echo "
   <div class=\"container\">
     <h1 style=\"text-align: center\">Edit Reservation List</h1>
+    <h1 style=\"text-align: center\">PROTOTYPE PROTOTYPE PROTOTYPE PROTOTYPE</h1>
     <br />
     <br />
     <br />

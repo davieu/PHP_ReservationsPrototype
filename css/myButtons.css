@@ -12,7 +12,7 @@
   color: #ffffff;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
-  background-color: var(--main-app-color2);
+  background-color: var(--main-app-color);
   padding-right: 7px;
   padding-left: 7px;
 }
@@ -144,5 +144,35 @@ a.buttonLinks2:active {
 
 .tableSelect {
   width: 6rem;
+}
+
+.hint-boxesCentering {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hint-boxes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: var(--main-app-color);
+  color: white;
+  border-radius: 10px;
+  width: 17rem;
+  padding: 1rem;
+}
+
+.hint-boxes p {
+  margin-bottom: 0px;
+}
+
+@media screen and (min-width: 499px) {
+  .hint-boxes {
+    width: 23rem;
+  }
 }
 /*# sourceMappingURL=myButtons.css.map */

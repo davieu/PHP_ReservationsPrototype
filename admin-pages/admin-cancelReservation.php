@@ -18,22 +18,22 @@ echo "
 <div class=\"container\">
   <br /><br /><br /><br /><br /><br />
   <h1>
-  Admin Add Reservation
+  Admin Cancel Reservation
   </h1>
   <br />
   <br />
-  <p><strong>Select a meal to create a reservation</strong></p>
+  <p><strong>Select a meal to filter the reservations</strong></p>
 
   <table>
   <tr>
     <th>Date</th>
     <th>
-      Price
+      Available<br />
+      Seats
     </th>
     <th>
-    Available<br />
-    Seats
-  </th>
+      Total<br />Reserved
+    </th>
     <th>Entrée<br/>Type</th>
   </tr>
 ";
@@ -49,9 +49,9 @@ while ($record = mysqli_fetch_array($sql_results)) {
 			<td><strong>$event_dateFormatted</strong><br />
           $startTime-<br />
           $endTime</td>
-			<td>$$record[6]</td>
 			<td $inlineStyleAvailabiltyColor>$availabilityCount</td>
-      <td><a href=\"admin-addReservationUserInfo.php?dinner_id=$record[0]\" class=\"buttonLinks3 tableSelect\">$record[1]</a></td>
+      <td>$record[7]</td>
+      <td><a href=\"admin-cancelReservationList.php?dinner_id=$record[0]\" class=\"buttonLinks3 tableSelect\">$record[1]</a></td>
 		</tr>
 	";
 }

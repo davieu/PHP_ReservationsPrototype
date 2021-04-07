@@ -20,15 +20,19 @@ echo
     <br />
 
     <div class=\"buttonGroupContainer\">
-        <div class=\"buttonGroup\">
-          <a href=\"admin-addDinner.php\" class=\"buttonLinks3 dashboard-btns\">Add Dinner</a>
-          <a href=\"admin-addReservation.php\" class=\"buttonLinks3 dashboard-btns\">Add Reservation</a>    
-        </div>
-        <div class=\"buttonGroup\">
-          <a href=\"admin-editDinner.php\" class=\"buttonLinks3 dashboard-btns\">Edit Dinner</a>
-          <a href=\"admin-reservation-actions.php\" class=\"buttonLinks3 dashboard-btns\">Edit Reservations</a>
-        </div>
+      <div class=\"buttonGroup\">
+        <a href=\"admin-addDinner.php\" class=\"buttonLinks3 dashboard-btns\">Add Dinner</a>
+        <a href=\"admin-addReservation.php\" class=\"buttonLinks3 dashboard-btns\">Add Reservation</a>    
       </div>
+      <div class=\"buttonGroup\">
+        <a href=\"admin-editDinner.php\" class=\"buttonLinks3 dashboard-btns\">Edit Dinner</a>
+        <a href=\"admin-reservation-actions.php\" class=\"buttonLinks3 dashboard-btns\">Edit Reservation</a>
+      </div>
+      <div class=\"buttonGroup\">
+        <a href=\"#\" style=\"visibility:hidden\"></a>
+        <a href=\"admin-cancelReservation.php\" class=\"buttonLinks3 dashboard-btns\">Cancel Reservation</a>
+    </div>
+    </div>
       <a href=\"admin-systemLogs.php\" class=\"buttonLinks3 dashboard-btns\">View Logs</a>
       <br />
       <br />

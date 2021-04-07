@@ -16,7 +16,9 @@ include "../dateGenerator.php";
 echo "
   <br />
   <h1>Admin Edit Dinner</h1>
-  <br /><br /><br />
+  <br />
+  <br />
+  <p><strong>Select a meal to edit</strong></p>
 ";
 
 include "account.php";
