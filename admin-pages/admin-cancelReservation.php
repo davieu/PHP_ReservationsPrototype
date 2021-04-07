@@ -18,7 +18,8 @@ echo "
 <div class=\"container\">
   <br /><br /><br /><br /><br /><br />
   <h1>
-  Admin Cancel Reservation
+  Admin Cancel Reservation:<br />
+  Dinner List
   </h1>
   <br />
   <br />

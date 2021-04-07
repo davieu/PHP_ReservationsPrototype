@@ -202,7 +202,7 @@ echo "<br />
         <a href=\"admin-addReservation.php\" class=\"buttonLinks3\">Back to List</a>
       </div>
       <div style=\"text-align:right; margin-top:1.5rem;\">
-        <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
+        <a href=\"admin-dashboard.php\" class=\"buttonLinks3\">Dashboard</a>
       </div>
 		</form>
     <br /><br />
