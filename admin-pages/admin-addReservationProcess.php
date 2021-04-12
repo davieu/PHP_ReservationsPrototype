@@ -47,21 +47,21 @@ if ($currentTotalSeatsReserved <= $seats) {
   echo "yesyyyy";
   // add a reservation to SQL DB
   $sql = "INSERT INTO `reservations` 
-    (`dinner_id`, `reservation_index`, `session_id`, `seats_reserved`, `timestamp`) 
+    (`dinner_id`, `reservation_index`, `session_id`, `confirmation_code`, `seats_reserved`, `timestamp`) 
     VALUES 
-    ('$dinner_id', NULL, '1', '$seats_reserved', '$timestamp')";
+    ('$dinner_id', NULL, '1', '1', '$seats_reserved', '$timestamp')";
   // echo "$sql</br>";
   include "connectToDBID.php";
-  echo "yesyyyy22";
+
   // create confirmation code. add customer into DB with a confirmation code
+
   $confirmation_code = "$last_id:$random_hash";
-  echo "yesyyyy33";
   //echo "<br/>ssssss---$confirmation_code <br/>";
   $sql = "INSERT INTO `customers` 
     (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`, `reservation_index`, `confirmation_code`, `dinner_id`, `timestamp`, `seats_reserved`) 
     VALUES 
-    ('1', '$first_name', '$last_name', '$phone_number', '$email', '$reservation_total',  '$last_id', '$confirmation_code', '$dinner_id', '$timestamp', '$seats_reserved')";
-  // echo "$sql</br>$last_id:$random_hash";
+    ('1', '$first_name', '$last_name', '$phone_number', '$email', '$reservation_total', '$last_id', '$confirmation_code', '$dinner_id', '$timestamp', '$seats_reserved')";
+  echo "$sql</br>$last_id:$random_hash";
   include "connectToDB.php";
 
   // sets the confirmation for the reservation
