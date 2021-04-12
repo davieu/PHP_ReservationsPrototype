@@ -20,6 +20,7 @@ $start_time = $record['start_time'];
 $end_time = $record['end_time'];
 $seats = $record['seats'];
 $price = $record['price'];
+$total_seats_reserved = $record['total_seats_reserved'];
 
 $selectSeatsAmount = 4;
 $lowAvailableSeats = false;
@@ -33,7 +34,7 @@ $buttonTipName = "";
 include "sqlDataParser.php";
 
 // has data for the dinner and will be sent as a pipe delimited data. Mainly for usage in process/emailing
-$dinner_info = $entree_name . "|" . $event_dateFormatted . "|" . $startTime . "|" . $endTime . "|" . $price;
+$dinner_info = $entree_name . "|" . $event_dateFormatted . "|" . $startTime . "|" . $endTime . "|" . $price . "|" . $total_seats_reserved . "|" . $seats;
 
 // if current dinner is on waitlist
 if ($availabilityCount <= 0) {

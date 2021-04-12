@@ -3,10 +3,10 @@
 $availableSeats = $record['seats'];
 $availabilityCount = $record['seats'] - $record['total_seats_reserved'];
 $waitlist = $record['seats'] - $record['total_seats_reserved'];
-;
 $inlineStyleAvailabiltyColor;
 $totalReserved = $record['total_seats_reserved'];
 $test = $record['seats'];
+$waitlistReservedSeats = $record['waitlist_total_reserved'];
 $waitlisted = false;
 
 
@@ -17,13 +17,13 @@ if ($availabilityCount > 0) {
 }
 elseif ($availabilityCount == 0) {
   $waitlisted = true;
-  $availabilityCount = 'Waitlist:<br/ > ' . $availabilityCount;
+  $availabilityCount = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
   $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
 }
 // if availability these will produce the computed css or html outputs
 else {
   $waitlisted = true;
-  $availabilityCount = 'Waitlist:<br/ > ' . substr(strval($availabilityCount), 1);
+  $availabilityCount = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
   $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
 }
 
