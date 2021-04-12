@@ -34,8 +34,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
           $endTime</td>
 			<td>$record[1]</td>
 			<td $inlineStyleAvailabiltyColor>$availabilityCount</td>
-			<td>$totalReserved</td>
-
+			<td>$SUM_waitlistAndReserved</td>
 		</tr>
 	";
 }

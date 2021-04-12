@@ -22,8 +22,7 @@ SET
 `seats` =  '$seats',
 `price` =  '$price'
 WHERE  `dinner_id` ='$dinner_id'";
-
-// connectToDBID to insert and retrieve the id.
 include "connectToDB.php";
+
 header('Location: admin-editDinner.php');
 ?>

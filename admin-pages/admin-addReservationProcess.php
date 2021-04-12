@@ -52,9 +52,10 @@ if ($currentTotalSeatsReserved <= $seats) {
     ('$dinner_id', NULL, '1', '$seats_reserved', '$timestamp')";
   // echo "$sql</br>";
   include "connectToDBID.php";
-
+  echo "yesyyyy22";
   // create confirmation code. add customer into DB with a confirmation code
   $confirmation_code = "$last_id:$random_hash";
+  echo "yesyyyy33";
   //echo "<br/>ssssss---$confirmation_code <br/>";
   $sql = "INSERT INTO `customers` 
     (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`, `reservation_index`, `confirmation_code`, `dinner_id`, `timestamp`, `seats_reserved`) 

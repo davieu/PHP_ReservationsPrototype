@@ -26,6 +26,7 @@ $start_time = $record['start_time'];
 $end_time = $record['end_time'];
 $seats = $record['seats'];
 $price = $record['price'];
+$dinner_id = $record['dinner_id'];
 
 
 
@@ -56,7 +57,6 @@ echo "
 		<form name=\"addDinner\" 
 			 action=\"admin-editOneDinnerProcess.php?dinner_id=$dinner_id\"
 			 method=\"POST\">
-
         ";
 
 
@@ -146,7 +146,11 @@ echo "
         Price Per Seat:
            <input type=\"number\" 
               name=\"price\"	
-              id=\"price\" class=\"inputText\" value=\"$price\" required/><br /><br /><br />
+              id=\"price\" class=\"inputText\" value=\"$price\" required/><br /><br />
+              <input type=\"number\" 
+              name=\"dinner_id\"	
+              id=\"dinner_id\" class=\"\" value=\"$dinner_id\" style=\"visibility:hidden;\"required/>
+
 
         <div style=\"text-align:center; display:flex; justify-content:space-between\">
           <input type=\"submit\" class=\"buttonLinks3\"

@@ -5,8 +5,9 @@ $availabilityCount = $record['seats'] - $record['total_seats_reserved'];
 $waitlist = $record['seats'] - $record['total_seats_reserved'];
 $inlineStyleAvailabiltyColor;
 $totalReserved = $record['total_seats_reserved'];
-$test = $record['seats'];
 $waitlistReservedSeats = $record['waitlist_total_reserved'];
+$SUM_waitlistAndReserved = $totalReserved + $waitlistReservedSeats;
+$test = $record['seats'];
 $waitlisted = false;
 
 
