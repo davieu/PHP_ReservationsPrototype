@@ -1,4 +1,6 @@
 <?php
+// Purpose: This page processes the data from the admin-addResrvationUserInfo and puts in the DB to create a reservation
+
 include "account.php";
 
 date_default_timezone_set("America/New_York");

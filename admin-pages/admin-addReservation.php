@@ -1,4 +1,6 @@
 <?php
+// Purpose: Add a reservation. This page lets you choose from the list of dinners avaailable.
+
 include "fileLinks.php";
 include "account.php";
 include "../header.php";

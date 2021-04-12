@@ -1,4 +1,7 @@
 <?php
+//Purpose: This page shows a list of current reservations that when you click it will take you to the admin-editOneDinner.php
+// shows list of dinners that ypu can edit.
+
 include "fileLinks.php";
 include "../header.php";
 //simulates signed in

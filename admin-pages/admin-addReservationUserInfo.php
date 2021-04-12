@@ -1,4 +1,6 @@
 <?php
+//Purpuse: This page gathers the form data to send to the admin-addResrvationProcess page.
+
 include "fileLinks.php";
 include "account.php";
 include "../header.php";

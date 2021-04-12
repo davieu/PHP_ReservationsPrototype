@@ -1,4 +1,6 @@
 <?php
+//Purpose: This is the table for the dashboard. Seperated to slim down the dashboard page.php.
+
 include "account.php";
 // query for event dates in ordered form (ascending)
 $sql = "SELECT * FROM dinners

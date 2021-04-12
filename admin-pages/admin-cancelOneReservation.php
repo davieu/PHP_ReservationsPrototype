@@ -49,13 +49,16 @@ echo "
     <br />
 
 		<form name=\"addDinner\" 
-			 action=\"admin-cancelOneReservationProcess.php\"
+			 action=\"admin-cancelOneReservationProcess.php?dinner_id=$dinner_id\"
 			 method=\"POST\">
         ";
 
 echo "   
-      <div class=\"info-card2\">
-        <div><p>Entrée:</p></div><div class=\"t2\">dasda dad ad adadadadasdad$entree_name</div>
+      <div class=\"info-card2\" style=\"border-radius: 10px 10px 0px 0px\">
+        <div><p>Entrée:</p></div><div>$entree_name</div>
+      </div>
+      <div class=\"info-card2\" style=\"border-radius: 0px 0px 10px 10px\">
+        <div><p>Event Date:</p></div><div>$event_date</div>
       </div>
       <div class=\"info-card\">
         <p>First Name: <span>$first_name</span></p>
@@ -69,13 +72,14 @@ echo "
         <p>email: <br />$email</p>
         <hr />
         <p>Confirmation Code: <br />$confirmation_code</p>
-
       </div>
+      <input type=\"text\" 
+      name=\"confirmation_code\"	
+      id=\"confirmation_code\" class=\"inputText\" value=\"$confirmation_code\" style=\"visibility:hidden;\"required/><br />
           ";
 
 echo "
-        <br /><br /><br />
-
+        <br /><br />
         <div style=\"text-align:center; display:flex; justify-content:space-between\">
           <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinks3\" >Back To List</a>
           <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
@@ -97,7 +101,9 @@ echo "
       </div>
       <div class=\"modal-footer\">
         <a href=\"#\" class=\"buttonLinks3\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
-        <a href=\"admin-delDinnerProcess.php\" class=\"buttonLinksWarning\" style=\"align-content:center; margin-left:1rem;\">Cancel Reservation</a>
+        <input type=\"submit\" class=\"buttonLinksWarning\"
+        name=\"submit\"	
+        value=\"Cancel Reservation\" style=\"align-content:center; margin-left:1rem;\"/>	
       </div>
     </div>
   </div>

@@ -1,4 +1,7 @@
 <?php
+//Purpose: This page sends an email to the customer of the resrvation that the admin has made a resrvation. 
+// sends data pertatining to the resrvation like date and confirmation code
+
 include "../globalVariable.php";
 //$dinnerInfoArray = 
 //$entree_name|$event_dateFormatted|$startTime|$endTime|$price;

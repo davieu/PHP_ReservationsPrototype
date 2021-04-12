@@ -194,45 +194,28 @@ a.buttonLinks2:active {
 .info-card span {
   display: block;
   float: right;
+  margin-left: 1rem;
 }
 
 .info-card2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-color: var(--main-app-color);
   padding: 1rem;
   color: white;
+  width: 17rem;
+}
+
+.info-card2 p {
+  margin: 0px 1rem 0px 0px;
 }
 
 .info-card2 hr {
   margin: 0.5rem 0px 0.5rem 0px;
-}
-
-.info-card2 :nth-child(1) {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  width: auto;
-}
-
-.info-card2 :nth-child(2) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-  text-align: right;
-  width: 100%;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.info-card2 :nth-child(2) p {
-  margin: 0px;
 }
 
 @media screen and (min-width: 499px) {
@@ -241,6 +224,9 @@ a.buttonLinks2:active {
   }
   .HRstyle {
     width: 50%;
+  }
+  .info-card2 {
+    width: 20rem;
   }
 }
 /*# sourceMappingURL=myButtons.css.map */

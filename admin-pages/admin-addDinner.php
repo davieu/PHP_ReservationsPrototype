@@ -1,4 +1,6 @@
 <?php
+// Purpose: Fill out form to add a new dinner
+
 include "account.php";
 
 include "fileLinks.php";

@@ -1,6 +1,9 @@
 <?php
+// Purpose: proccess the form data from the admin-addDinner.php page to add into the DB
+
 include "account.php";
 
+// all of the data goes thru this page then parses it into the variables below
 include "formatToSQLhelper.php";
 
 $sql = "INSERT INTO `dinners` 

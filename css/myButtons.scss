@@ -181,42 +181,23 @@ a.buttonLinks2:active {
   span {
     display: block;
     float: right;
+    margin-left: 1rem;
   }
 }
 
 .info-card2 {
   display: flex;
-  // flex-direction: column;
-  // justify-content: flex-end;
-  // align-items: center;
-  // width: 100%;
-  border-radius: 10px;
+  justify-content: space-between;
+  // border-radius: 10px;
   background-color: var(--main-app-color);
   padding: 1rem;
   color: white;
+  width: 17rem;
+  p {
+    margin: 0px 1rem 0px 0px;
+  }
   hr {
     margin: 0.5rem 0px 0.5rem 0px;
-  }
-  // p {
-  //   margin-bottom: 0px;
-  //   display: inline;
-  // }
-  :nth-child(1) {
-    // align-self: flex-end;
-    order: 1;
-    // text-align: right;
-    width: auto;
-  }
-  :nth-child(2) {
-    // align-self: flex-end;
-    display: flex;
-    order: 1;
-    text-align: right;
-    width: 100%;
-    justify-content: flex-end;
-    p {
-      margin: 0px;
-    }
   }
 }
 
@@ -226,5 +207,8 @@ a.buttonLinks2:active {
   }
   .HRstyle {
     width: 50%;
+  }
+  .info-card2 {
+    width: 20rem;
   }
 }
