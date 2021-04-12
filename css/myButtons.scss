@@ -148,6 +148,10 @@ a.buttonLinks2:active {
   justify-content: center;
 }
 
+.HRstyle {
+  width: 90%;
+}
+
 .hint-boxes {
   display: flex;
   background-color: var(--main-app-color);
@@ -161,8 +165,66 @@ a.buttonLinks2:active {
   }
 }
 
+.info-card {
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--main-app-color);
+  padding: 1rem;
+  color: white;
+  hr {
+    margin: 0.5rem 0px 0.5rem 0px;
+  }
+  p {
+    margin-bottom: 0px;
+    display: inline;
+  }
+  span {
+    display: block;
+    float: right;
+  }
+}
+
+.info-card2 {
+  display: flex;
+  // flex-direction: column;
+  // justify-content: flex-end;
+  // align-items: center;
+  // width: 100%;
+  border-radius: 10px;
+  background-color: var(--main-app-color);
+  padding: 1rem;
+  color: white;
+  hr {
+    margin: 0.5rem 0px 0.5rem 0px;
+  }
+  // p {
+  //   margin-bottom: 0px;
+  //   display: inline;
+  // }
+  :nth-child(1) {
+    // align-self: flex-end;
+    order: 1;
+    // text-align: right;
+    width: auto;
+  }
+  :nth-child(2) {
+    // align-self: flex-end;
+    display: flex;
+    order: 1;
+    text-align: right;
+    width: 100%;
+    justify-content: flex-end;
+    p {
+      margin: 0px;
+    }
+  }
+}
+
 @media screen and (min-width: 499px) {
   .hint-boxes {
     width: 23rem;
+  }
+  .HRstyle {
+    width: 50%;
   }
 }

@@ -155,6 +155,10 @@ a.buttonLinks2:active {
           justify-content: center;
 }
 
+.HRstyle {
+  width: 90%;
+}
+
 .hint-boxes {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -170,9 +174,73 @@ a.buttonLinks2:active {
   margin-bottom: 0px;
 }
 
+.info-card {
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--main-app-color);
+  padding: 1rem;
+  color: white;
+}
+
+.info-card hr {
+  margin: 0.5rem 0px 0.5rem 0px;
+}
+
+.info-card p {
+  margin-bottom: 0px;
+  display: inline;
+}
+
+.info-card span {
+  display: block;
+  float: right;
+}
+
+.info-card2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 10px;
+  background-color: var(--main-app-color);
+  padding: 1rem;
+  color: white;
+}
+
+.info-card2 hr {
+  margin: 0.5rem 0px 0.5rem 0px;
+}
+
+.info-card2 :nth-child(1) {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  width: auto;
+}
+
+.info-card2 :nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  text-align: right;
+  width: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.info-card2 :nth-child(2) p {
+  margin: 0px;
+}
+
 @media screen and (min-width: 499px) {
   .hint-boxes {
     width: 23rem;
+  }
+  .HRstyle {
+    width: 50%;
   }
 }
 /*# sourceMappingURL=myButtons.css.map */

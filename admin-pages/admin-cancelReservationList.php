@@ -13,11 +13,31 @@ include "../dateGenerator.php";
 $dinner_id = $_GET['dinner_id'];
 $recordCount = 0;
 
+$sql = "SELECT * FROM dinners
+        WHERE dinner_id = $dinner_id";
+include "connectToDB.php";
+
+
+
+$record = mysqli_fetch_array($sql_results);
+$entree_name = $record['entree_name'];
+$event_date = $record['event_date'];
+$start_time = $record['start_time'];
+$end_time = $record['end_time'];
+$seats = $record['seats'];
+$price = $record['price'];
+$total_seats_reserved = $record['total_seats_reserved'];
+
+include "sqlDataParser.php";
+
+
+
 $sql = "SELECT COUNT(`dinner_id`)
         FROM customers
         WHERE  `dinner_id` = '$dinner_id'";
 include "connectToDB.php";
 $record = mysqli_fetch_array($sql_results);
+
 $recordCount = $record[0];
 
 // gets all customer data with specified meal id in ordered form based on last name
@@ -38,12 +58,49 @@ echo "
   Reservation List
   </h1>
   <br />
+  <hr class=\"HRstyle\"/>
+  <p><strong>Current Dinner Data</strong></p>
+  ";
+echo "  
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Entrée<br/>Type</th>
+      <th>
+        Available<br />
+        Seats
+      </th>
+      <th>
+        Total<br />
+        Reserved
+      </th>
+    </tr>
+";
+
+
+echo "
+    <tr>
+      <td><strong>$event_dateFormatted</strong><br />
+          $startTime-<br />
+          $endTime
+      </td>
+      <td>$entree_name</td>
+      <td $inlineStyleAvailabiltyColor>$availabilityCount</td>
+      <td >$total_seats_reserved</td>
+    </tr>
+  </table>
+  <br/>
+  <hr class=\"HRstyle\"/>
   <br />
   <p><strong>Select a reservation from the list to cancel</strong></p>
   <p><strong>Records Found: $recordCount</strong></p>
   <br />
   ";
+
+
 ?>
+
+
 
 <script>
 // this whole block is a toggle for the confirmation/email in the table. slims down the table
@@ -95,7 +152,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
 			<td><span class=\"emailRow\" style=\"display:none\">$record[5]</span><span class=\"confirmationRow\">$record[8]</span></td>
       <td>$record[10]</td>
       <td>
-        <a href=\"admin-cancelOneReservation.php?dinner_id=$record[2]\" class=\"buttonLinks3 tableSelect\">
+        <a href=\"admin-cancelOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" class=\"buttonLinks3 tableSelect\">
           $record[3], $record[2]
         </a>
       </td>
