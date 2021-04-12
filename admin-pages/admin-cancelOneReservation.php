@@ -33,6 +33,7 @@ $email = $record['email'];
 $seats_reserved = $record['seats_reserved'];
 $reservation_total = $record['reservation_total'];
 $confirmation_code = $record['confirmation_code'];
+$reservation_info = $confirmation_code . "|" . $seats_reserved;
 
 echo "
 <div class=\"container\">
@@ -74,12 +75,12 @@ echo "
         <p>Confirmation Code: <br />$confirmation_code</p>
       </div>
       <input type=\"text\" 
-      name=\"confirmation_code\"	
-      id=\"confirmation_code\" class=\"inputText\" value=\"$confirmation_code\" style=\"visibility:hidden;\"required/><br />
+      name=\"reservation_info\"	
+      id=\"reservation_info\" class=\"inputText\" value=\"$reservation_info\" style=\"visibility:hidden;\"required/><br />
           ";
 
 echo "
-        <br /><br />
+        <hr /><br />
         <div style=\"text-align:center; display:flex; justify-content:space-between\">
           <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinks3\" >Back To List</a>
           <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>

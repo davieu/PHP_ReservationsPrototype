@@ -25,9 +25,9 @@ $timestamp = date('Y-m-d H:i:s');
 //to make custom confirmation code 
 $random_hash = substr(md5(uniqid(rand(), true)), 16, 16);
 
-echo "
-$dinner_id <br /> $price<br /> $first_name <br />$last_name <br />$seats_reserved <br />$reservation_total<br />
-";
+// echo "
+// $dinner_id <br /> $price<br /> $first_name <br />$last_name <br />$seats_reserved <br />$reservation_total<br />
+// ";
 
 /* // TESTING echo " $dinner_id <br /> $price<br /> $first_name <br />$last_name <br />$seats_reserved <br />$reservation_total<br />$dinner_info "; /*
  /* //CUSTOMERS session_id	 first_name	 last_name	 phone_number	 reservation_total	 confirmation_code	 timestamp	 seats_reserved	
@@ -38,17 +38,17 @@ $sql = "INSERT INTO `reservations`
       (`dinner_id`, `reservation_index`, `session_id`, `seats_reserved`, `timestamp`) 
       VALUES 
       ('$dinner_id', NULL, '1', '$seats_reserved', '$timestamp')";
-echo "$sql</br>";
+// echo "$sql</br>";
 include "connectToDBID.php";
 
 
 $confirmation_code = "$last_id:$random_hash";
 //echo "<br/>ssssss---$confirmation_code <br/>";
 $sql = "INSERT INTO `customers` 
-      (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`, `reservation_index`, `confirmation_code`, `timestamp`, `seats_reserved`) 
+      (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`, `reservation_index`, `confirmation_code`, `dinner_id`, `timestamp`, `seats_reserved`) 
       VALUES 
-      ('1', '$first_name', '$last_name', '$phone_number', '$email', '$reservation_total',  '$last_id', '$confirmation_code', '$timestamp', '$seats_reserved')";
-echo "$sql</br>$last_id:$random_hash";
+      ('1', '$first_name', '$last_name', '$phone_number', '$email', '$reservation_total',  '$last_id', '$confirmation_code', '$dinner_id', '$timestamp', '$seats_reserved')";
+// echo "$sql</br>$last_id:$random_hash";
 include "connectToDB.php";
 
 // sets the confirmation for the reservation
@@ -56,7 +56,7 @@ $sql = "UPDATE `reservations`
         SET `confirmation_code` = '$confirmation_code'
         WHERE  `reservation_index` = '$last_id'";
 include "connectToDB.php";
-echo "<br/>$sql</br>$last_id:$random_hash";
+// echo "<br/>$sql</br>$last_id:$random_hash";
 
 // does arithmetic to keep track of total seats reserved
 echo "id: $last_id";
@@ -69,6 +69,6 @@ include "admin-addReservationSendEmail.php";
 
 
 //yyyy-mm-dd hh:mm:ss
-//header('Location: admin-addReservation.php');
+header('Location: admin-addReservation.php');
 /* $timestamp = date('Y-m-d H:i:s'); echo $timestamp; //testing $sql = "INSERT INTO `time`  (`currTime`)  VALUES  ('$timestamp')"; include "../connectToDB.php"; */
 ?>

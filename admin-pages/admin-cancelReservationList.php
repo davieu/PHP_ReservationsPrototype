@@ -116,12 +116,12 @@ function toggleDataFunction() {
   toggleData = !toggleData
 
   if (toggleData) {
-    for (i = 0; i < k.length; i++) {
+    for (i = 0; i < emailRow.length; i++) {
       confirmationRow[i].style.display = "block";
       emailRow[i].style.display = "none";
     };
   } else {
-    for (i = 0; i < x.length; i++) {
+    for (i = 0; i < confirmationRow.length; i++) {
       confirmationRow[i].style.display = "none";
       emailRow[i].style.display = "block";
     };
