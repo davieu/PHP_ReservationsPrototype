@@ -81,7 +81,7 @@ if ($currentTotalSeatsReserved <= $seats) {
   include "admin-addReservationSendEmail.php";
 }
 else {
-  //ADD to WAITLIST if no available spots
+  //ADD to WAITLIST if no available seats
   echo "wait";
   $sql = "INSERT INTO `waitlist` 
     (`dinner_id`, `waitlist_id`, `first_name`, `last_name`, `phone_number`, `email`, `timestamp`, `seats_reserved`) 
