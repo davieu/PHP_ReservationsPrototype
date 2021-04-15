@@ -1,4 +1,6 @@
 <?php
+// purpose: cancel one reservation. data will be sent to admin-cancelOneResrvationProcess
+
 include "fileLinks.php";
 include "../header.php";
 include "helperFunctions.php";
@@ -16,8 +18,10 @@ $sql = "SELECT dinners.entree_name, dinners.event_date
         FROM dinners
         WHERE dinner_id = $dinner_id";
 include "connectToDB.php";
+
 $record = mysqli_fetch_array($sql_results);
 $entree_name = $record['entree_name'];
+// function from "helperFunctions.php". parses the date to mm/dd/yyyy from yyyy/mm/dd
 $event_date = dateSQLtoRead($record['event_date']);
 
 // i'm getting the dinner_id from the url parameter.
@@ -33,7 +37,9 @@ $email = $record['email'];
 $seats_reserved = $record['seats_reserved'];
 $reservation_total = $record['reservation_total'];
 $confirmation_code = $record['confirmation_code'];
-$reservation_info = $confirmation_code . "|" . $seats_reserved;
+
+$reservation_info = $dinner_id . "|" . $confirmation_code . "|" . $seats_reserved . "|" . $first_name
+  . "|" . $last_name . "|" . $email;
 
 echo "
 <div class=\"container\">
@@ -50,7 +56,7 @@ echo "
     <br />
 
 		<form name=\"addDinner\" 
-			 action=\"admin-cancelOneReservationProcess.php?dinner_id=$dinner_id\"
+			 action=\"admin-cancelOneReservationProcess.php\"
 			 method=\"POST\">
         ";
 

@@ -1,5 +1,5 @@
 <?php
-//Purpose: cancel a waitlist
+//Purpose: cancel a waitlist. data will be sent to admin-cancelOneWaitlistProcess
 
 include "fileLinks.php";
 include "../header.php";
@@ -18,8 +18,10 @@ $sql = "SELECT dinners.entree_name, dinners.event_date
         FROM dinners
         WHERE dinner_id = $dinner_id";
 include "connectToDB.php";
+
 $record = mysqli_fetch_array($sql_results);
 $entree_name = $record['entree_name'];
+// function from "helperFunctions.php". parses the date to mm/dd/yyyy from yyyy/mm/dd
 $event_date = dateSQLtoRead($record['event_date']);
 
 // i'm getting the dinner_id from the url parameter.
@@ -34,7 +36,7 @@ $phone_number = $record['phone_number'];
 $email = $record['email'];
 $seats_reserved = $record['seats_reserved'];
 
-$reservation_info = $waitlist_id . "|" . $seats_reserved;
+$reservation_info = $dinner_id . "|" . $waitlist_id . "|" . $seats_reserved . "|" . $first_name . "|" . $last_name . "|" . $email;
 
 echo "
 <div class=\"container\">
@@ -51,7 +53,7 @@ echo "
     <br />
 
 		<form name=\"addDinner\" 
-			 action=\"admin-cancelOneWaitlistProcess.php?dinner_id=$dinner_id\"
+			 action=\"admin-cancelOneWaitlistProcess.php\"
 			 method=\"POST\">
         ";
 
