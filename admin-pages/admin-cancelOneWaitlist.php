@@ -88,7 +88,7 @@ echo "
           </div>
           <div style=\"text-align:right; margin-top:1.5rem;\">
           
-          <a href=\"#\" class=\"buttonLinksWarning\" style=\"align-content:center;\" data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">Cancel Reservation</a>
+          <a href=\"#\" class=\"buttonLinksWarning\" style=\"align-content:center;\" data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">Cancel Waitlist</a>
           </div>
 
 <div class=\"modal fade\" id=\"deleteDinnerModal\" tabindex=\"-1\" aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">
@@ -105,7 +105,7 @@ echo "
         <a href=\"#\" class=\"buttonLinks3\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
         <input type=\"submit\" class=\"buttonLinksWarning\"
         name=\"submit\"	
-        value=\"Cancel Reservation\" style=\"align-content:center; margin-left:1rem;\"/>	
+        value=\"Cancel Waitlist\" style=\"align-content:center; margin-left:1rem;\"/>	
       </div>
     </div>
   </div>

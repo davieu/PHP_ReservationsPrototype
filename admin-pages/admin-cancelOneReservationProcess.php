@@ -18,6 +18,7 @@ $last_name = $reservationInfoArray[4];
 $email = $reservationInfoArray[5];
 
 // delete the reservation
+/*
 $sql = "DELETE FROM `reservations` WHERE `confirmation_code`='$confirmation_code'";
 include "connectToDBV2.php";
 
@@ -36,9 +37,23 @@ if ($successful) {
   include "connectToDBV2.php";
 //echo "$sql<br />";
 }
+*/
 
-// send email to customer with canceled resrvation
-include "admin-cancelReservationSendEmail.php";
+// gets record count of total waitlist records.
+$sql = "SELECT COUNT(`waitlist_id`)
+        FROM waitlist
+        WHERE  `dinner_id` = '$dinner_id'";
+include "connectToDB.php";
+$record = mysqli_fetch_array($sql_results);
+$waitlistRecordCount = $record[0];
+// looks at the waitlist record count for a dinner with the specified ID. If waitlist records found then
+// redirect to the waitlist email page. If no waitlists then send back to reservation lists.
 
-header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
+if ($waitlistRecordCount > 0) {
+  // send email to customer with canceled resrvation
+  header("Location: admin-emailWaitlist.php?dinner_id=$dinner_id");
+}
+else {
+  header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
+}
 ?>

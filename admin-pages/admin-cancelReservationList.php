@@ -208,12 +208,8 @@ while ($record = mysqli_fetch_array($sql_results)) {
 }
 
 echo "
-      </table>
-    ";
-
-echo "
       </table><br /><br />
-
+      
       <div class=\"buttonGroupContainer\">
         <div class=\"buttonGroup\">
           <a href=\"admin-dashboard.php\" class=\"buttonLinks3 dashboard-btns\">Dashboard</a>
