@@ -38,7 +38,7 @@ if ($successful) {
 }
 
 // send email to customer with canceled resrvation
-//include "admin-cancelReservationSendEmail.php";
+include "admin-cancelReservationSendEmail.php";
 
 header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
 ?>
