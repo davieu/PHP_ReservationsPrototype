@@ -218,6 +218,18 @@ a.buttonLinks2:active {
   margin: 0.5rem 0px 0.5rem 0px;
 }
 
+.info-cardTips {
+  background-color: #005a87;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.info-cardTips p {
+  margin-bottom: 0px;
+}
+
 @media screen and (min-width: 499px) {
   .hint-boxes {
     width: 23rem;
@@ -228,5 +240,22 @@ a.buttonLinks2:active {
   .info-card2 {
     width: 20rem;
   }
+}
+
+.hideSection {
+  display: none;
+}
+
+.showSection {
+  display: block;
+}
+
+.sectionFilterActive {
+  background-color: #94e294;
+}
+
+.sectionFilterActive:hover {
+  color: white;
+  background-color: #55ac55;
 }
 /*# sourceMappingURL=myButtons.css.map */

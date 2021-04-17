@@ -1,5 +1,5 @@
 <?php
-// purpose: cancel one reservation. data will be sent to admin-cancelOneResrvationProcess
+// purpose: menu for displaying the list of waitlist for a specified dinner. Uses checkboxes to determine who on the wait;ist to email
 
 include "fileLinks.php";
 include "../header.php";
@@ -11,7 +11,7 @@ $signedin = true;
 
 $dinner_id = $_GET['dinner_id'];
 
-// WAITLIST TABLE STARTS HERE
+
 // gets record count of total waitlist records.
 $sql = "SELECT COUNT(`waitlist_id`)
         FROM waitlist
@@ -69,7 +69,7 @@ echo "
   <hr class=\"HRstyle\"/>
   <p><strong>Waitlist Records Found: $recordCount</strong></p>
   <form name=\"addDinner\" 
-  action=\"admin-emailHub.php\"
+  action=\"admin-emailWaitlistProcess.php?dinner_id=$dinner_id\"
   method=\"POST\">
  <table>
   <tr>
@@ -97,7 +97,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
     <td>
     $record[4], $record[3]
     </td>
-    <td><input type=\"checkbox\" id=\"$record[1]\" name=\"waitlist_emails\" value=\"$record[2]\" checked></td>
+    <td><input type=\"checkbox\" id=\"$record[1]\" name=\"waitlist_emails[]\" value=\"$record[email]|$record[first_name]|$record[last_name]\" checked></td>
     </tr>
     ";
 }

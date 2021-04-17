@@ -13,6 +13,14 @@ include "../dateGenerator.php";
 $dinner_id = $_GET['dinner_id'];
 $recordCount = 0;
 
+// gets record count of total waitlist records.
+$sql = "SELECT COUNT(`waitlist_id`)
+        FROM waitlist
+        WHERE  `dinner_id` = '$dinner_id'";
+include "connectToDB.php";
+$record = mysqli_fetch_array($sql_results);
+$waitlistRecordCount = $record[0];
+
 $sql = "SELECT * FROM dinners
         WHERE dinner_id = $dinner_id";
 include "connectToDB.php";
@@ -52,13 +60,19 @@ echo "
 <div class=\"container\">
   <br /><br /><br /><br /><br /><br />
   <h1>
-  Admin Cancel Reservation:<br/>
-  Reservation List
+  Admin Cancel:<br />
+  Reservations and Waitlists
   </h1>
   <br />
-  <hr class=\"HRstyle\"/>
-  <p><strong>Current Dinner Data</strong></p>
+  <br />
+  <div class=\"info-cardTips\">
+    <p>
+      Current Dinner Data:<br />
+      Choose from the Reservation list or Waitlist(if applicable)
+    </p>  
+  </div>
   ";
+
 echo "  
   <table>
     <tr>
@@ -88,50 +102,45 @@ echo "
     </tr>
   </table>
   <br/>
-  <hr class=\"HRstyle\"/>
-  <br />
-  <p><strong>Select a reservation from the list to cancel</strong></p>
-  <p><strong>Records Found: $recordCount</strong></p>
-  <br />
+";
+
+if ($waitlistRecordCount == 0) {
+  echo "";
+}
+else {
+  echo "<div class=\"buttonGroupContainer\" style=\"margin-top:1rem; color:#005a87\">
+    <div class=\"buttonGroup\">
+    <i class=\"fas fa-eye-slash\" style=\"font-size:30px\"></i>
+    <button onclick=\"toggleAll()\" class=\"buttonLinks3 sectionFilterActive btnAll\" style=\"margin-right:20px\">All</button> 
+    <button onclick=\"toggleReservationSection()\" class=\"buttonLinks3 btnReservations\" style=\"margin-right:20px\">Reservations</button>
+    <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinks3 btnWaitlist\">Waitlist</button>  
+     
+    </div>
+  </div>";
+}
+
+
+echo "
+  <div class=\"reservations-section\" style=\"text-align:center\">
+    <br />
+    <hr/>
+    <h1 style=\"margin-top:0px;\">
+      Reservations    
+    </h1>
+    <br />
+    <div class=\"info-cardTips\">
+      <p>Select a reservation from the list to cancel <i class=\"fas fa-info-circle\"></i></p>
+    </div>
+    <p><strong>Records Found: $recordCount</strong></p>
   ";
 ?>
-
-
-
-<script>
-// this whole block is a toggle for the confirmation/email in the table. slims down the table
-let toggleData = true;
-
-function toggleDataFunction() {
-  var x = document.querySelectorAll('.confirmationRow');
-  var k = document.querySelectorAll('.emailRow');
-
-  var emailRow = document.querySelectorAll('.emailRow');
-  var confirmationRow= document.querySelectorAll('.confirmationRow');
-
-  toggleData = !toggleData
-
-  if (toggleData) {
-    for (i = 0; i < emailRow.length; i++) {
-      confirmationRow[i].style.display = "block";
-      emailRow[i].style.display = "none";
-    };
-  } else {
-    for (i = 0; i < confirmationRow.length; i++) {
-      confirmationRow[i].style.display = "none";
-      emailRow[i].style.display = "block";
-    };
-  }
-};
-</script>
 
 <?php
 echo "
     <table>
     <tr>
-
       <th>
-        <span onclick=\"toggleDataFunction()\"\" style=\"cursor: pointer;\">Confirmation/Email <i class=\"far fa-caret-square-down\"></i></span>
+        <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">Confirmation/Email <i class=\"far fa-caret-square-down\"></i></span>
       </th>
       <th>Seats<br/>Reserved</th>
       <th>Name</th>
@@ -155,46 +164,47 @@ while ($record = mysqli_fetch_array($sql_results)) {
 
 echo "
       </table>
+      </div>
     ";
 
 // WAITLIST TABLE STARTS HERE
-// gets record count of total waitlist records.
-$sql = "SELECT COUNT(`waitlist_id`)
-        FROM waitlist
-        WHERE  `dinner_id` = '$dinner_id'";
-include "connectToDB.php";
-$record = mysqli_fetch_array($sql_results);
 
-$recordCount = $record[0];
-
-$sql = "SELECT * FROM `waitlist`
+if ($waitlistRecordCount == 0) {
+  echo "";
+}
+else {
+  //queries the waitlist table data
+  $sql = "SELECT * FROM `waitlist`
           WHERE  `dinner_id` = '$dinner_id'
           ORDER BY `last_name`";
-include "connectToDB.php";
+  include "connectToDB.php";
+  echo "
+    <div class=\"waitlist-section\" style=\"text-align:center\">
+      <br />
+      <br />
+      <hr/>
+      <h1 style=\"margin-top:0px;\">
+        Waitlist
+      </h1>
+      <br />
+      <div class=\"info-cardTips\">
+        <p>Select a waitlist from the list to cancel <i class=\"fas fa-info-circle\"></i></p>
+      </div>
+      <p><strong>Records Found: $waitlistRecordCount</strong></p>
 
-echo "
-    <br /><br /><br /><br /><br /><br />
-    <h1>
-    Admin Cancel Reservation:<br/>
-    Waitlist List
-    </h1>
-    <br />
-    <hr class=\"HRstyle\"/>
-    <p><strong>Records Found: $recordCount</strong></p>
-  
-    <table>
-    <tr>
-      <th>
-        Email
-      </th>
-      <th>Seats<br/>Reserved</th>
-      <th>Name</th>
-    </tr>
+      <table>
+      <tr>
+        <th>
+          Email
+        </th>
+        <th>Seats<br/>Reserved</th>
+        <th>Name</th>
+      </tr>
   ";
 
-// query for event dates in ordered form (ascending)
-while ($record = mysqli_fetch_array($sql_results)) {
-  echo "
+  // loops through the waitlist  
+  while ($record = mysqli_fetch_array($sql_results)) {
+    echo "
       <tr>
         <td>$record[2]</td>
         <td>$record[6]</td>
@@ -205,11 +215,16 @@ while ($record = mysqli_fetch_array($sql_results)) {
         </td>
       </tr>
     ";
+  }
+  echo "
+        </table>
+      </div>
+      ";
 }
 
+
 echo "
-      </table><br /><br />
-      
+      <br /><br />
       <div class=\"buttonGroupContainer\">
         <div class=\"buttonGroup\">
           <a href=\"admin-dashboard.php\" class=\"buttonLinks3 dashboard-btns\">Dashboard</a>
@@ -223,3 +238,64 @@ echo "
 //    <a href=\"admin-dashboard.php\" class=\"buttonLinks3\">Dashboard</a>
 include "../footer.php";
 ?>
+
+<script>
+  // this whole block is a toggle for the confirmation/email in the table. slims down the table
+  let toggleData = true;
+
+  function toggleDataFunction() {
+    // var x = document.querySelectorAll('.confirmationRow');
+    // var k = document.querySelectorAll('.emailRow');
+
+    var emailRow = document.querySelectorAll('.emailRow');
+    var confirmationRow= document.querySelectorAll('.confirmationRow');
+
+    toggleData = !toggleData
+
+    if (toggleData) {
+      for (i = 0; i < emailRow.length; i++) {
+        confirmationRow[i].style.display = "block";
+        emailRow[i].style.display = "none";
+      };
+    } else {
+      for (i = 0; i < confirmationRow.length; i++) {
+        confirmationRow[i].style.display = "none";
+        emailRow[i].style.display = "block";
+      };
+    }
+  };
+
+  function toggleReservationSection() {
+      //changes the backgorund color to green to look active. smae pattern below
+      document.querySelector(".btnWaitlist").classList.remove("sectionFilterActive");
+      document.querySelector(".btnAll").classList.remove("sectionFilterActive");
+      document.querySelector(".btnReservations").classList.add("sectionFilterActive");
+
+      document.querySelector(".reservations-section").classList.add("showSection");
+      document.querySelector(".waitlist-section").classList.add("hideSection");
+      document.querySelector(".waitlist-section").classList.remove("showSection");
+      document.querySelector(".waitlist-section").classList.remove("showSection");
+  }
+
+  function toggleWaitlistSection() {
+      document.querySelector(".btnReservations").classList.remove("sectionFilterActive");
+      document.querySelector(".btnAll").classList.remove("sectionFilterActive");
+      document.querySelector(".btnWaitlist").classList.add("sectionFilterActive");
+
+      document.querySelector(".waitlist-section").classList.remove("hideSection");
+      document.querySelector(".waitlist-section").classList.add("showSection");
+      document.querySelector(".reservations-section").classList.add("hideSection");
+      document.querySelector(".reservations-section").classList.remove("showSection");
+  }
+
+  function toggleAll() {
+    document.querySelector(".btnReservations").classList.remove("sectionFilterActive");
+    document.querySelector(".btnWaitlist").classList.remove("sectionFilterActive");
+    document.querySelector(".btnAll").classList.add("sectionFilterActive");
+
+    document.querySelector(".reservations-section").classList.remove("hideSection");
+    document.querySelector(".reservations-section").classList.add("showSection");
+    document.querySelector(".waitlist-section").classList.remove("hideSection");
+    document.querySelector(".waitlist-section").classList.add("showSection");
+  }
+</script>
