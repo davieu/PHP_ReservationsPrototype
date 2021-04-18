@@ -240,3 +240,31 @@ a.buttonLinks2:active {
   color: white;
   background-color: rgb(85, 172, 85);
 }
+
+.buttonLinksTables {
+  border: none;
+  display: inline-block;
+  padding: 0.35em 7px;
+  // margin: 0 0 0 0;
+  border-radius: 0.3em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  // text-align: center;
+  transition: all 0.2s;
+  background-color: var(--main-app-color);
+  // padding-right: 7px;
+  // padding-left: 7px;
+  // width: 9rem;
+  // text-align: center;
+}
+
+.buttonLinksTables:hover {
+  background-color: var(--main-app-color2);
+}
+
+.buttonLinksTables:active {
+  background-color: var(--main-app-color2);
+}

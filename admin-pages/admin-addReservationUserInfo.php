@@ -1,5 +1,5 @@
 <?php
-//Purpuse: This page gathers the form data to send to the admin-addResrvationProcess page.
+//Purpose: This page gathers the form data to send to the admin-addResrvationProcess page.
 
 include "fileLinks.php";
 include "account.php";
@@ -91,17 +91,34 @@ echo "
             id=\"last_name\" class=\"inputText\" required/>
         </div>
         <div style=\"margin-bottom:1rem;\">
-        Email:
-        <input type=\"email\" 
-          name=\"email\"	
-          id=\"email\" class=\"inputText\" required/>
+          Email:
+          <input type=\"email\" 
+            name=\"email\"	
+            id=\"email\" class=\"inputText\" required/>
         </div>
         <div style=\"margin-bottom:1rem;\">
-        Phone Number:
-        <input type=\"text\" 
-          name=\"phone_number\"	
-          id=\"phone_number\" class=\"inputText\" required/>
-        </div><br /><hr />
+          Phone Number:
+          <input type=\"text\" 
+            name=\"phone_number\"	
+            id=\"phone_number\" class=\"inputText\" required/>
+        </div>
+        <div style=\"margin-bottom:1rem;\">
+          Reserve Seats:
+          <select name=\"seats_reserved\" id=\"seats_reserved\" class=\"inputText\"required>
+          ";
+
+// Will determine how many seat selections are displayed based on available seats
+for ($i = 1; $i <= $selectSeatsAmount; $i++) {
+
+  echo "
+    <option value=\"$i\">$i</option>
+    ";
+}
+
+echo "
+          </select>
+        </div>
+        <br /><hr />
         ";
 if ($waitlistActive) {
   echo "<br /><h1>Waitlist Reservation</h1><br /><br />";

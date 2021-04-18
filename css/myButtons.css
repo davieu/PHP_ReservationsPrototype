@@ -258,4 +258,28 @@ a.buttonLinks2:active {
   color: white;
   background-color: #55ac55;
 }
+
+.buttonLinksTables {
+  border: none;
+  display: inline-block;
+  padding: 0.35em 7px;
+  border-radius: 0.3em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  background-color: var(--main-app-color);
+}
+
+.buttonLinksTables:hover {
+  background-color: var(--main-app-color2);
+}
+
+.buttonLinksTables:active {
+  background-color: var(--main-app-color2);
+}
 /*# sourceMappingURL=myButtons.css.map */

@@ -24,19 +24,19 @@ echo "
   <br />
   <br />
   <p><strong>Select a meal to filter the reservations</strong></p>
-
-  <table>
-  <tr>
-    <th>Date</th>
-    <th>
-      Available<br />
-      Seats
-    </th>
-    <th>
-      Total<br />Reserved
-    </th>
-    <th>Entrée<br/>Type</th>
-  </tr>
+  <div class=\"table-container\">
+    <table class=\"table table-hover align-middle\">
+      <tr>
+        <th>Date</th>
+        <th>
+          Available<br />
+          Seats
+        </th>
+        <th>
+          Waitlists
+        </th>
+        <th>Entrée<br/>Type</th>
+      </tr>
 ";
 
 // query for event dates in ordered form (ascending)
@@ -48,21 +48,19 @@ while ($record = mysqli_fetch_array($sql_results)) {
   echo "
 		<tr>
 			<td><strong>$event_dateFormatted</strong><br />
-          $startTime-<br />
-          $endTime</td>
+          $startTime-$endTime
+          </td>
 			<td $inlineStyleAvailabiltyColor>$availabilityCount</td>
-      <td>$SUM_waitlistAndReserved</td>
-      <td><a href=\"admin-cancelReservationList.php?dinner_id=$record[0]\" class=\"buttonLinks3 tableSelect\">$record[1]</a></td>
+      <td>$waitlistReservedSeats</td>
+      <td><strong><a href=\"admin-cancelReservationList.php?dinner_id=$record[0]\" class=\"buttonLinksTables tableSelect\">$record[1]</a><strong></td>
 		</tr>
 	";
 }
 
 echo "
     </table>
-  ";
-
-echo "
-    </table><br /><br />
+    </div>
+    <br /><br />
     <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
   <br /><br /><br />
 </div>";

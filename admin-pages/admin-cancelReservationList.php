@@ -13,7 +13,7 @@ include "../dateGenerator.php";
 $dinner_id = $_GET['dinner_id'];
 $recordCount = 0;
 
-// gets record count of total waitlist records.
+// queries record count of total waitlist records.
 $sql = "SELECT COUNT(`waitlist_id`)
         FROM waitlist
         WHERE  `dinner_id` = '$dinner_id'";
@@ -21,10 +21,12 @@ include "connectToDB.php";
 $record = mysqli_fetch_array($sql_results);
 $waitlistRecordCount = $record[0];
 
+// queries the current dinner data
 $sql = "SELECT * FROM dinners
         WHERE dinner_id = $dinner_id";
 include "connectToDB.php";
 
+// turn  dinner data to variables for eeasy access
 $record = mysqli_fetch_array($sql_results);
 $entree_name = $record['entree_name'];
 $event_date = $record['event_date'];
@@ -34,16 +36,15 @@ $seats = $record['seats'];
 $price = $record['price'];
 $total_seats_reserved = $record['total_seats_reserved'];
 
+// parses dates
 include "sqlDataParser.php";
 
-
-// gets record count of total reservation records. non waitlist
+// queries record count of total reservation records. non waitlist
 $sql = "SELECT COUNT(`dinner_id`)
         FROM customers
         WHERE  `dinner_id` = '$dinner_id'";
 include "connectToDB.php";
 $record = mysqli_fetch_array($sql_results);
-
 $recordCount = $record[0];
 
 // gets all customer data with specified meal id in ordered form based on last name
@@ -52,10 +53,8 @@ $sql = "SELECT * FROM `customers`
         ORDER BY `last_name`";
 include "connectToDB.php";
 
-// while ($test = mysqli_fetch_array($sql_results)) {
-//   $recordCount++;
-// }
 
+// DINNER DATA/INFO SECTION STARTS HERE -----------------------------------------------------------
 echo "
 <div class=\"container\">
   <br /><br /><br /><br /><br /><br />
@@ -89,7 +88,7 @@ echo "
     </tr>
 ";
 
-
+// Table for the current dinner. Has info pertaining to the current dinner
 echo "
     <tr>
       <td><strong>$event_dateFormatted</strong><br />
@@ -104,14 +103,15 @@ echo "
   <br/>
 ";
 
+// This block will display the filter seection if waitlist data is available. if waitlist count is not 0 then
+// show the filter tables section. If waitlist then the SHOW filter will be active with the sectionFilterActive class
 if ($waitlistRecordCount == 0) {
   echo "";
 }
 else {
   echo "<div class=\"buttonGroupContainer\" style=\"margin-top:1rem; color:#005a87\">
     <div class=\"buttonGroup\">
-    <i class=\"fas fa-eye-slash\" style=\"font-size:30px\"></i>
-    <button onclick=\"toggleAll()\" class=\"buttonLinks3 sectionFilterActive btnAll\" style=\"margin-right:20px\">All</button> 
+    <button onclick=\"toggleAll()\" class=\"buttonLinks3 sectionFilterActive btnAll\">All</button> 
     <button onclick=\"toggleReservationSection()\" class=\"buttonLinks3 btnReservations\" style=\"margin-right:20px\">Reservations</button>
     <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinks3 btnWaitlist\">Waitlist</button>  
      
@@ -119,18 +119,18 @@ else {
   </div>";
 }
 
-
+// RESRVATIONS SECTION ---------------------------------------------------------------------
 echo "
   <div class=\"reservations-section\" style=\"text-align:center\">
     <br />
     <hr/>
-    <h1 style=\"margin-top:0px;\">
-      Reservations    
-    </h1>
-    <br />
     <div class=\"info-cardTips\">
-      <p>Select a reservation from the list to cancel <i class=\"fas fa-info-circle\"></i></p>
+      <h4 style=\"margin-top:0px;\">
+        Reservations    
+      </h4>
+        <p>Select a reservation from the list to cancel <i class=\"fas fa-info-circle\"></i></p>
     </div>
+    <br />
     <p><strong>Records Found: $recordCount</strong></p>
   ";
 ?>
@@ -147,7 +147,7 @@ echo "
     </tr>
   ";
 
-// query for event dates in ordered form (ascending)
+// makes the table data for the reservations
 while ($record = mysqli_fetch_array($sql_results)) {
   echo "
       <tr>
@@ -167,8 +167,7 @@ echo "
       </div>
     ";
 
-// WAITLIST TABLE STARTS HERE
-
+// WAITLIST SECTION STARTS HERE ---------------------------------------------------------
 if ($waitlistRecordCount == 0) {
   echo "";
 }
@@ -180,16 +179,15 @@ else {
   include "connectToDB.php";
   echo "
     <div class=\"waitlist-section\" style=\"text-align:center\">
-      <br />
-      <br />
+    <br />
       <hr/>
-      <h1 style=\"margin-top:0px;\">
-        Waitlist
-      </h1>
-      <br />
       <div class=\"info-cardTips\">
+        <h4 style=\"margin-top:0px;\">
+          Waitlist
+        </h4>
         <p>Select a waitlist from the list to cancel <i class=\"fas fa-info-circle\"></i></p>
       </div>
+      <br />
       <p><strong>Records Found: $waitlistRecordCount</strong></p>
 
       <table>
@@ -202,7 +200,7 @@ else {
       </tr>
   ";
 
-  // loops through the waitlist  
+  // loops through the waitlist. makes table data for waitlist  
   while ($record = mysqli_fetch_array($sql_results)) {
     echo "
       <tr>
@@ -222,9 +220,8 @@ else {
       ";
 }
 
-
 echo "
-      <br /><br />
+      <br /><br /><br /><br />
       <div class=\"buttonGroupContainer\">
         <div class=\"buttonGroup\">
           <a href=\"admin-dashboard.php\" class=\"buttonLinks3 dashboard-btns\">Dashboard</a>

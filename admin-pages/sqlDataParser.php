@@ -32,7 +32,7 @@ $event_dateArray = explode('-', $record[2]);
 $event_dateYear = $event_dateArray[0];
 $event_dateMonth = $event_dateArray[1];
 $event_dateDay = $event_dateArray[2];
-$event_dateFormatted = $event_dateMonth . "-" . $event_dateDay . "-" . $event_dateYear;
+$event_dateFormatted = $event_dateMonth . "/" . $event_dateDay . "/" . $event_dateYear;
 
 // formats the SQL data start/end time into hh:mm AM/PM
 $startTime = date_format(date_create($record[3]), "h:i A");
