@@ -119,7 +119,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
             value=\"$record[email]|$record[first_name]|$record[last_name]\" 
             oninvalid=\"this.setCustomValidity('Please mark a recipient to email, or go to dashboard.')\" 
             onchange=\"this.setCustomValidity('')\"
-            checked required>
+            checked>
       </td>
       <td>$record[2]</td>
       <td>$record[6]</td>

@@ -119,11 +119,11 @@ else {
     <hr class=\"HRstyle\"/>
     <div class=\"buttonGroupFiltersContainer\" style=\"margin-top:1rem; color:#005a87\">
       <div class=\"buttonGroupFilters\">
-        <button onclick=\"toggleAll()\" class=\"buttonLinksTables sectionFilterActive btnAll\">All</button> 
-        <button onclick=\"toggleReservationSection()\" class=\"buttonLinksTables btnReservations\" style=\"\">
+        <button onclick=\"toggleAll()\" class=\"buttonLinks3 sectionFilterActive btnAll\">All</button> 
+        <button onclick=\"toggleReservationSection()\" class=\"buttonLinks3 btnReservations\" style=\"\">
           Reservations
         </button>
-        <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinksTables btnWaitlist\">Waitlist</button>  
+        <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinks3 btnWaitlist\">Waitlist</button>  
       </div>
     </div>";
 }
