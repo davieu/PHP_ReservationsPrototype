@@ -137,7 +137,6 @@ echo "
             Available<br />
             Seats
           </th>
-          <th>Reserve<br />Seats</th>
         </tr>
     ";
 
@@ -151,20 +150,6 @@ echo "
           <td>$entree_name</td>
           <td>$$price</td>
           <td $inlineStyleAvailabiltyColor>$availabilityCount</td>
-          <td>  
-            <select name=\"seats_reserved\" id=\"seats_reserved\" required>
-          ";
-// Will determine how many seat selections are displayed based on available seats
-for ($i = 1; $i <= $selectSeatsAmount; $i++) {
-
-  echo "
-            <option value=\"$i\">$i</option>
-            ";
-}
-
-echo "                  
-            </select> 
-          </td>
         </tr>
       ";
 

@@ -90,6 +90,7 @@ $sql = "SELECT * FROM `waitlist`
 include "connectToDB.php";
 
 while ($record = mysqli_fetch_array($sql_results)) {
+  // There is a custom error message on the checkboxes with the oninvalide and onchange attributes
   echo "
     <tr>
     <td>$record[2]</td>
@@ -97,7 +98,12 @@ while ($record = mysqli_fetch_array($sql_results)) {
     <td>
     $record[4], $record[3]
     </td>
-    <td><input type=\"checkbox\" id=\"$record[1]\" name=\"waitlist_emails[]\" value=\"$record[email]|$record[first_name]|$record[last_name]\" checked></td>
+    <td><input type=\"checkbox\" id=\"$record[1]\" 
+                name=\"waitlist_emails[]\" 
+                value=\"$record[email]|$record[first_name]|$record[last_name]\" 
+                oninvalid=\"this.setCustomValidity('Please mark a recipient to email, or go to dashboard.')\" 
+                onchange=\"this.setCustomValidity('')\"
+                checked required></td>
     </tr>
     ";
 }

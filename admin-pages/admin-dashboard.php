@@ -40,17 +40,7 @@ echo
       <br />
       <br />
       <br />
-      <h1>Reservation Overview</h1>
-      <br />
-      <br />
-      <p>
-      Total Reserved This Week: 22<br />
-      Available Seats This Week: 10<br />
-      Waitlisted This Week: 0<br />
-      Total Reserved This Month: 89<br />
-      Total Waitlisted This Week: 15<br /><br />
-      </p>
-      <br />
+      <h4>Reservation Overview</h4>
       <br />
 ";
 

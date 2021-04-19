@@ -15,8 +15,10 @@ if (count($waitList_data) == 0) {
   echo "empty";
   header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
 }
-//    0           1              2       3          4          5           6        7      8     9       10
-// entree_name|entree_name|event_date|event_date|start_time|start_time|end_time|end_time|seats|seats|total_seats_reserved
+//    0           1              2       3          4          5       
+// entree_name|entree_name|event_date|event_date|start_time|start_time|
+//    6        7      8     9       10
+//end_time|end_time|seats|seats|total_seats_reserved
 //Frenchy|Frenchy|2021-04-29|2021-04-29|11:30:00|11:30:00|13:30:00|13:30:00|10|10|5|5
 // this is how the array looks like. since it was an associative array
 $dinnerInfoArrToStr = $_POST['dinnerInfoArrToStr'];
@@ -52,7 +54,7 @@ if ($emailEnabled) {
 }
 
 header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
-/*
+/* //reference
  $emailsArray = explode(":", $emailAddresses);
  $message = wordwrap($message, 70);
  foreach ($emailsArray as $currEmail) {

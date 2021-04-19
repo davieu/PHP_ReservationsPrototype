@@ -64,42 +64,48 @@ echo "
   </h1>
   <br />
   <br />
-  <div class=\"info-cardTips\">
     <p>
-      Current Dinner Data:<br />
-      Choose from the Reservation list or Waitlist(if applicable)
+      <strong>Current Dinner Data:</strong><br />
     </p>  
-  </div>
   ";
 
 echo "  
-  <table>
+<div class=\"table-container\">
+  <table class=\"table table-hover align-middle\">
     <tr>
+      <th>Entrée&nbspType</th>
       <th>Date</th>
-      <th>Entrée<br/>Type</th>
+      <th>Seats</th>
       <th>
-        Available<br />
-        Seats
+        Available&nbspSeats
       </th>
-      <th>
-        Total<br />
-        Reserved
-      </th>
+      <th>Total&nbspReserved</th>
     </tr>
 ";
 
+$tdAvailableSeats = $availabilityCount;
+if (!$waitlisted) {
+  $tdAvailableSeats = "Available:&nbsp$availabilityCount<br/>
+  Waitlist:&nbsp$waitlistReservedSeats";
+}
+
 // Table for the current dinner. Has info pertaining to the current dinner
 echo "
-    <tr>
-      <td><strong>$event_dateFormatted</strong><br />
-          $startTime-<br />
-          $endTime
+      <tr>
+			<td>$entree_name</td>
+      <td>
+        <strong>$event_dateFormatted</strong><br />
+        $startTime-<br />
+        $endTime
       </td>
-      <td>$entree_name</td>
-      <td $inlineStyleAvailabiltyColor>$availabilityCount</td>
-      <td >$total_seats_reserved</td>
-    </tr>
-  </table>
+      <td>$seats</td>
+			<td $inlineStyleAvailabiltyColor style=\"width:10rem\">
+        $tdAvailableSeats
+      </td>
+			<td>$totalReserved</td>
+      </tr>
+    </table>
+  </div>
   <br/>
 ";
 
@@ -109,41 +115,40 @@ if ($waitlistRecordCount == 0) {
   echo "";
 }
 else {
-  echo "<div class=\"buttonGroupContainer\" style=\"margin-top:1rem; color:#005a87\">
-    <div class=\"buttonGroup\">
-    <button onclick=\"toggleAll()\" class=\"buttonLinks3 sectionFilterActive btnAll\">All</button> 
-    <button onclick=\"toggleReservationSection()\" class=\"buttonLinks3 btnReservations\" style=\"margin-right:20px\">Reservations</button>
-    <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinks3 btnWaitlist\">Waitlist</button>  
-     
-    </div>
-  </div>";
+  echo "
+    <div class=\"buttonGroupContainer\" style=\"margin-top:1rem; color:#005a87\">
+      <div class=\"buttonGroup\">
+        <button onclick=\"toggleAll()\" class=\"buttonLinks3 sectionFilterActive btnAll\">All</button> 
+        <button onclick=\"toggleReservationSection()\" class=\"buttonLinks3 btnReservations\" style=\"margin-right:20px\">Reservations</button>
+        <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinks3 btnWaitlist\">Waitlist</button>  
+      </div>
+    </div>";
 }
 
 // RESRVATIONS SECTION ---------------------------------------------------------------------
 echo "
   <div class=\"reservations-section\" style=\"text-align:center\">
-    <br />
     <hr/>
-    <div class=\"info-cardTips\">
+    <div class=\"table-caption\">
       <h4 style=\"margin-top:0px;\">
-        Reservations    
+        Reservations Found: $recordCount   
       </h4>
-        <p>Select a reservation from the list to cancel <i class=\"fas fa-info-circle\"></i></p>
+        <p>Select a reservation</p>
     </div>
-    <br />
-    <p><strong>Records Found: $recordCount</strong></p>
   ";
 ?>
 
 <?php
 echo "
-    <table>
+<div class=\"table-container\">
+  <table class=\"table table-hover align-middle\">
     <tr>
-      <th>
-        <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">Confirmation/Email <i class=\"far fa-caret-square-down\"></i></span>
-      </th>
-      <th>Seats<br/>Reserved</th>
       <th>Name</th>
+      <th>
+        <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">Confirmation/Email&nbsp<i class=\"far fa-caret-square-down\"></i>&nbsp</span>
+      </th>
+      <th>Phone&nbspNumber</th>
+      <th>Seats&nbspReserved</th>
     </tr>
   ";
 
@@ -151,20 +156,22 @@ echo "
 while ($record = mysqli_fetch_array($sql_results)) {
   echo "
       <tr>
-        <td><span class=\"emailRow\" style=\"display:none\">$record[5]</span><span class=\"confirmationRow\">$record[8]</span></td>
-        <td>$record[10]</td>
         <td>
           <a href=\"admin-cancelOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" class=\"buttonLinks3 tableSelect\">
             $record[3], $record[2]
           </a>
         </td>
+        <td><span class=\"emailRow\" style=\"display:none\">$record[5]</span><span class=\"confirmationRow\">$record[8]</span></td>
+        <td>$record[4]</td>
+        <td>$record[10]</td>
       </tr>
     ";
 }
 
 echo "
       </table>
-      </div>
+    </div>
+  </div>
     ";
 
 // WAITLIST SECTION STARTS HERE ---------------------------------------------------------
@@ -179,44 +186,47 @@ else {
   include "connectToDB.php";
   echo "
     <div class=\"waitlist-section\" style=\"text-align:center\">
-    <br />
       <hr/>
-      <div class=\"info-cardTips\">
+      <div class=\"table-caption\">
         <h4 style=\"margin-top:0px;\">
-          Waitlist
+          Waitlists Found: $waitlistRecordCount
         </h4>
-        <p>Select a waitlist from the list to cancel <i class=\"fas fa-info-circle\"></i></p>
+        <p>Select a waitlist</p>
       </div>
-      <br />
-      <p><strong>Records Found: $waitlistRecordCount</strong></p>
 
-      <table>
-      <tr>
-        <th>
-          Email
-        </th>
-        <th>Seats<br/>Reserved</th>
-        <th>Name</th>
-      </tr>
+      <div class=\"table-container\">
+        <table class=\"table table-hover align-middle\">
+        <tr>
+          <th>Name</th>
+          <th>
+            Email
+          </th>
+          <th>
+            Phone&nbspNumber
+          </th>
+          <th>Seats&nbspReserved</th>  
+        </tr>
   ";
 
   // loops through the waitlist. makes table data for waitlist  
   while ($record = mysqli_fetch_array($sql_results)) {
     echo "
       <tr>
-        <td>$record[2]</td>
-        <td>$record[6]</td>
         <td>
           <a href=\"admin-cancelOneWaitlist.php?waitlist_id=$record[1]&dinner_id=$dinner_id\" class=\"buttonLinks3 tableSelect\">
             $record[4], $record[3]
           </a>
         </td>
+        <td>$record[2]</td>
+        <td>$record[5]</td>
+        <td>$record[6]</td>
       </tr>
     ";
   }
   echo "
         </table>
       </div>
+    </div>
       ";
 }
 

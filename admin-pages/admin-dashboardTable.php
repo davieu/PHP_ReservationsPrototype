@@ -8,39 +8,49 @@ $sql = "SELECT * FROM dinners
 include "connectToDB.php";
 
 echo "
-Filter by Meals: ALL <br />Moraccan, German, Cajun
-<br /><br />
-";
-
-echo "
-<table>
-  <tr>
-    <th>Date</th>
-    <th>Entrée<br/>Type</th>
-    <th>
-      Available<br />
-      Seats
-    </th>
-    <th>Total <br />Reserved</th>
-  </tr>
+<div class=\"table-container\">
+  <table class=\"table table-hover align-middle\">
+    <tr>
+      <th>Entrée&nbspType</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Seats</th>
+      <th>
+        Available&nbspSeats
+      </th>
+      <th>Total&nbspReserved</th>
+    </tr>
 ";
 
 while ($record = mysqli_fetch_array($sql_results)) {
   include "sqlDataParser.php";
+  // will determine what is placed in the Available Seats td. based on the sqlDataParser logic
+  $tdAvailableSeats = $availabilityCount;
+  if (!$waitlisted) {
+    $tdAvailableSeats = "Available:&nbsp$availabilityCount<br/>
+    Waitlist:&nbsp$waitlistReservedSeats";
+  }
   echo "
 		<tr>
-			<td><strong>$event_dateFormatted</strong><br />
-          $startTime-<br />
-          $endTime</td>
 			<td>$record[1]</td>
-			<td $inlineStyleAvailabiltyColor>$availabilityCount</td>
-			<td>$SUM_waitlistAndReserved</td>
+      <td>
+        <strong>$event_dateFormatted</strong><br />
+        $startTime-<br />
+        $endTime
+      </td>
+      <td>$$record[price]</td>
+      <td>$record[seats]</td>
+			<td $inlineStyleAvailabiltyColor style=\"width:10rem\">
+        $tdAvailableSeats
+      </td>
+			<td>$totalReserved</td>
 		</tr>
 	";
 }
 
 echo "
-    </table>
+      </table>
+    </div>
 
   ";
 ?>

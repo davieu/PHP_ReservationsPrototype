@@ -3,7 +3,8 @@
 $availableSeats = $record['seats'];
 $availabilityCount = $record['seats'] - $record['total_seats_reserved'];
 $waitlist = $record['seats'] - $record['total_seats_reserved'];
-$inlineStyleAvailabiltyColor;
+$inlineStyleAvailabiltyColor = "";
+$inlineStyleWaitlistColor = "";
 $totalReserved = $record['total_seats_reserved'];
 $waitlistReservedSeats = $record['waitlist_total_reserved'];
 $SUM_waitlistAndReserved = $totalReserved + $waitlistReservedSeats;
@@ -11,22 +12,35 @@ $test = $record['seats'];
 $waitlisted = false;
 
 
-if ($availabilityCount > 0) {
-  $waitlisted = false;
+if ($availabilityCount > 0 and $waitlistReservedSeats < 1) {
+  $waitlisted = true;
   $inlineStyleAvailabiltyColor = 'style="background-color: rgb(148, 226, 148)"';
-
 }
-elseif ($availabilityCount == 0) {
-  $waitlisted = true;
-  $availabilityCount = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
-  $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
-}
-// if availability these will produce the computed css or html outputs
 else {
-  $waitlisted = true;
-  $availabilityCount = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
+  $waitlisted = false;
   $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
 }
+
+if ($availabilityCount == 0 and $waitlistReservedSeats == 0) {
+  $waitlisted = true;
+  $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
+}
+// elseif ($availabilityCount == 0) {
+//   $waitlisted = true;
+//   $availabilityCount = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
+//   $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
+// }
+// // if availability these will produce the computed css or html outputs
+// else {
+//   $waitlisted = true;
+//   $availabilityCount = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
+//   $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
+// }
+
+// if ($waitlistReservedSeats > 0) {
+//   $inlineStyleWaitlistColor = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
+//   $inlineStyleWaitlistColor = 'style="background-color: rgb(255, 244, 146)"';
+// }
 
 $event_dateArray = explode('-', $record[2]);
 $event_dateYear = $event_dateArray[0];
