@@ -23,7 +23,7 @@ echo "
   </h1>
   <br />
   <br />
-  <p><strong>Select a meal to filter the reservations</strong></p>
+  <p><strong>Select an Entrée to filter reservations</strong></p>
   <div class=\"table-container\">
     <table class=\"table table-hover align-middle\">
       <tr>
@@ -45,6 +45,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
   // to understand the parsing and the variables below please view the "sqlDataParser.php" page
   include "sqlDataParser.php";
 
+  // will determine what is placed in the Available Seats td. based on the sqlDataParser logic
   $tdAvailableSeats = $availabilityCount;
   if (!$waitlisted) {
     $tdAvailableSeats = "Available:&nbsp$availabilityCount<br/>
@@ -78,7 +79,7 @@ echo "
     </table>
     </div>
     <br /><br />
-    <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
+    <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
   <br /><br /><br />
 </div>";
 

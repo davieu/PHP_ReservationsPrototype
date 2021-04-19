@@ -83,6 +83,7 @@ echo "
     </tr>
 ";
 
+// will determine what is placed in the Available Seats td. based on the sqlDataParser logic
 $tdAvailableSeats = $availabilityCount;
 if (!$waitlisted) {
   $tdAvailableSeats = "Available:&nbsp$availabilityCount<br/>
@@ -106,7 +107,6 @@ echo "
       </tr>
     </table>
   </div>
-  <br/>
 ";
 
 // This block will display the filter seection if waitlist data is available. if waitlist count is not 0 then
@@ -116,10 +116,13 @@ if ($waitlistRecordCount == 0) {
 }
 else {
   echo "
-    <div class=\"buttonGroupContainer\" style=\"margin-top:1rem; color:#005a87\">
-      <div class=\"buttonGroup\">
+    <hr class=\"HRstyle\"/>
+    <div class=\"buttonGroupFiltersContainer\" style=\"margin-top:1rem; color:#005a87\">
+      <div class=\"buttonGroupFilters\">
         <button onclick=\"toggleAll()\" class=\"buttonLinks3 sectionFilterActive btnAll\">All</button> 
-        <button onclick=\"toggleReservationSection()\" class=\"buttonLinks3 btnReservations\" style=\"margin-right:20px\">Reservations</button>
+        <button onclick=\"toggleReservationSection()\" class=\"buttonLinks3 btnReservations\" style=\"\">
+          Reservations
+        </button>
         <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinks3 btnWaitlist\">Waitlist</button>  
       </div>
     </div>";
@@ -128,7 +131,6 @@ else {
 // RESRVATIONS SECTION ---------------------------------------------------------------------
 echo "
   <div class=\"reservations-section\" style=\"text-align:center\">
-    <hr/>
     <div class=\"table-caption\">
       <h4 style=\"margin-top:0px;\">
         Reservations Found: $recordCount   
@@ -144,8 +146,8 @@ echo "
   <table class=\"table table-hover align-middle\">
     <tr>
       <th>Name</th>
-      <th>
-        <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">Confirmation/Email&nbsp<i class=\"far fa-caret-square-down\"></i>&nbsp</span>
+      <th style=\"min-width:11rem;\">
+        <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">Confirmation/Email&nbsp<i class=\"far fa-caret-square-down\"></i></span>
       </th>
       <th>Phone&nbspNumber</th>
       <th>Seats&nbspReserved</th>
@@ -157,7 +159,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
   echo "
       <tr>
         <td>
-          <a href=\"admin-cancelOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" class=\"buttonLinks3 tableSelect\">
+          <a href=\"admin-cancelOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" class=\"buttonLinksTables tableSelect\">
             $record[3], $record[2]
           </a>
         </td>
@@ -186,26 +188,24 @@ else {
   include "connectToDB.php";
   echo "
     <div class=\"waitlist-section\" style=\"text-align:center\">
-      <hr/>
       <div class=\"table-caption\">
         <h4 style=\"margin-top:0px;\">
           Waitlists Found: $waitlistRecordCount
         </h4>
         <p>Select a waitlist</p>
       </div>
-
       <div class=\"table-container\">
         <table class=\"table table-hover align-middle\">
-        <tr>
-          <th>Name</th>
-          <th>
-            Email
-          </th>
-          <th>
-            Phone&nbspNumber
-          </th>
-          <th>Seats&nbspReserved</th>  
-        </tr>
+          <tr>
+            <th>Name</th>
+            <th>
+              Email
+            </th>
+            <th>
+              Phone&nbspNumber
+            </th>
+            <th>Seats&nbspReserved</th>  
+          </tr>
   ";
 
   // loops through the waitlist. makes table data for waitlist  
@@ -213,7 +213,7 @@ else {
     echo "
       <tr>
         <td>
-          <a href=\"admin-cancelOneWaitlist.php?waitlist_id=$record[1]&dinner_id=$dinner_id\" class=\"buttonLinks3 tableSelect\">
+          <a href=\"admin-cancelOneWaitlist.php?waitlist_id=$record[1]&dinner_id=$dinner_id\" class=\"buttonLinksTables tableSelect\">
             $record[4], $record[3]
           </a>
         </td>
@@ -231,11 +231,11 @@ else {
 }
 
 echo "
-      <br /><br /><br /><br />
+      <br /><br />
       <div class=\"buttonGroupContainer\">
         <div class=\"buttonGroup\">
-          <a href=\"admin-dashboard.php\" class=\"buttonLinks3 dashboard-btns\">Dashboard</a>
-          <a href=\"admin-cancelReservation.php\" class=\"buttonLinks3 dashboard-btns\">Back To List</a>    
+          <a href=\"admin-dashboard.php\" class=\"buttonLinksTables dashboard-btns\">Dashboard</a>
+          <a href=\"admin-cancelReservation.php\" class=\"buttonLinksTables dashboard-btns\">Back To List</a>    
         </div>
         </div>
 

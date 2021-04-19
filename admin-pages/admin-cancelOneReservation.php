@@ -88,8 +88,8 @@ echo "
 echo "
         <hr /><br />
         <div style=\"text-align:center; display:flex; justify-content:space-between\">
-          <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinks3\" >Back To List</a>
-          <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
+          <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\" >Back To List</a>
+          <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
           </div>
           <div style=\"text-align:right; margin-top:1.5rem;\">
           
@@ -107,7 +107,7 @@ echo "
         Are you sure you want to cancel <strong>$first_name $last_name's</strong> reservation that is scheduled for <strong>$event_date</strong> with <strong>$entree_name</strong> meal type?
       </div>
       <div class=\"modal-footer\">
-        <a href=\"#\" class=\"buttonLinks3\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
+        <a href=\"#\" class=\"buttonLinksTables\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
         <input type=\"submit\" class=\"buttonLinksWarning\"
         name=\"submit\"	
         value=\"Cancel Reservation\" style=\"align-content:center; margin-left:1rem;\"/>	

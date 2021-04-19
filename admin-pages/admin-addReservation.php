@@ -24,20 +24,20 @@ echo "
   </h1>
   <br />
   <br />
-  <p><strong>Select a meal to create a reservation</strong></p>
+  <p><strong>Select an Entrée to create a reservation</strong></p>
 
-  <table>
-  <tr>
-    <th>Date</th>
-    <th>
-      Price
-    </th>
-    <th>
-    Available<br />
-    Seats
-  </th>
-    <th>Entrée<br/>Type</th>
-  </tr>
+  <div class=\"table-container\">
+    <table class=\"table table-hover align-middle\">
+      <tr>
+        <th>Entrée&nbspType</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Seats</th>
+        <th>
+          Available&nbspSeats
+        </th>
+        <th>Total&nbspReserved</th>
+      </tr>
 ";
 
 // query for event dates in ordered form (ascending)
@@ -46,25 +46,43 @@ while ($record = mysqli_fetch_array($sql_results)) {
   // parses data from the sql and also helps with the table "Available Seats" column coloring.
   // to understand the parsing and the variables below please view the "sqlDataParser.php" page
   include "sqlDataParser.php";
+  // will determine what is placed in the Available Seats td. based on the sqlDataParser logic
+  $tdAvailableSeats = $availabilityCount;
+  if (!$waitlisted) {
+    $tdAvailableSeats = "Available:&nbsp$availabilityCount<br/>
+      Waitlist:&nbsp$waitlistReservedSeats";
+  }
+
   echo "
 		<tr>
-			<td><strong>$event_dateFormatted</strong><br />
-          $startTime-<br />
-          $endTime</td>
-			<td>$$record[6]</td>
-			<td $inlineStyleAvailabiltyColor>$availabilityCount</td>
-      <td><a href=\"admin-addReservationUserInfo.php?dinner_id=$record[0]\" class=\"buttonLinks3 tableSelect\">$record[1]</a></td>
+      <td>
+        <a href=\"admin-addReservationUserInfo.php?dinner_id=$record[0]\" 
+          class=\"buttonLinksTables tableSelect\">$record[1]
+        </a>
+      </td>
+      <td>
+        <strong>$event_dateFormatted</strong><br />
+        $startTime-<br />
+        $endTime
+      </td>
+      <td>$$record[price]</td>
+      <td>$record[seats]</td>
+      <td $inlineStyleAvailabiltyColor style=\"width:10rem\">
+        $tdAvailableSeats
+      </td>
+      <td>$totalReserved</td>
 		</tr>
 	";
 }
 
 echo "
-    </table>
+      </table>
+    </div>
   ";
 
 echo "
     </table><br /><br />
-    <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
+    <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
   <br /><br /><br />
 </div>";
 

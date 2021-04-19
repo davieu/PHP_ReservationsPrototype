@@ -1,5 +1,5 @@
 .buttonLinks3 {
-  border: none;
+  border: 3px var(--main-app-color) solid;
   display: inline-block;
   padding: 0.35em 1.2em;
   margin: 0 0 0 0;
@@ -21,11 +21,13 @@
 .buttonLinks3:hover {
   color: white;
   background-color: var(--main-app-color2);
+  border: 3px var(--main-app-color) solid;
 }
 
 .buttonLinks3:active {
   color: white;
   background-color: var(--main-app-color2);
+  border: 3px var(--main-app-color) solid;
 }
 
 .dashboard-btns {
@@ -40,6 +42,46 @@ div.buttonGroup {
   margin-bottom: 1rem;
   :first-child {
     margin-right: 20px;
+  }
+}
+
+// buttons geoups no space/FILTERS GROUP
+div.buttonGroupFiltersContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  // margin-bottom: 1rem;
+}
+
+div.buttonGroupFilters {
+  display: flex;
+  // justify-content: space-between;
+  // margin-bottom: 1rem;
+  .buttonLinks3 {
+    border-radius: 0px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    button:nth-child(1) {
+      border-radius: 10px 0px 0px 10px;
+    }
+  }
+
+  button:active,
+  button:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none;
+    box-shadow: none;
+    border: 3px var(--main-app-color) solid;
+  }
+
+  .buttonLinks3:first-child {
+    border-radius: 10px 0px 0px 10px;
+  }
+
+  .buttonLinks3:last-child {
+    border-radius: 0px 10px 10px 0px;
   }
 }
 
@@ -149,7 +191,11 @@ a.buttonLinks2:active {
 }
 
 .HRstyle {
-  width: 90%;
+  width: 100%;
+}
+
+.formUserInfo {
+  width: 17rem;
 }
 
 .hint-boxes {
@@ -213,11 +259,14 @@ a.buttonLinks2:active {
 }
 
 @media screen and (min-width: 499px) {
+  .formUserInfo {
+    width: 23rem;
+  }
   .hint-boxes {
     width: 23rem;
   }
   .HRstyle {
-    width: 50%;
+    width: 100%;
   }
   .info-card2 {
     width: 20rem;
@@ -233,12 +282,21 @@ a.buttonLinks2:active {
 }
 
 .sectionFilterActive {
-  background-color: rgb(148, 226, 148);
+  background-color: white;
+  border: 3px var(--main-app-color) solid;
+  color: var(--main-app-color);
+  // var(--main-app-color)
+  // background-color: rgb(148, 226, 148);
 }
 
 .sectionFilterActive:hover {
   color: white;
-  background-color: rgb(85, 172, 85);
+  background-color: var(--main-app-color2);
+}
+
+.sectionFilterActive:focus {
+  color: var(--main-app-color);
+  background-color: white;
 }
 
 .buttonLinksTables {
@@ -267,4 +325,13 @@ a.buttonLinks2:active {
 
 .buttonLinksTables:active {
   background-color: var(--main-app-color2);
+}
+
+@media screen and (min-width: 1025px) {
+  .HRstyle {
+    width: 70%;
+  }
+  div.buttonGroupFiltersContainer {
+    width: 70%;
+  }
 }
