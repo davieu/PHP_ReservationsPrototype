@@ -103,13 +103,13 @@ echo "
               id=\"price\" class=\"inputText\" value=\"16\" required/><br /><br /><br />
 
         <div style=\"text-align:center; display:flex; justify-content:space-evenly\">
-        <input type=\"submit\" class=\"buttonLinks3\"
+        <input type=\"submit\" class=\"buttonLinksTables\"
         name=\"submit\"	
         value=\"Submit\" />	
-        <input type=\"reset\" class=\"buttonLinks3\"
+        <input type=\"reset\" class=\"buttonLinksTables\"
         name=\"reset\"	
         value=\"Clear\"/>
-        <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
+        <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
         </div>
 		</form>
        <br /><br /><br />

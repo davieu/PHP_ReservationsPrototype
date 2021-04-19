@@ -119,11 +119,11 @@ else {
     <hr class=\"HRstyle\"/>
     <div class=\"buttonGroupFiltersContainer\" style=\"margin-top:1rem; color:#005a87\">
       <div class=\"buttonGroupFilters\">
-        <button onclick=\"toggleAll()\" class=\"buttonLinks3 sectionFilterActive btnAll\">All</button> 
-        <button onclick=\"toggleReservationSection()\" class=\"buttonLinks3 btnReservations\" style=\"\">
+        <button onclick=\"toggleAll()\" class=\"buttonLinksTables sectionFilterActive btnAll\">All</button> 
+        <button onclick=\"toggleReservationSection()\" class=\"buttonLinksTables btnReservations\" style=\"\">
           Reservations
         </button>
-        <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinks3 btnWaitlist\">Waitlist</button>  
+        <button onclick=\"toggleWaitlistSection()\" class=\"buttonLinksTables btnWaitlist\">Waitlist</button>  
       </div>
     </div>";
 }
@@ -159,11 +159,17 @@ while ($record = mysqli_fetch_array($sql_results)) {
   echo "
       <tr>
         <td>
-          <a href=\"admin-cancelOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" class=\"buttonLinksTables tableSelect\">
+          <a href=\"admin-cancelOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" 
+            class=\"buttonLinksTables tableSelect\">
             $record[3], $record[2]
           </a>
         </td>
-        <td><span class=\"emailRow\" style=\"display:none\">$record[5]</span><span class=\"confirmationRow\">$record[8]</span></td>
+        <td>
+          <span class=\"emailRow\" style=\"display:none\">
+            $record[5]</span><span class=\"confirmationRow\">
+            $record[8]
+          </span>
+        </td>
         <td>$record[4]</td>
         <td>$record[10]</td>
       </tr>
@@ -213,7 +219,8 @@ else {
     echo "
       <tr>
         <td>
-          <a href=\"admin-cancelOneWaitlist.php?waitlist_id=$record[1]&dinner_id=$dinner_id\" class=\"buttonLinksTables tableSelect\">
+          <a href=\"admin-cancelOneWaitlist.php?waitlist_id=$record[1]&dinner_id=$dinner_id\"
+            class=\"buttonLinksTables tableSelect\">
             $record[4], $record[3]
           </a>
         </td>

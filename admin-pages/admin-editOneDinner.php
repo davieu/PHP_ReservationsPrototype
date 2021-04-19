@@ -153,13 +153,13 @@ echo "
 
 
         <div style=\"text-align:center; display:flex; justify-content:space-between\">
-          <input type=\"submit\" class=\"buttonLinks3\"
+          <input type=\"submit\" class=\"buttonLinksTables\"
           name=\"submit\"	
           value=\"Submit\" />	
-          <input type=\"reset\" class=\"buttonLinks3\"
+          <input type=\"reset\" class=\"buttonLinksTables\"
           name=\"reset\"	
           value=\"Clear\"/>
-          <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
+          <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
           </div>
           <div style=\"text-align:right; margin-top:1.5rem;\">
           
@@ -177,7 +177,7 @@ echo "
         Are you sure you want to delete <strong>$entree_name</strong> dinner that is scheduled for <strong>$event_dateFormatted</strong>?
       </div>
       <div class=\"modal-footer\">
-        <a href=\"#\" class=\"buttonLinks3\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
+        <a href=\"#\" class=\"buttonLinksTables\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
         <a href=\"admin-delDinnerProcess.php?dinner_id=$dinner_id\" class=\"buttonLinksWarning\" style=\"align-content:center; margin-left:1rem;\">Delete Dinner</a>
       </div>
     </div>
