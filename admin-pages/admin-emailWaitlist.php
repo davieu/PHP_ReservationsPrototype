@@ -85,7 +85,7 @@ echo "
   </p>
   <form name=\"addDinner\" 
     action=\"admin-emailWaitlistProcess.php?dinner_id=$dinner_id\"
-    method=\"POST\"  class=\"emailWaitlistForm\">
+    method=\"POST\"  class=\"emailWaitlistForm formTable\">
     <div class=\"table-container\" style=\"  margin: auto;\">
       <table class=\"table table-hover align-middle\">
         <tr>
@@ -110,7 +110,6 @@ $sql = "SELECT * FROM `waitlist`
 include "connectToDB.php";
 
 while ($record = mysqli_fetch_array($sql_results)) {
-  // There is a custom error message on the checkboxes with the oninvalide and onchange attributes
   echo "
     <tr>
       <td>
@@ -160,11 +159,12 @@ function checkAll() {
 
 <?PHP
 echo "
-    <div style=\"text-align:center;\">
-      <input type=\"submit\" class=\"buttonLinksTables\"
-      name=\"submit\"	
-      value=\"Send Emails\"/>	
-    </div>
+      <div style=\"text-align:center;\">
+        <input type=\"submit\" class=\"buttonLinksTables\"
+        name=\"submit\"	
+        value=\"Send Emails\"/>	
+      </div>
+      <br />
     </form>
       <br />
       <div class=\"buttonGroupContainer\">
@@ -172,8 +172,7 @@ echo "
           <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\">Dashboard</a>
           <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\">Back To List</a>    
         </div>
-        </div>
-
+      </div>
     <br /><br />
   </div>
   ";

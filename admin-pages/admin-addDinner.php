@@ -1,5 +1,5 @@
 <?php
-// Purpose: Fill out form to add a new dinner
+// Purpose: Fill out form to add a new dinner event
 
 include "account.php";
 

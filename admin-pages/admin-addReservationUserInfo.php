@@ -85,80 +85,80 @@ if (!$waitlisted) {
       Waitlist:&nbsp$waitlistReservedSeats";
 }
 
+// START of current dinner Table
 echo "  
     <div class=\"table-container\">
       <table class=\"table table-hover align-middle\">
-            <tr>
-              <th>Entrée&nbspType</th>
-              <th>Date</th>
-              <th>Seats</th>
-              <th>
-                Available&nbspSeats
-              </th>
-              <th>Total&nbspReserved</th>
-            </tr>
-        ";
-
-
-echo "
-      <tr>
-        <td>$entree_name</td>
-        <td>
-          <strong>$event_dateFormatted</strong><br />
-          $startTime-<br />
-          $endTime
-        </td>
-        <td>$seats</td>
-        <td $inlineStyleAvailabiltyColor style=\"width:10rem\">
-          $tdAvailableSeats
-        </td>
-        <td>$totalReserved</td>
-      </tr>
-    </table>
-  </div>
+        <tr>
+          <th>Entrée&nbspType</th>
+          <th>Date</th>
+          <th>Seats</th>
+          <th>
+            Available&nbspSeats
+          </th>
+          <th>Total&nbspReserved</th>
+        </tr>
+        <tr>
+          <td>$entree_name</td>
+          <td>
+            <strong>$event_dateFormatted</strong><br />
+            $startTime-<br />
+            $endTime
+          </td>
+          <td>$seats</td>
+          <td $inlineStyleAvailabiltyColor style=\"width:10rem\">
+            $tdAvailableSeats
+          </td>
+          <td>$totalReserved</td>
+        </tr>
+      </table>
+    </div>
   ";
+// END of current dinner table
 
 
+// START of form
 echo "
   <hr class=\"HRstyle\"/>
-      <p><strong>$titleNAme Info</strong></p>
-      <br />
-      <form style=\"\" name=\"addDinner\" 
-        class=\"formUserInfo\"
-        action=\"admin-addReservationProcess.php?dinner_id=$dinner_id\"
-        method=\"POST\">
+  <br />
+  <p><strong>$titleNAme Info</strong></p>
+  <br />
+  <form style=\"\" name=\"addDinner\" 
+    class=\"formUserInfo\"
+    action=\"admin-addReservationProcess.php?dinner_id=$dinner_id\"
+    method=\"POST\">
 
-          <input type=\"text\" 
-          name=\"dinner_info\"	
-          id=\"dinner_info\" style=\"display:none;\" value=\"$dinner_info\"/>
+      <input type=\"text\" 
+      name=\"dinner_info\"	
+      id=\"dinner_info\" style=\"display:none;\" value=\"$dinner_info\"/>
 
-          <div style=\"margin-bottom:1rem;\">
-            First Name:
-            <input type=\"text\" 
-              name=\"first_name\"	
-              id=\"first_name\" class=\"inputText\" required/>
-          </div>
-          <div style=\"margin-bottom:1rem;\">
-            Last Name:
-            <input type=\"text\" 
-              name=\"last_name\"	
-              id=\"last_name\" class=\"inputText\" required/>
-          </div>
-          <div style=\"margin-bottom:1rem;\">
-            Email:
-            <input type=\"email\" 
-              name=\"email\"	
-              id=\"email\" class=\"inputText\" required/>
-          </div>
-          <div style=\"margin-bottom:1rem;\">
-            Phone Number:
-            <input type=\"text\" 
-              name=\"phone_number\"	
-              id=\"phone_number\" class=\"inputText\" required/>
-          </div>
-          <div style=\"margin-bottom:1rem;\">
-            Reserve Seats:
-            <select name=\"seats_reserved\" id=\"seats_reserved\" class=\"inputText\" required>
+      <div style=\"margin-bottom:1rem;\">
+        First Name:
+        <input type=\"text\" 
+          name=\"first_name\"	
+          id=\"first_name\" class=\"inputText\" required/>
+      </div>
+      <div style=\"margin-bottom:1rem;\">
+        Last Name:
+        <input type=\"text\" 
+          name=\"last_name\"	
+          id=\"last_name\" class=\"inputText\" required/>
+      </div>
+      <div style=\"margin-bottom:1rem;\">
+        Email:
+        <input type=\"email\" 
+          name=\"email\"	
+          id=\"email\" class=\"inputText\" required/>
+      </div>
+      <div style=\"margin-bottom:1rem;\">
+        Phone Number:
+        <input type=\"text\" 
+          name=\"phone_number\"	
+          id=\"phone_number\" class=\"inputText\" required/>
+      </div>
+      <div style=\"margin-bottom:1rem;\">
+        Reserve Seats:
+        <select name=\"seats_reserved\" id=\"seats_reserved\" class=\"inputText\" required>
   ";
 
 // Will determine how many seat selections are displayed based on available seats
@@ -179,6 +179,7 @@ echo "
     </button>
   ";
 
+// the conditionals that follow will determine the tooltip button info. Based on seat availability
 if ($lowAvailableSeats) {
   echo "
       <div class=\"collapse\" id=\"tooltip\" class=\"hint-boxesCentering collapse\">

@@ -29,7 +29,7 @@ echo
       </div>
       <div class=\"buttonGroup\">
         <a href=\"admin-editDinner.php\" class=\"buttonLinksTables dashboard-btns\">Edit Dinner</a>
-        <a href=\"admin-reservation-actions.php\" class=\"buttonLinksTables dashboard-btns\">Edit Reservation</a>
+        <a href=\"admin-moveReservation.php\" class=\"buttonLinksTables dashboard-btns\">Move Reservation</a>
       </div>
       <div class=\"buttonGroup\">
         <a href=\"#\" style=\"visibility:hidden\"></a>
@@ -39,8 +39,6 @@ echo
       <a href=\"admin-systemLogs.php\" class=\"buttonLinksTables dashboard-btns\">View Logs</a>
       <br />
       <br />
-      <br />
-      <p><strong>Reservation Overview</strong></p>
       <br />
 ";
 

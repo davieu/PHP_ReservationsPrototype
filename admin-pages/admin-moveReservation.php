@@ -1,5 +1,5 @@
 <?php
-// Purpose: Shows the list of dinner events. Click on a dinner event to show reservations for that specific dinner
+//Purpose: Displays the dinner events. Click on a dinner event then it takes you to list of reservations for that dinner
 
 include "fileLinks.php";
 include "account.php";
@@ -20,7 +20,7 @@ echo "
 <div class=\"container\">
   <br /><br /><br /><br /><br /><br />
   <h1>
-  Admin Cancel Reservation:<br />
+  Admin Move Reservation:<br />
   Dinner List
   </h1>
   <br />
@@ -58,7 +58,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
 		<tr>
       <td>
         <strong>
-          <a href=\"admin-cancelReservationList.php?dinner_id=$record[0]\" 
+          <a href=\"admin-moveReservationList.php?dinner_id=$record[0]\" 
           class=\"buttonLinksTables tableSelect\">$record[1]</a>
         <strong>
       </td>

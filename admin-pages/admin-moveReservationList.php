@@ -1,5 +1,5 @@
 <?php
-// Purpose: show a list of reservations/waitlist for a specific dinner event. Click on a resrvation to delete/cancel it
+//Purpose: Shows the list of reservations. Click on one of the resrvations to move it to a different dinner event
 
 include "fileLinks.php";
 include "account.php";
@@ -61,8 +61,8 @@ echo "
 <div class=\"container\">
   <br /><br /><br /><br /><br /><br />
   <h1>
-  Admin Cancel:<br />
-  Reservations and Waitlists
+  Admin Move:<br />
+  Reservation and Waitlist
   </h1>
   <br />
   <br />
@@ -135,7 +135,7 @@ echo "
   <div class=\"reservations-section\" style=\"text-align:center\">
     <div class=\"table-caption\">
       <h5 style=\"margin-top:0px;\">
-        <strong>Select A Reservation To Cancel</strong><br />
+        <strong>Select A Reservation To Move</strong><br />
       </h5>
         <p>Reservations Found: $recordCount</p>
     </div>
@@ -163,7 +163,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
   echo "
       <tr>
         <td>
-          <a href=\"admin-cancelOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" 
+          <a href=\"admin-moveOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" 
             class=\"buttonLinksTables tableSelect\">
             $record[3], $record[2]
           </a>
@@ -199,14 +199,12 @@ else {
   include "connectToDB.php";
   echo "
     <div class=\"waitlist-section\" style=\"text-align:center\">
-
       <div class=\"table-caption\">
         <h5 style=\"margin-top:0px;\">
-          <strong>Select A Waitlist To Cancel</strong><br />
+          <strong>Select A Waitlist To Move</strong><br />
         </h5>
-          <p>Waitlists Found: $waitlistRecordCount</p>
+        <p>Waitlists Found: $waitlistRecordCount</p>
       </div>
-      
       <div class=\"table-container\">
         <table class=\"table table-hover align-middle\">
           <tr>
@@ -250,7 +248,7 @@ echo "
       <div class=\"buttonGroupContainer\">
         <div class=\"buttonGroup\">
           <a href=\"admin-dashboard.php\" class=\"buttonLinksTables dashboard-btns\">Dashboard</a>
-          <a href=\"admin-cancelReservation.php\" class=\"buttonLinksTables dashboard-btns\">Back To List</a>    
+          <a href=\"admin-moveReservation.php\" class=\"buttonLinksTables dashboard-btns\">Back To List</a>    
         </div>
         </div>
 

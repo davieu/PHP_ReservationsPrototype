@@ -59,6 +59,10 @@ table {
 //   }
 // }
 
+.elementWidth {
+  width: 100%;
+}
+
 // sections based on reservations or waitlists
 .reservations-section {
   width: 100%;
@@ -74,17 +78,13 @@ table {
   }
 }
 
-@media screen and (min-width: 499px) {
-  table {
-    td {
-      // padding: 0.5em 0em;
-      // font-size: 15px;
-      // font-weight: bold;
-    }
-  }
+@media screen and (min-width: 500px) {
 }
 
 @media screen and (min-width: 1025px) {
+  .elementWidth {
+    width: 70%;
+  }
   .reservations-section {
     width: 70%;
     .table-container {

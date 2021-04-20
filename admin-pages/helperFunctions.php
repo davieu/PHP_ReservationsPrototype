@@ -8,7 +8,7 @@ function dateSQLtoRead($parseDate)
   $event_dateYear = $event_dateArray[0];
   $event_dateMonth = $event_dateArray[1];
   $event_dateDay = $event_dateArray[2];
-  return $event_dateMonth . "-" . $event_dateDay . "-" . $event_dateYear;
+  return $event_dateMonth . "/" . $event_dateDay . "/" . $event_dateYear;
 }
 
 
@@ -26,26 +26,39 @@ function endTimeSQLtoRead($parseEndTime)
 }
 
 // for the inline style of coloring the seat availability
-function inlineTableColor($availableSeats)
+function inlineTableColor($currSeats, $currTotalResrvedSeats, $currWaitlistReservedSeats)
 {
+  $waitlisted = false;
 
-  $inlineStyleAvailabiltyColor = "";
+  $currAvailabilityCount = $currSeats - $currTotalResrvedSeats;
 
-  if ($availableSeats > 0) {
-    $inlineStyleAvailabiltyColor = 'style="background-color: rgb(148, 226, 148)"';
+  $currInlineStyleAvailabiltyColor = "";
 
-  }
-  elseif ($availableSeats == 0) {
+  if ($currAvailabilityCount > 0 and $currWaitlistReservedSeats < 1) {
     $waitlisted = true;
-    $availableSeats = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
-    $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
+    $currInlineStyleAvailabiltyColor = 'style="background-color: rgb(148, 226, 148)"';
+  // array_push($inlineStyleAvailabiltyColor);
   }
-  // if availability these will produce the computed css or html outputs
   else {
-    $waitlisted = true;
-    $availableSeats = 'Waitlist:<br/ > ' . $waitlistReservedSeats;
-    $inlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
+    $waitlisted = false;
+    $currInlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
+  // array_push($inlineStyleAvailabiltyColor);
   }
+
+  if ($currAvailabilityCount == 0 and $currWaitlistReservedSeats == 0) {
+    $waitlisted = true;
+    $currInlineStyleAvailabiltyColor = 'style="background-color: rgb(255, 244, 146)"';
+  // array_push($inlineStyleAvailabiltyColor);
+  }
+
+  $currTDavailableSeats = $currAvailabilityCount;
+  if (!$waitlisted) {
+    $currTDavailableSeats =
+      "Available:&nbsp$currAvailabilityCount<br/>
+    Waitlist:&nbsp$currWaitlistReservedSeats";
+  }
+
+  return "<td $currInlineStyleAvailabiltyColor style=\"width:10rem\">$currTDavailableSeats</td>";
 }
 
 ?>

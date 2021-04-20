@@ -294,11 +294,30 @@ form {
   border-radius: 10px;
 }
 
+.formTable {
+  padding: 0px 0px 1rem 0px;
+}
+
 form.emailWaitlistForm {
   width: 100%;
 }
 
+form.moveReservationTable {
+  width: 100%;
+}
+
+form.moveReservationTable .table-container {
+  width: 100%;
+}
+
+.btnGroupMoveReservation {
+  width: 100%;
+}
+
 @media screen and (min-width: 499px) {
+  .btnGroupMoveReservation {
+    width: 25rem;
+  }
   form {
     width: 23rem;
   }

@@ -36,6 +36,10 @@ table {
   border-collapse: collapse;
 }
 
+.elementWidth {
+  width: 100%;
+}
+
 .reservations-section {
   width: 100%;
 }
@@ -53,6 +57,9 @@ table {
 }
 
 @media screen and (min-width: 1025px) {
+  .elementWidth {
+    width: 70%;
+  }
   .reservations-section {
     width: 70%;
   }
