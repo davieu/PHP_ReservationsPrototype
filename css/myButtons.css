@@ -66,8 +66,7 @@ div.buttonGroupFilters {
 
 div.buttonGroupFilters .buttonLinks3 {
   border-radius: 0px;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0.2rem 0.2rem;
 }
 
 div.buttonGroupFilters .buttonLinks3 button:nth-child(1) {
@@ -216,7 +215,7 @@ a.buttonLinks2:active {
   background-color: var(--main-app-color);
   color: white;
   border-radius: 10px;
-  width: 17rem;
+  width: 15rem;
   padding: 1rem;
 }
 
@@ -227,9 +226,9 @@ a.buttonLinks2:active {
 .info-card {
   width: 100%;
   border-radius: 10px;
-  background-color: var(--main-app-color);
+  background-color: #eeeeee;
   padding: 1rem;
-  color: white;
+  color: black;
 }
 
 .info-card hr {
@@ -254,9 +253,9 @@ a.buttonLinks2:active {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background-color: var(--main-app-color);
-  padding: 1rem;
-  color: white;
+  background-color: #eeeeee;
+  padding: 0.5rem 1rem;
+  color: black;
   width: 17rem;
 }
 
@@ -266,6 +265,15 @@ a.buttonLinks2:active {
 
 .info-card2 hr {
   margin: 0.5rem 0px 0.5rem 0px;
+  border-color: var(--main-app-color);
+}
+
+.info-card2:first-child {
+  border-bottom: none;
+}
+
+.info-card2:nth-child(2) {
+  border-top: none;
 }
 
 .info-cardTips {
@@ -280,12 +288,31 @@ a.buttonLinks2:active {
   margin-bottom: 0px;
 }
 
+form {
+  background-color: #eeeeee;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+form.emailWaitlistForm {
+  width: 100%;
+}
+
 @media screen and (min-width: 499px) {
+  form {
+    width: 23rem;
+  }
   .formUserInfo {
     width: 23rem;
   }
+  form.emailWaitlistForm {
+    width: 27rem;
+  }
+  form.emailWaitlistForm .table-container {
+    width: 100%;
+  }
   .hint-boxes {
-    width: 23rem;
+    width: 21rem;
   }
   .HRstyle {
     width: 100%;

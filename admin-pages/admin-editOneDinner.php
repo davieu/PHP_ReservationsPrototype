@@ -113,7 +113,9 @@ for ($i = 0; $i < count($datesArray); $i++) {
   }
   elseif ($datesArray[$i] == $event_dateFormatted) {
     echo "
-      <option value=\"$datesArray[$i]\" $selectedDate style=\"background-color:rgb(148, 226, 148);\">$datesArray[$i]</option>";
+      <option value=\"$datesArray[$i]\" $selectedDate style=\"background-color:rgb(148, 226, 148);\">
+        $datesArray[$i]
+      </option>";
     $selectedDate = "selected";
   }
   else {
@@ -152,19 +154,26 @@ echo "
               id=\"dinner_id\" class=\"\" value=\"$dinner_id\" style=\"visibility:hidden;\"required/>
 
 
-        <div style=\"text-align:center; display:flex; justify-content:space-between\">
+        <div 
+          style=\"text-align:center; display:flex; justify-content:space-between; 
+          padding-right: 1rem; padding-left: 1rem\">
+
           <input type=\"submit\" class=\"buttonLinksTables\"
           name=\"submit\"	
           value=\"Submit\" />	
           <input type=\"reset\" class=\"buttonLinksTables\"
           name=\"reset\"	
           value=\"Clear\"/>
+          <a href=\"#\" class=\"buttonLinksWarning\" 
+            style=\"align-content:center;\" data-bs-toggle=\"modal\"
+            data-bs-target=\"#deleteDinnerModal\">Delete
+          </a>
+        </div>
+
+        <div style=\"text-align:center; display:flex; justify-content:space-between; margin-top:1.5rem; padding-right: 1rem; padding-left: 1rem\">
+          <a href=\"admin-editDinner.php\" class=\"buttonLinksTables\">Back</a>
           <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
-          </div>
-          <div style=\"text-align:right; margin-top:1.5rem;\">
-          
-          <a href=\"#\" class=\"buttonLinksWarning\" style=\"align-content:center;\" data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">Delete</a>
-          </div>
+        </div>
 
 <div class=\"modal fade\" id=\"deleteDinnerModal\" tabindex=\"-1\" aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">
   <div class=\"modal-dialog\">
@@ -174,11 +183,15 @@ echo "
         <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
       </div>
       <div class=\"modal-body\">
-        Are you sure you want to delete <strong>$entree_name</strong> dinner that is scheduled for <strong>$event_dateFormatted</strong>?
+        Are you sure you want to delete <strong>$entree_name</strong> dinner that is 
+        scheduled for <strong>$event_dateFormatted</strong>?
       </div>
       <div class=\"modal-footer\">
         <a href=\"#\" class=\"buttonLinksTables\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
-        <a href=\"admin-delDinnerProcess.php?dinner_id=$dinner_id\" class=\"buttonLinksWarning\" style=\"align-content:center; margin-left:1rem;\">Delete Dinner</a>
+        <a href=\"admin-delDinnerProcess.php?dinner_id=$dinner_id\" 
+          class=\"buttonLinksWarning\" style=\"align-content:center; margin-left:1rem;\">
+            Delete Dinner
+        </a>
       </div>
     </div>
   </div>

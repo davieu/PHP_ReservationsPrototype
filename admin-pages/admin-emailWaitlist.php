@@ -29,8 +29,8 @@ echo " <div class=\"container\">
   <br />
   <br />
   <h1>
-  Admin Email Waitlist:<br/>
-  Select Recipients
+    Admin Email Waitlist:<br/>
+    Select Recipients
   </h1>
   <br />
   <hr class=\"HRstyle\"/>
@@ -85,7 +85,7 @@ echo "
   </p>
   <form name=\"addDinner\" 
     action=\"admin-emailWaitlistProcess.php?dinner_id=$dinner_id\"
-    method=\"POST\" style=\"width:100%\">
+    method=\"POST\"  class=\"emailWaitlistForm\">
     <div class=\"table-container\" style=\"  margin: auto;\">
       <table class=\"table table-hover align-middle\">
         <tr>

@@ -40,7 +40,7 @@ echo
       <br />
       <br />
       <br />
-      <h4>Reservation Overview</h4>
+      <p><strong>Reservation Overview</strong></p>
       <br />
 ";
 

@@ -221,16 +221,20 @@ echo "
       <br />
       <hr /> 
       <br />
-      <div style=\"text-align:center; display:flex; justify-content:space-between\">
+      <div 
+      style=\"text-align:center; display:flex; 
+        justify-content:space-between; 
+        padding-right: 1rem; padding-left: 1rem\">
+
         <input type=\"submit\" class=\"buttonLinksTables\"
         name=\"submit\"	
         value=\"Submit\" />	
         <input type=\"reset\" class=\"buttonLinksTables\"
         name=\"reset\"	
         value=\"Clear\"/>
-        <a href=\"admin-addReservation.php\" class=\"buttonLinksTables\">Back to List</a>
+        <a href=\"admin-addReservation.php\" class=\"buttonLinksTables\">Back</a>
       </div>
-      <div style=\"text-align:right; margin-top:1.5rem;\">
+      <div style=\"text-align:right; margin-top:1.5rem; padding-right: 1rem\">
         <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\">Dashboard</a>
       </div>
 		</form>

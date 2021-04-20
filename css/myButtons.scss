@@ -9,13 +9,10 @@
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #ffffff;
-  // text-align: center;
   transition: all 0.2s;
   background-color: var(--main-app-color);
   padding-right: 7px;
   padding-left: 7px;
-  // width: 9rem;
-  // text-align: center;
 }
 
 .buttonLinks3:hover {
@@ -50,18 +47,13 @@ div.buttonGroupFiltersContainer {
   width: 100%;
   display: flex;
   justify-content: center;
-
-  // margin-bottom: 1rem;
 }
 
 div.buttonGroupFilters {
   display: flex;
-  // justify-content: space-between;
-  // margin-bottom: 1rem;
   .buttonLinks3 {
     border-radius: 0px;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.2rem 0.2rem;
     button:nth-child(1) {
       border-radius: 10px 0px 0px 10px;
     }
@@ -145,7 +137,6 @@ a.buttonLinks2:active {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
   color: #ffffff;
-  // text-align: center;
   transition: all 0.2s;
   background-color: rgb(211, 28, 28);
   padding-right: 7px;
@@ -204,7 +195,7 @@ a.buttonLinks2:active {
   color: white;
   // text-align: center;
   border-radius: 10px;
-  width: 17rem;
+  width: 15rem;
   padding: 1rem;
   p {
     margin-bottom: 0px;
@@ -214,9 +205,9 @@ a.buttonLinks2:active {
 .info-card {
   width: 100%;
   border-radius: 10px;
-  background-color: var(--main-app-color);
+  background-color: rgb(238, 238, 238);
   padding: 1rem;
-  color: white;
+  color: black;
   hr {
     margin: 0.5rem 0px 0.5rem 0px;
   }
@@ -234,17 +225,26 @@ a.buttonLinks2:active {
 .info-card2 {
   display: flex;
   justify-content: space-between;
-  // border-radius: 10px;
-  background-color: var(--main-app-color);
-  padding: 1rem;
-  color: white;
+  background-color: rgb(238, 238, 238);
+  padding: 0.5rem 1rem;
+  color: black;
   width: 17rem;
   p {
     margin: 0px 1rem 0px 0px;
   }
   hr {
     margin: 0.5rem 0px 0.5rem 0px;
+    border-color: var(--main-app-color);
   }
+}
+
+.info-card2:first-child {
+  border-bottom: none;
+}
+.info-card2:nth-child(2) {
+  border-top: none;
+  // border-bottom: none;
+  // border-color: red;
 }
 
 .info-cardTips {
@@ -258,12 +258,35 @@ a.buttonLinks2:active {
   }
 }
 
+form {
+  background-color: rgb(238, 238, 238);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+form.emailWaitlistForm {
+  width: 100%;
+}
+
 @media screen and (min-width: 499px) {
+  form {
+    width: 23rem;
+  }
+
   .formUserInfo {
     width: 23rem;
   }
+
+  form.emailWaitlistForm {
+    width: 27rem;
+
+    .table-container {
+      width: 100%;
+    }
+  }
+
   .hint-boxes {
-    width: 23rem;
+    width: 21rem;
   }
   .HRstyle {
     width: 100%;

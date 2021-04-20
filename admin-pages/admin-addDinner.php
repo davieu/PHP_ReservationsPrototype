@@ -102,7 +102,7 @@ echo "
               name=\"price\"	
               id=\"price\" class=\"inputText\" value=\"16\" required/><br /><br /><br />
 
-        <div style=\"text-align:center; display:flex; justify-content:space-evenly\">
+        <div style=\"text-align:center; display:flex; justify-content:space-around\">
         <input type=\"submit\" class=\"buttonLinksTables\"
         name=\"submit\"	
         value=\"Submit\" />	
