@@ -10,7 +10,11 @@ include "../globalVariable.php";
 // can be switched on or off by going to globalVariable.php
 if ($emailEnabled) {
   $subject = "Dinner Reservation Confirmation";
-  $message = "Thank you " . $first_name . " " . $last_name . " for making a reservation with the WCC Culinary Program.\nThe dinner will be based on " . $dinnerInfoArray[0] . " dishes.\nThe event starts on " . $dinnerInfoArray[1] . " at " . $dinnerInfoArray[2] . "-" . $dinnerInfoArray[3] . ".\nYour total is $" . $reservation_total . " for " . $seats_reserved . " seat(s).\nIf you have any questions feel free to contact the business office.\nYour confirmation code: " . $confirmation_code;
+  $message = "Thank you " . $first_name . " " . $last_name . " for making a reservation with the WCC Culinary 
+              Program.\nThe dinner will be based on " . $dinnerInfoArray[0] . " dishes.\nThe event starts 
+              on " . $dinnerInfoArray[1] . " at " . $dinnerInfoArray[2] . "-" . $dinnerInfoArray[3] . ".\nYour total is 
+              $" . $reservation_total . " for " . $seats_reserved . " seat(s).\nIf you have any questions feel free to 
+              contact the business office.\nYour confirmation code: " . $confirmation_code;
 
   $header = "MIME-Version: 1.0\r\n";
   $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";

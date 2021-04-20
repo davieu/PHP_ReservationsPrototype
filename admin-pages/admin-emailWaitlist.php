@@ -83,7 +83,7 @@ echo "
   <p>
     <strong>Waitlist Records Found: $recordCount</strong>
   </p>
-  <form name=\"addDinner\" 
+  <form name=\"emailRecipients\" 
     action=\"admin-emailWaitlistProcess.php?dinner_id=$dinner_id\"
     method=\"POST\"  class=\"emailWaitlistForm formTable\">
     <div class=\"table-container\" style=\"  margin: auto;\">

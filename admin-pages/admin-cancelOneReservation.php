@@ -79,15 +79,10 @@ echo "
       <hr />
       <p>Confirmation Code: <br />$confirmation_code</p>
     </div>
-    <input type=\"text\" 
-    name=\"reservation_info\"	
-    id=\"reservation_info\" class=\"inputText\" 
-    value=\"$reservation_info\" style=\"visibility:hidden;\"required/>
-    <br />
   ";
 
 echo "
-      <hr /><br />
+      <hr />
       <div style=\"text-align:center; display:flex; 
         justify-content:space-between; margin-right:1rem; 
         margin-left:1rem\">
@@ -102,9 +97,15 @@ echo "
           data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">
             Cancel Reservation
         </a>
+        <br />
+        <input type=\"text\" 
+          name=\"reservation_info\"	
+          id=\"reservation_info\" class=\"inputText\" 
+          value=\"$reservation_info\" style=\"visibility:hidden;\" required/>
       </div>
 
-    <div class=\"modal fade\" id=\"deleteDinnerModal\" tabindex=\"-1\" aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">
+    <div class=\"modal fade\" id=\"deleteDinnerModal\" tabindex=\"-1\" 
+              aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">
       <div class=\"modal-dialog\">
         <div class=\"modal-content\">
           <div class=\"modal-header\">

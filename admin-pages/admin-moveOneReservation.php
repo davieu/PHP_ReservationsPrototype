@@ -46,7 +46,7 @@ $reservation_total = $record['reservation_total'];
 $confirmation_code = $record['confirmation_code'];
 
 $reservation_info = $dinner_id . "|" . $confirmation_code . "|" . $seats_reserved . "|" . $first_name
-  . "|" . $last_name . "|" . $email;
+  . "|" . $last_name . "|" . $email . "|" . $entree_name1 . "|" . $event_date1;
 
 echo "
   <div class=\"container\">
@@ -90,10 +90,6 @@ echo "
         <hr />
         <p>Confirmation Code: <br />$confirmation_code</p>
       </div>
-      <input type=\"text\" 
-      name=\"reservation_info\"	
-      id=\"reservation_info\" class=\"inputText\" 
-      value=\"$reservation_info\" style=\"visibility:hidden;\"required/>
     </div>
           ";
 // END of resrvation data card
@@ -121,24 +117,19 @@ include "connectToDB.php";
 //START of available dinners table
 echo "
   <hr class=\"HRstyle\"/>
-  <p style=\"text-align: center;\">
-    <strong>
-      Query: Dinners with $seats_reserved seats available<br />
-      Select a dinner to move the reservation<br /><br />
-      Records Found: $dinnerstRecordCount
-    </strong>
-  </p>
 
-  <form name=\"addDinner\" 
+  <form name=\"changeDinnerEvent\" 
   action=\"admin-moveOneReservationProcess.php?dinner_id=$dinner_id\"
   method=\"POST\"  class=\"moveReservationTable formTable\">
   <div class=\"table-caption\" >
   <p style=\"text-align: center;\">
     <strong>
-      Dinner Reservations Overview</strong><br/>
-      Dinner Records Found: ss
-    
+      Select A Dinner To Move<br />
+    </strong>
+    Dinners with at least $seats_reserved seats available<br />
+    Records Found: $dinnerstRecordCount
   </p>
+
 </div>
   <div class=\"table-container\">
     <table class=\"table table-hover align-middle\">
@@ -185,7 +176,7 @@ while ($record = mysqli_fetch_array($sql_results)) {
     echo "
       <tr>
         <td>
-          <input type=\"radio\" id=\"$record[0]\" name=\"dinner_id\" value=\"$record[0]\" required>
+          <input type=\"radio\" id=\"$record[0]\" name=\"dinner_change_id\" value=\"$record[0]\" required>
         </td>
         <td>$record[1]</td>
         <td>
@@ -207,7 +198,12 @@ while ($record = mysqli_fetch_array($sql_results)) {
 echo "
       </table>
     </div>
-    <br />
+    
+    <input type=\"text\" 
+    name=\"reservation_info\"	
+    id=\"reservation_info\" 
+    value=\"$reservation_info\" style=\"visibility:hidden;\"required/>
+
     <div style=\"text-align:center;\">
       <input type=\"submit\" class=\"buttonLinksTables\"
       name=\"submit\"	

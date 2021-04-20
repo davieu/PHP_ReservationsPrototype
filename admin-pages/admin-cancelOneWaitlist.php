@@ -36,7 +36,8 @@ $phone_number = $record['phone_number'];
 $email = $record['email'];
 $seats_reserved = $record['seats_reserved'];
 
-$reservation_info = $dinner_id . "|" . $waitlist_id . "|" . $seats_reserved . "|" . $first_name . "|" . $last_name . "|" . $email;
+$reservation_info = $dinner_id . "|" . $waitlist_id . "|" . $seats_reserved . "|" . $first_name . "|" .
+  $last_name . "|" . $email;
 
 echo "
 <div class=\"container\">
@@ -73,45 +74,53 @@ echo "
         <hr />
         <p>Phone Number: <br />$phone_number</p>
         <hr />
-        <p>email: <br />$email</p>
+        <p>Email: <br />$email</p>
       </div>
-      <input type=\"text\" 
-      name=\"reservation_info\"	
-      id=\"reservation_info\" class=\"inputText\" value=\"$reservation_info\" style=\"visibility:hidden;\"required/><br />
-          ";
+";
 
 echo "
-        <hr /><br />
-        <div style=\"text-align:center; display:flex; justify-content:space-between\">
-          <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinks3\" >Back To List</a>
-          <a href=\"admin-dashboard.php\" class=\"buttonLinks3\" >Dashboard</a>
+        <hr />
+        <div style=\"text-align:center; display:flex; justify-content:space-between; margin-right:1rem; 
+        margin-left:1rem\">
+          <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\" >Back To List</a>
+          <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
           </div>
-          <div style=\"text-align:right; margin-top:1.5rem;\">
-          
-          <a href=\"#\" class=\"buttonLinksWarning\" style=\"align-content:center;\" data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">Cancel Waitlist</a>
-          </div>
+      <div style=\"text-align:right; margin-top:1.5rem; margin-right:1rem\">
+        <a href=\"#\" class=\"buttonLinksWarning\" style=\"align-content:center;\" 
+          data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">
+            Cancel Waitlist
+        </a>
+        <br />
+        <input type=\"text\" 
+          name=\"reservation_info\"	
+          id=\"reservation_info\" class=\"inputText\" 
+          value=\"$reservation_info\" style=\"visibility:hidden; display: block\" required/>
+      </div>
 
-<div class=\"modal fade\" id=\"deleteDinnerModal\" tabindex=\"-1\" aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">
-  <div class=\"modal-dialog\">
-    <div class=\"modal-content\">
-      <div class=\"modal-header\">
-        <h5 class=\"modal-title\" id=\"ModalLabel\">Are you sure?</h5>
-        <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
+      <div class=\"modal fade\" id=\"deleteDinnerModal\" tabindex=\"-1\"
+                 aria-labelledby=\"ModalLabel\" aria-hidden=\"true\">
+        <div class=\"modal-dialog\">
+          <div class=\"modal-content\">
+            <div class=\"modal-header\">
+              <h5 class=\"modal-title\" id=\"ModalLabel\">Are you sure?</h5>
+              <button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"modal\" aria-label=\"Close\"></button>
+            </div>
+            <div class=\"modal-body\">
+              Are you sure you want to cancel <strong>$first_name $last_name's</strong> 
+              waitlist reservation that is scheduled for <strong>$event_date</strong> with 
+              <strong>$entree_name</strong> meal type?
+            </div>
+            <div class=\"modal-footer\">
+              <a href=\"#\" class=\"buttonLinks3\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
+              <input type=\"submit\" class=\"buttonLinksWarning\"
+              name=\"submit\"	
+              value=\"Cancel Waitlist\" style=\"align-content:center; margin-left:1rem;\"/>	
+            </div>
+          </div>
+        </div>
       </div>
-      <div class=\"modal-body\">
-        Are you sure you want to cancel <strong>$first_name $last_name's</strong> waitlist reservation that is scheduled for <strong>$event_date</strong> with <strong>$entree_name</strong> meal type?
-      </div>
-      <div class=\"modal-footer\">
-        <a href=\"#\" class=\"buttonLinks3\" style=\"align-content:center;\" data-bs-dismiss=\"modal\">Close</a>
-        <input type=\"submit\" class=\"buttonLinksWarning\"
-        name=\"submit\"	
-        value=\"Cancel Waitlist\" style=\"align-content:center; margin-left:1rem;\"/>	
-      </div>
-    </div>
-  </div>
-</div>
 		</form>
-       <br /><br /><br />
+    <br /><br /><br />
 </div>";
 
 include "../footer.php";
