@@ -134,6 +134,6 @@ else {
 // emails the customer, notifying them of the dinner change
 // include "admin-moveReservationEmail.php";
 
-// header('Location: admin-moveReservation.php');
+header('Location: admin-dashboard.php');
 
 ?>

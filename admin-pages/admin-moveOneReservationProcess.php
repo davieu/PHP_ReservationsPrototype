@@ -62,6 +62,6 @@ include "admin-moveReservationEmail.php";
 
 
 
-header('Location: admin-moveReservation.php');
+header('Location: admin-dashboard.php');
 
 ?>
