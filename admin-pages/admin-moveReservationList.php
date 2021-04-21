@@ -131,36 +131,39 @@ else {
 }
 
 // RESRVATIONS SECTION ---------------------------------------------------------------------
-echo "
-  <div class=\"reservations-section\" style=\"text-align:center\">
-    <div class=\"table-caption\">
-      <h5 style=\"margin-top:0px;\">
-        <strong>Select A Reservation To Move</strong><br />
-      </h5>
-        <p>Reservations Found: $recordCount</p>
-    </div>
-  ";
-?>
-
-<?php
-echo "
-<div class=\"table-container\">
-  <table class=\"table table-hover align-middle\">
-    <tr>
-      <th>Name</th>
-      <th style=\"min-width:11rem;\">
-        <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">
-          Confirmation/Email&nbsp<i class=\"far fa-caret-square-down\"></i>
-        </span>
-      </th>
-      <th>Phone&nbspNumber</th>
-      <th>Seats&nbspReserved</th>
-    </tr>
-  ";
-
-// makes the table data for the reservations
-while ($record = mysqli_fetch_array($sql_results)) {
+// hides reservation list if no records
+if ($recordCount == 0) {
+  echo "";
+}
+else {
   echo "
+    <div class=\"reservations-section\" style=\"text-align:center\">
+      <div class=\"table-caption\">
+        <h5 style=\"margin-top:0px;\">
+          <strong>Select A Reservation To Move</strong><br />
+        </h5>
+          <p>Reservations Found: $recordCount</p>
+      </div>
+    ";
+  echo "
+    <div class=\"table-container\">
+      <table class=\"table table-hover align-middle\">
+        <tr>
+          <th>Name</th>
+          <th style=\"min-width:11rem;\">
+            <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">
+              Confirmation/Email&nbsp<i class=\"far fa-caret-square-down\"></i>
+            </span>
+          </th>
+          <th>Phone&nbspNumber</th>
+          <th>Seats&nbspReserved</th>
+        </tr>
+  ";
+
+  // makes the table data for the reservations  
+
+  while ($record = mysqli_fetch_array($sql_results)) {
+    echo "
       <tr>
         <td>
           <a href=\"admin-moveOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" 
@@ -178,14 +181,14 @@ while ($record = mysqli_fetch_array($sql_results)) {
         <td>$record[10]</td>
       </tr>
     ";
-}
-
-echo "
-      </table>
+  }
+  echo "
+        </table>
+      </div>
+      <br />
     </div>
-    <br />
-  </div>
-    ";
+  ";
+}
 
 // WAITLIST SECTION STARTS HERE ---------------------------------------------------------
 if ($waitlistRecordCount == 0) {
@@ -241,6 +244,33 @@ else {
       <br />
     </div>
       ";
+}
+
+if ($recordCount == 0 && $waitlistRecordCount == 0) {
+  echo "
+    <div class=\"reservations-section\" style=\"text-align:center\">
+      <div class=\"table-caption\">
+        <h5 style=\"margin-top:0px;\">
+          <strong>No Reservations Yet</strong><br />
+        </h5>
+          <p>Reservations Found: $recordCount</p>   
+      </div>
+      <div class=\"table-container\">
+        <table class=\"table table-hover align-middle\">      
+          <div class=\"buttonGroupContainer\">
+            <div class=\"buttonGroup\" 
+              style=\"justify-content:center; background-color: rgb(238, 238, 238); 
+              padding: 3rem 1rem; border-radius: 0px 0px 20px 20px\">
+                <a href=\"admin-addReservationUserInfo.php?dinner_id=$dinner_id\" 
+                class=\"buttonLinksTables dashboard-btns\">
+                  Add Reservation
+                </a>
+            </div>
+          </div>
+        </table>
+      </div>
+    </div>
+  ";
 }
 
 echo "

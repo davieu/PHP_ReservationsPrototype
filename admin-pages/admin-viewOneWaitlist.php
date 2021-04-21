@@ -59,10 +59,10 @@ echo "
         ";
 
 echo "   
-      <div class=\"info-card2\" style=\"border-radius: 10px 10px 0px 0px\">
+      <div class=\"info-card2\">
         <div><p>Entrée:</p></div><div>$entree_name</div>
       </div>
-      <div class=\"info-card2\" style=\"border-radius: 0px 0px 10px 10px\">
+      <div class=\"info-card2\">
         <div><p>Event Date:</p></div><div>$event_date</div>
       </div>
       <div class=\"info-card\">
@@ -79,12 +79,19 @@ echo "
 ";
 
 echo "
-        <hr />
-        <div style=\"text-align:center; display:flex; justify-content:space-between; margin-right:1rem; 
-        margin-left:1rem\">
-          <a href=\"admin-viewReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\" >Back To List</a>
-          <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
-          </div>
+      <hr />
+      <div style=\"text-align:center; display:flex; justify-content:space-between; margin-right:1rem; 
+      margin-left:1rem\">
+        <a href=\"admin-viewReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\" >Back To List</a>
+        <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
+      </div>
+      <div style=\"text-align:right; margin-top:1.5rem; margin-right:1rem\">
+        <a href=\"admin-moveOneWaitlist.php?waitlist_id=$waitlist_id&dinner_id=$dinner_id\"
+          class=\"buttonLinksTables\" style=\"align-content:center;\">
+            Move Waitlist
+        </a>
+      <br />
+      </div>
       <div style=\"text-align:right; margin-top:1.5rem; margin-right:1rem\">
         <a href=\"#\" class=\"buttonLinksWarning\" style=\"align-content:center;\" 
           data-bs-toggle=\"modal\" data-bs-target=\"#deleteDinnerModal\">

@@ -25,7 +25,7 @@ $last_name = $reservation_info[4];
 $email = $reservation_info[5];
 $entree_name1 = $reservation_info[6];
 $event_date1 = $reservation_info[7];
-$phone_number = $reservation_info[7];
+$phone_number = $reservation_info[8];
 
 $timestamp = date('Y-m-d H:i:s');
 $reservation_total = $newPrice * $seats_reserved;
@@ -94,8 +94,8 @@ if ($currentTotalSeatsReserved <= $seats) {
   //echo "$sql<br />";
   }
 
-// emails the customer with reseervation related data/confirmation code
-// include "admin-moveReservationEmail.php";
+  // emails the customer with reseervation related data/confirmation code
+  include "admin-moveWaitlistEmail.php";
 }
 else {
   // this will more than likely ont happen. since you are not able to choose unavailable dinners with no room.
@@ -131,9 +131,5 @@ else {
 // include "admin-addWaitlistSendEmail.php";
 }
 
-// emails the customer, notifying them of the dinner change
-// include "admin-moveReservationEmail.php";
-
 header('Location: admin-dashboard.php');
-
 ?>

@@ -68,19 +68,19 @@ echo "
 // START of reservation data card
 echo "   
     <div>
-      <div class=\"info-card2\" style=\"border-radius: 10px 10px 0px 0px; justify-content: center;\">
+      <div class=\"info-card2\" style=\"border-radius: 12px 12px 0px 0px; justify-content: center;\">
         <div><p><strong>Dinner Info:</strong></p></div>
       </div>
       <div class=\"info-card2\">
         <div><p>Entrée:</p></div>
         <div>$entree_name1</div>
       </div>
-      <div class=\"info-card2\" style=\"border-radius: 0px 0px 10px 10px\">
+      <div class=\"info-card2\">
         <div><p>Event Date:</p></div>
         <div>$event_date1</div>
       </div>
 
-      <div class=\"info-card\">
+      <div class=\"info-card\" style=\"border-radius:0px 0px 12px 12px\">
         <strong><p style=\"display:block; text-align:center\">Customer Info:</p></strong><br />
         <p>First Name: <span>$first_name</span></p>
         <hr />

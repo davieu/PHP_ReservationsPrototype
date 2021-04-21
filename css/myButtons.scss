@@ -3,7 +3,7 @@
   display: inline-block;
   padding: 0.35em 1.2em;
   margin: 0 0 0 0;
-  border-radius: 0.3em;
+  border-radius: 6px;
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
@@ -55,7 +55,7 @@ div.buttonGroupFilters {
     border-radius: 0px;
     padding: 0.2rem 0.2rem;
     button:nth-child(1) {
-      border-radius: 10px 0px 0px 10px;
+      border-radius: 12px 0px 0px 12px;
     }
   }
 
@@ -69,11 +69,11 @@ div.buttonGroupFilters {
   }
 
   .buttonLinks3:first-child {
-    border-radius: 10px 0px 0px 0px;
+    border-radius: 12px 0px 0px 0px;
   }
 
   .buttonLinks3:last-child {
-    border-radius: 0px 10px 0px 0px;
+    border-radius: 0px 12px 0px 0px;
   }
 }
 
@@ -194,7 +194,7 @@ a.buttonLinks2:active {
   background-color: var(--main-app-color);
   color: white;
   // text-align: center;
-  border-radius: 10px;
+  border-radius: 12px;
   width: 15rem;
   padding: 1rem;
   p {
@@ -204,7 +204,7 @@ a.buttonLinks2:active {
 
 .info-card {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: rgb(238, 238, 238);
   padding: 1rem;
   color: black;
@@ -251,7 +251,7 @@ a.buttonLinks2:active {
   background-color: #005a87;
   color: white;
   padding: 0.5rem;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
   p {
     margin-bottom: 0px;
@@ -261,7 +261,7 @@ a.buttonLinks2:active {
 form {
   background-color: rgb(238, 238, 238);
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .formTable {
@@ -346,7 +346,7 @@ form.moveReservationTable {
   display: inline-block;
   padding: 0.35em 7px;
   // margin: 0 0 0 0;
-  border-radius: 0.3em;
+  border-radius: 6px;
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Roboto', sans-serif;

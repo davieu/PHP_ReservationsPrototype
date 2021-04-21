@@ -59,10 +59,10 @@ echo "
         ";
 
 echo "   
-      <div class=\"info-card2\" style=\"border-radius: 10px 10px 0px 0px\">
+      <div class=\"info-card2\">
         <div><p>Entrée:</p></div><div>$entree_name</div>
       </div>
-      <div class=\"info-card2\" style=\"border-radius: 0px 0px 10px 10px\">
+      <div class=\"info-card2\">
         <div><p>Event Date:</p></div><div>$event_date</div>
       </div>
       <div class=\"info-card\">

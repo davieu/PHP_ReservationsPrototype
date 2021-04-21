@@ -251,6 +251,33 @@ else {
       ";
 }
 
+if ($recordCount == 0 && $waitlistRecordCount == 0) {
+  echo "
+    <div class=\"reservations-section\" style=\"text-align:center\">
+      <div class=\"table-caption\">
+        <h5 style=\"margin-top:0px;\">
+          <strong>No Reservations Yet</strong><br />
+        </h5>
+          <p>Reservations Found: $recordCount</p>   
+      </div>
+      <div class=\"table-container\">
+        <table class=\"table table-hover align-middle\">      
+          <div class=\"buttonGroupContainer\">
+            <div class=\"buttonGroup\" 
+              style=\"justify-content:center; background-color: rgb(238, 238, 238); 
+              padding: 3rem 1rem; border-radius: 0px 0px 20px 20px\">
+                <a href=\"admin-addReservationUserInfo.php?dinner_id=$dinner_id\" 
+                class=\"buttonLinksTables dashboard-btns\">
+                  Add Reservation
+                </a>
+            </div>
+          </div>
+        </table>
+      </div>
+    </div>
+  ";
+}
+
 echo "
       <br />
       <div class=\"buttonGroupContainer\">

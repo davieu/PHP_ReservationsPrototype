@@ -60,13 +60,22 @@ echo "
   <form name=\"addDinner\" 
   action=\"admin-cancelOneReservationProcess.php\"
   method=\"POST\">
-    <div class=\"info-card2\" style=\"border-radius: 10px 10px 0px 0px\">
-      <div><p>Entrée:</p></div><div>$entree_name</div>
+    <div class=\"info-card2\" style=\"justify-content: center;\">
+      <div><p><strong>Dinner Info:</strong></p></div>
     </div>
-    <div class=\"info-card2\" style=\"border-radius: 0px 0px 10px 10px\">
+    <div class=\"info-card2\">
+      <div>
+        <p>Entrée:</p>
+      </div>
+      <div>
+        $entree_name
+      </div>
+    </div>
+    <div class=\"info-card2\">
       <div><p>Event Date:</p></div><div>$event_date</div>
     </div>
     <div class=\"info-card\">
+      <strong><p style=\"display:block; text-align:center\">Customer Info:</p></strong><br />
       <p>First Name: <span>$first_name</span></p>
       <hr />
       <p>Last Name: <span>$last_name</span></p>
