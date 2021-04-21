@@ -113,7 +113,7 @@ echo "
 
 // This block will display the filter seection if waitlist data is available. if waitlist count is not 0 then
 // show the filter tables section. If waitlist then the SHOW filter will be active with the sectionFilterActive class
-if ($waitlistRecordCount == 0) {
+if ($waitlistRecordCount == 0 or $recordCount == 0) {
   echo "";
 }
 else {
@@ -131,63 +131,69 @@ else {
 }
 
 // RESRVATIONS SECTION ---------------------------------------------------------------------
-echo "
-  <div class=\"reservations-section\" style=\"text-align:center\">
-    <div class=\"table-caption\">
-      <h5 style=\"margin-top:0px;\">
-        <strong>Select A Reservation To View</strong><br />
-      </h5>
-        <p>Reservations Found: $recordCount</p>
-    </div>
-  ";
-?>
-
-<?php
-echo "
-<div class=\"table-container\">
-  <table class=\"table table-hover align-middle\">
-    <tr>
-      <th>Name</th>
-      <th style=\"min-width:11rem;\">
-        <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">
-          Confirmation/Email&nbsp<i class=\"far fa-caret-square-down\"></i>
-        </span>
-      </th>
-      <th>Phone&nbspNumber</th>
-      <th>Seats&nbspReserved</th>
-    </tr>
-  ";
-
-// makes the table data for the reservations
-while ($record = mysqli_fetch_array($sql_results)) {
-  echo "
-      <tr>
-        <td>
-          <a href=\"admin-viewOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" 
-            class=\"buttonLinksTables tableSelect\">
-            $record[3], $record[2]
-          </a>
-        </td>
-        <td>
-          <span class=\"emailRow\" style=\"display:none\">
-            $record[5]</span><span class=\"confirmationRow\">
-            $record[8]
-          </span>
-        </td>
-        <td>$record[4]</td>
-        <td>$record[10]</td>
-      </tr>
-    ";
+// hides reservation list if no records
+if ($recordCount == 0) {
+  echo "";
 }
+else {
+  echo "
+    <div class=\"reservations-section\" style=\"text-align:center\">
+      <div class=\"table-caption\">
+        <h5 style=\"margin-top:0px;\">
+          <strong>Select A Reservation To View</strong><br />
+        </h5>
+          <p>Reservations Found: $recordCount</p>
+      </div>
+  ";
 
-echo "
+  echo "
+    <div class=\"table-container\">
+      <table class=\"table table-hover align-middle\">
+        <tr>
+          <th>Name</th>
+          <th style=\"min-width:11rem;\">
+            <span onclick=\"toggleDataFunction()\" style=\"cursor: pointer;\">
+              Confirmation/Email&nbsp<i class=\"far fa-caret-square-down\"></i>
+            </span>
+          </th>
+          <th>Phone&nbspNumber</th>
+          <th>Seats&nbspReserved</th>
+        </tr>
+  ";
+
+
+  // makes the table data for the reservations  
+
+  while ($record = mysqli_fetch_array($sql_results)) {
+    echo "
+        <tr>
+          <td>
+            <a href=\"admin-viewOneReservation.php?reservation_index=$record[7]&dinner_id=$dinner_id\" 
+              class=\"buttonLinksTables tableSelect\">
+              $record[3], $record[2]
+            </a>
+          </td>
+          <td>
+            <span class=\"emailRow\" style=\"display:none\">
+              $record[5]</span><span class=\"confirmationRow\">
+              $record[8]
+            </span>
+          </td>
+          <td>$record[4]</td>
+          <td>$record[10]</td>
+        </tr>
+      ";
+  }
+  echo "
       </table>
     </div>
     <br />
   </div>
     ";
+}
 
 // WAITLIST SECTION STARTS HERE ---------------------------------------------------------
+// hides waitlist records if onne found
 if ($waitlistRecordCount == 0) {
   echo "";
 }

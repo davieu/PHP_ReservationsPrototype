@@ -224,7 +224,7 @@ else {
     echo "
       <tr>
         <td>
-          <a href=\"admin-cancelOneWaitlist.php?waitlist_id=$record[1]&dinner_id=$dinner_id\"
+          <a href=\"admin-moveOneWaitlist.php?waitlist_id=$record[1]&dinner_id=$dinner_id\"
             class=\"buttonLinksTables tableSelect\">
             $record[4], $record[3]
           </a>
