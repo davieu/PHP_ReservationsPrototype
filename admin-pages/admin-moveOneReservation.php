@@ -88,6 +88,8 @@ echo "
         <hr />
         <p>Seats Reserved: <span>$seats_reserved</span></p>
         <hr />
+        <p>Email: <br />$email</p>
+        <hr />
         <p>Confirmation Code: <br />$confirmation_code</p>
       </div>
     </div>
@@ -98,7 +100,7 @@ echo "
 // in regards to current customer reservation seats reserved amount. Will not include the current dinner.
 $sql = "SELECT COUNT(`dinner_id`)
         FROM `dinners`
-        WHERE  (`seats` - `total_seats_reserved`) > '$seats_reserved' AND `dinner_id` <> '$dinner_id' ";
+        WHERE  (`seats` - `total_seats_reserved`) >= '$seats_reserved' AND `dinner_id` <> '$dinner_id' ";
 include "connectToDB.php";
 $record = mysqli_fetch_array($sql_results);
 $dinnerstRecordCount = $record[0];
@@ -110,7 +112,8 @@ $dinnerstRecordCount = $record[0];
 // 3 seats.
 $sql = "SELECT *   
         FROM `dinners`
-        WHERE (`seats` - `total_seats_reserved`) > '$seats_reserved'";
+        WHERE (`seats` - `total_seats_reserved`) >= '$seats_reserved'
+        ORDER BY event_date";
 include "connectToDB.php";
 
 
@@ -223,7 +226,7 @@ echo "
     <a href=\"admin-MoveReservationList.php?dinner_id=$dinner_id\" 
       class=\"buttonLinksTables\" >Back To List
     </a>
-    <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\" >Dashboard</a>
+    <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\">Dashboard</a>
   </div>
   <br /><br /><br />
 </div>";

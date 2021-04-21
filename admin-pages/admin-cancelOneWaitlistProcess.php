@@ -17,7 +17,7 @@ $first_name = $reservationInfoArray[3];
 $last_name = $reservationInfoArray[4];
 $email = $reservationInfoArray[5];
 
-// delete the reservation
+// delete the waitlist
 $sql = "DELETE FROM `waitlist` WHERE `waitlist_id`='$waitlist_id'";
 include "connectToDBV2.php";
 

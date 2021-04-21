@@ -27,6 +27,8 @@ $end_time = $record['end_time'];
 $seats = $record['seats'];
 $price = $record['price'];
 $dinner_id = $record['dinner_id'];
+$total_seats_reserved = $record['total_seats_reserved'];
+
 
 
 
@@ -128,6 +130,8 @@ echo "
 </select>
 ";
 
+// there is a minumum seats available set to the amount of seats reserved for the dinner. That way you can't 
+// go under how many seats are already reserved in the system
 echo "
         <br />
         </div>
@@ -144,7 +148,7 @@ echo "
 				Available Seats: 
 				<input type=\"number\" 
 					 name=\"seats\"	
-					 id=\"seats\" class=\"inputText\" value=\"$seats\" required/><br /><br />
+					 id=\"seats\" class=\"inputText\" value=\"$seats\" min=\"$total_seats_reserved\" required/><br /><br />
         Price Per Seat:
            <input type=\"number\" 
               name=\"price\"	
