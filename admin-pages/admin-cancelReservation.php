@@ -9,8 +9,8 @@ $signedin = true;
 
 include "../nav.php";
 
-$stopMonth = 13;
-include "../dateGenerator.php";
+// $stopMonth = 13;
+// include "../dateGenerator.php";
 
 $sql = "SELECT * FROM dinners
         ORDER BY event_date";

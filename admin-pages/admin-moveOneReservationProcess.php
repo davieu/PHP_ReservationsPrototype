@@ -23,12 +23,13 @@ $successful = TRUE;
 echo "currDINNER: $dinner_id<br />changedDINNER: $dinner_change_id<br />
 confirmation: $confirmation_code<br/>$seats_reserved<br/>$email<br/>$first_name<br/>$entree_name1<br/>$event_date1";
 
+// update the reservation dinner_id. moves the dinner to specified new dinner/dinner_id
 $sql = "UPDATE `reservations` 
 SET `dinner_id` = '$dinner_change_id'
 WHERE `confirmation_code` = '$confirmation_code'";
 include "connectToDBV2.php";
 
-
+// update the customer dinner_id. moves the dinner to specified new dinner/dinner_id
 if ($successful) {
   $sql = "UPDATE `customers` 
   SET `dinner_id` = '$dinner_change_id'

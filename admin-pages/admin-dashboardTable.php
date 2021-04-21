@@ -1,5 +1,6 @@
 <?php
 //Purpose: This is the table for the dashboard. Seperated to slim down the dashboard page.php.
+// It is also for viewing reservations and waitlists
 
 include "account.php";
 
@@ -16,29 +17,12 @@ $sql = "SELECT * FROM dinners
         ORDER BY event_date";
 include "connectToDB.php";
 
-// <div class=\"table-caption\">
-// <h4 style=\"margin-top:0px;\">
-//   Reservations Found: $recordCount   
-// </h4>
-//   <p>Select a reservation</p>
-// </div>
-
-
-// <p style=\"text-align: center;\">
-//   <strong>
-//     Dinner Reservations Overview<br/>
-//     Dinner Records Found: $dinnerRecordCount
-//   </strong>
-// </p>
-// <br />
-
 echo "
 <div class=\"table-caption elementWidth\" >
   <p style=\"text-align: center;\">
     <strong>
       Dinner Reservations Overview</strong><br/>
       Dinner Records Found: $dinnerRecordCount
-    
   </p>
 </div>
 
@@ -66,11 +50,15 @@ while ($record = mysqli_fetch_array($sql_results)) {
   }
   echo "
 		<tr>
-			<td>$record[1]</td>
+			<td>
+        <a href=\"admin-viewReservationList.php?dinner_id=$record[0]\" 
+          class=\"buttonLinksTables tableSelect\">
+            $record[1]
+        </a>
+      </td>
       <td>
         <strong>$event_dateFormatted</strong><br />
-        $startTime-<br />
-        $endTime
+        $startTime-$endTime
       </td>
       <td>$$record[price]</td>
       <td>$record[seats]</td>

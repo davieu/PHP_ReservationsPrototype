@@ -260,7 +260,7 @@ a.buttonLinks2:active {
 }
 
 .info-card2 p {
-  margin: 0px 1rem 0px 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 .info-card2 hr {
@@ -337,7 +337,7 @@ form.moveReservationTable .table-container {
     width: 100%;
   }
   .info-card2 {
-    width: 20rem;
+    width: 21rem;
   }
 }
 
