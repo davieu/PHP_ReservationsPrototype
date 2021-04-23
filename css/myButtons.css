@@ -34,6 +34,29 @@
   text-align: center;
 }
 
+.dashboard-btnGroup {
+  border-radius: 12px 12px 0px 0px;
+  background-color: #eeeeee;
+  padding: 1rem;
+}
+
+.dashboard-links .dashboard-btns {
+  width: 12rem;
+  text-align: center;
+}
+
+.dashboard-links ul {
+  width: 12rem;
+}
+
+.dashboard-links hr {
+  margin: 0px;
+}
+
+.dropdown-toggle:focus {
+  background-color: var(--main-app-color2);
+}
+
 div.buttonGroup {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,9 +419,16 @@ form.moveReservationTable .table-container {
   div.buttonGroupFiltersContainer {
     width: 70%;
   }
-}
-
-.dropdown-toggle:focus {
-  background-color: var(--main-app-color2);
+  .dashboard-btnGroup {
+    width: 68.5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
 }
 /*# sourceMappingURL=myButtons.css.map */

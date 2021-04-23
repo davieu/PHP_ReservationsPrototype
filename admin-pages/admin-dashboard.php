@@ -22,27 +22,11 @@ echo
     <br />
     <br />
 
-    <div class=\"buttonGroupContainer\">
-      <div class=\"buttonGroup\">
-        <a href=\"admin-addDinner.php\" class=\"buttonLinksTables dashboard-btns\">Add Dinner</a>
-        <a href=\"admin-addReservation.php\" class=\"buttonLinksTables dashboard-btns\">Add Reservation</a>    
-      </div>
-      <div class=\"buttonGroup\">
-        <a href=\"admin-editDinner.php\" class=\"buttonLinksTables dashboard-btns\">Edit Dinner</a>
-        <a href=\"admin-moveReservation.php\" class=\"buttonLinksTables dashboard-btns\">Move Reservation</a>
-      </div>
-      <div class=\"buttonGroup\">
-        <a href=\"#\" style=\"visibility:hidden\"></a>
-        <a href=\"admin-cancelReservation.php\" class=\"buttonLinksTables dashboard-btns\">Cancel Reservation</a>
-    </div>
-    </div>
-      <a href=\"admin-emailConfirmation.php\" class=\"buttonLinksTables dashboard-btns\">Email Confirmation</a>
-      <br />
-      <a href=\"admin-systemLogs.php\" class=\"buttonLinksTables dashboard-btns\">View Logs</a>
-      <br />
 
-      <div class=\"dropdown\">
-        <button class=\"btn btn-secondary dropdown-toggle buttonLinksTables\" type=\"button\" 
+    <div class=\"dashboard-btnGroup\">
+
+      <div class=\"dropdown dashboard-links\">
+        <button class=\"btn btn-secondary dropdown-toggle buttonLinksTables dashboard-btns\" type=\"button\" 
           id=\"dropdownMenuButton1\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
             Dinner Actions
         </button>
@@ -53,8 +37,9 @@ echo
       </div>
 
       <br />
-      <div class=\"dropdown\">
-        <button class=\"btn btn-secondary dropdown-toggle buttonLinksTables\" type=\"button\" 
+
+      <div class=\"dropdown dashboard-links\">
+        <button class=\"btn btn-secondary dropdown-toggle buttonLinksTables dashboard-btns\" type=\"button\" 
           id=\"dropdownMenuButton1\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
             Reservation Actions
         </button>
@@ -62,15 +47,14 @@ echo
           <li><a class=\"dropdown-item\" href=\"admin-addReservation.php\">Add Reservation</a></li>
           <li><a class=\"dropdown-item\" href=\"admin-moveReservation.php\">Move Reservation</a></li>
           <li><a class=\"dropdown-item\" href=\"admin-cancelReservation.php\">Cancel Reservation</a></li>
+          <li><hr class=\"dropdown-divider\"></li>
           <li><a class=\"dropdown-item\" href=\"admin-emailConfirmation.php\">Email Confirmation</a></li>
-          
+          <li>
         </ul>
       </div>
-
-
       <br />
-      <br />
-      <br />
+      <a href=\"admin-systemLogs.php\" class=\"buttonLinksTables\" style=\"width: 12rem; text-align:center\">View Logs</a>
+      </div>
 ";
 
 // table

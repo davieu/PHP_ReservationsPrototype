@@ -14,12 +14,17 @@ if ($signedin == true) {
       </a>
       <ul class=\"dropdown-menu sidebar-drop\" aria-labelledby=\"dropdownMenuButton\">
         <li><a class=\"dropdown-item\" href=\"admin-dashboard.php\">Dashboard</a></li>
+        <li><hr class=\"dropdown-divider\"></li>
         <li><a class=\"dropdown-item\" href=\"admin-addDinner.php\">Add Dinner</a></li>
         <li><a class=\"dropdown-item\" href=\"admin-editDinner.php\">Edit Dinner</a></li>
+        <li><hr class=\"dropdown-divider\"></li>
         <li><a class=\"dropdown-item\" href=\"admin-addReservation.php\">Add Reservation</a></li>
         <li><a class=\"dropdown-item\" href=\"admin-moveReservation.php\">Move Reservation</a></li>
         <li><a class=\"dropdown-item\" href=\"admin-cancelReservation.php\">Cancel Reservation</a></li>
+        <li><a class=\"dropdown-item\" href=\"admin-emailConfirmation.php\">Email Confirmation</a></li>
+        <li><hr class=\"dropdown-divider\"></li>
         <li><a class=\"dropdown-item\" href=\"admin-systemLogs.php\">System Logs</a></li>
+        <li><hr class=\"dropdown-divider\"></li>
         <li><a class=\"dropdown-item\" href=\"../index.php\">Logout</a></li>
       </ul>
     </div>";
@@ -33,25 +38,25 @@ echo "
           <h1>Wilkes Community College</h1>
         </div>
         <ul class=\"nav-links-desktop\">
-          <li>
+          <li class=\"desktop-link\">
             <a href=\"$homeNavLink\"
               ><div class=\"tops\"></div>
               Home</a
             >
           </li>
-          <li>
+          <li class=\"desktop-link\">
             <a href=\"$reserveTableNavLink\"
               ><div class=\"tops\"></div>
               Reserve Table</a
             >
           </li>
-          <li>
+          <li class=\"desktop-link\">
           <a href=\"#about\"
             ><div class=\"tops\"></div>
             About</a
           >
         </li>
-        <li>
+        <li class=\"desktop-link\">
         $loginState
         </li>
         </ul>

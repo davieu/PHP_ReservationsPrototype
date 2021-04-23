@@ -32,6 +32,31 @@
   text-align: center;
 }
 
+.dashboard-btnGroup {
+  border-radius: 12px 12px 0px 0px;
+  background-color: rgb(238, 238, 238);
+  padding: 1rem;
+}
+
+.dashboard-links {
+  .dashboard-btns {
+    width: 12rem;
+    text-align: center;
+  }
+  ul {
+    // text-align: center;
+    width: 12rem;
+  }
+  hr {
+    margin: 0px;
+  }
+}
+
+// overwrite the bootstrap dropdown button focus.
+.dropdown-toggle:focus {
+  background-color: var(--main-app-color2);
+}
+
 // For button groups. 2 buttons per row
 div.buttonGroup {
   display: flex;
@@ -376,9 +401,14 @@ form.moveReservationTable {
   div.buttonGroupFiltersContainer {
     width: 70%;
   }
-}
 
-// overwrite the bootstrap dropdown button focus.
-.dropdown-toggle:focus {
-  background-color: var(--main-app-color2);
+  .dashboard-btnGroup {
+    // border-radius: 12px;
+    // background-color: rgb(238, 238, 238);
+    // padding: 1rem;
+    width: 68.5%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
 }

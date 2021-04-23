@@ -49,6 +49,19 @@ nav {
   background: var(--sidebar-color);
   // grid-row: 2/ auto-fill;
   // grid-column: 3/5;
+  hr {
+    margin: 0px;
+    border-color: white;
+  }
+
+  .dropdown {
+    li {
+      font-size: 15px;
+    }
+    ul a {
+      padding: 0.2rem;
+    }
+  }
 }
 
 // The sidebar slide effect is a scale. Activated in JS
@@ -124,18 +137,8 @@ nav {
   }
 }
 
-nav {
-  .dropdown {
-    cursor: pointer;
-    ul li:nth-child(n + 2) {
-      margin-top: 1rem;
-    }
-  }
-}
-.dropdown {
-  // color: black;
-  // margin-bottom: 2rem;
-  ul.sidebar-drop {
+.side-bar {
+  .dropdown ul {
     background-color: var(--main-app-color);
   }
 }
@@ -195,7 +198,7 @@ nav {
 
   .side-links::before {
     display: block;
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.1rem;
     height: 5px;
     content: '';
     background-color: var(--dividers);
@@ -233,14 +236,6 @@ h1 {
 }
 
 @media screen and (min-width: 1025px) {
-  .dropdown {
-    // color: black;
-    // margin-bottom: 2rem;
-    ul {
-      background-color: white;
-    }
-  }
-
   a:hover {
     color: white;
   }
@@ -274,7 +269,7 @@ h1 {
     background: var(--main-app-color);
     padding: 0;
     margin-bottom: 8px;
-    li {
+    .desktop-link {
       box-sizing: none;
       font-size: 14px;
 
@@ -308,5 +303,24 @@ h1 {
 @media screen and (min-width: 1550px) {
   nav {
     height: 4rem;
+  }
+}
+
+.desktop-link {
+  .dropdown {
+    hr {
+      margin: 0px;
+    }
+    ul {
+      // width: 100%;
+    }
+    a {
+      padding: 0.8rem;
+    }
+    li {
+      // padding: 0px;
+      // margin: 0px;
+      font-size: 15px;
+    }
   }
 }

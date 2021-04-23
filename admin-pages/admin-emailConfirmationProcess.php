@@ -48,7 +48,7 @@ if ($emailEnabled) {
   }
 }
 
-// header("Location: admin-emailConfirmation.php");
+header("Location: admin-emailConfirmation.php");
 
 /* //reference
  $emailsArray = explode(":", $emailAddresses);
