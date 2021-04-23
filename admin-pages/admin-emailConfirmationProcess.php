@@ -22,7 +22,7 @@ if (count($confirmationCodeData) == 0) {
 
 if ($emailEnabled) {
 
-  $subject = "Dinner Reservation Openings";
+  $subject = "Confirmation Code Request";
 
   $header = "MIME-Version: 1.0\r\n";
   $header .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -33,17 +33,16 @@ if ($emailEnabled) {
 
   foreach ($confirmationCodeData as $currData) {
     // data looks like--- email | confirmation_code | first_name | last_name |$entree_name
-    $currWaitlist = explode("|", $currData);
-    $currEmail = $currWaitlist[0];
-    $currconfirmation_code = $currWaitlist[1];
-    $currFirstName = $currWaitlist[2];
-    $currLastName = $currWaitlist[3];
-    $currentree_name = $currWaitlist[4];
+    $currReservation = explode("|", $currData);
+    $currEmail = $currReservation[0];
+    $currconfirmation_code = $currReservation[1];
+    $currFirstName = $currReservation[2];
+    $currLastName = $currReservation[3];
+    $currentree_name = $currReservation[4];
 
-    $message = "Hello " . $currFirstName . " " . $currLastName . ", your confirmation code 
-      for the dinner event of " . $currentree_name . " is:\n" . $currConfirmationCode . "\n 
-      We hope to see you there and thank you for supporting the WCC Culinary Program.\nIf you have any 
-      questions feel free to contact the business office.";
+    $message = "Hello " . $currFirstName . " " . $currLastName .
+      ", your confirmation code for the dinner event of " . $currentree_name . " is:\n" . $currconfirmation_code . "\n" .
+      "We hope to see you there and thank you for supporting the WCC " . "Culinary Program.\nIf you have any questions feel free to " . "contact the business office.";
     $status = mail($currEmail, $subject, $message, $header);
   }
 }
