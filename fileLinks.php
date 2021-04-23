@@ -14,4 +14,5 @@ $NavLogoImg = "assets/wccMountains.png";
 $homeNavLink = "index.php";
 $reserveTableNavLink = "customer-pages/reserveTable.php";
 $loginNavLink = "admin-pages/login.php";
+$adminDash = "admin-pages/admin-dashboard.php";
 ?>
