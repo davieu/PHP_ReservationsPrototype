@@ -251,6 +251,7 @@ else {
       ";
 }
 
+// show Add Reservation button if no record count for rservations and waitlist is empty
 if ($recordCount == 0 && $waitlistRecordCount == 0) {
   echo "
     <div class=\"reservations-section\" style=\"text-align:center\">

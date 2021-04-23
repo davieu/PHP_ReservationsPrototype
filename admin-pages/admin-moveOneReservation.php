@@ -203,9 +203,9 @@ echo "
     </div>
     
     <input type=\"text\" 
-    name=\"reservation_info\"	
-    id=\"reservation_info\" 
-    value=\"$reservation_info\" style=\"visibility:hidden;\"required/>
+      name=\"reservation_info\"	
+      id=\"reservation_info\" 
+      value=\"$reservation_info\" style=\"visibility:hidden;\"required/>
 
     <div style=\"text-align:center;\">
       <input type=\"submit\" class=\"buttonLinksTables\"

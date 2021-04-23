@@ -78,27 +78,32 @@ echo "
         </td>
     </table>
   </div>
-  <br />
   <hr class=\"HRstyle\"/>
-  <p>
-    <strong>Waitlist Records Found: $recordCount</strong>
-  </p>
   <form name=\"emailRecipients\" 
     action=\"admin-emailWaitlistProcess.php?dinner_id=$dinner_id\"
     method=\"POST\"  class=\"emailWaitlistForm formTable\">
-    <div class=\"table-container\" style=\"  margin: auto;\">
+
+    <div class=\"table-caption elementWidth\" style=\"width:100%\">
+      <p style=\"text-align: center;\">
+        <strong>
+          Send Availability Email To Waitlist</strong><br/>
+          Waitlist Records Found: $recordCount
+      </p>
+    </div>
+
+    <div class=\"table-container\" style=\" \">
       <table class=\"table table-hover align-middle\">
         <tr>
           <th>
             <span onclick=\"checkAll()\" style=\"cursor: pointer;\">
-              Toggle <i class=\"far fa-check-square\"></i>
+              Toggle&nbsp<i class=\"far fa-check-square\" style=\"display:inline\"></i>
             </span>
           </th>
+          <th>Name</th>
           <th>
             Email
           </th>
           <th>Seats<br/>Reserved</th>
-          <th>Name</th>
         </tr>
  ";
 
@@ -120,11 +125,11 @@ while ($record = mysqli_fetch_array($sql_results)) {
             onchange=\"this.setCustomValidity('')\"
             checked>
       </td>
+      <td>
+        $record[4], $record[3]
+      </td>
       <td>$record[2]</td>
       <td>$record[6]</td>
-      <td>
-      $record[4], $record[3]
-      </td>
     </tr>
     ";
 }
@@ -135,8 +140,30 @@ echo "
      name=\"dinnerInfoArrToStr\" value=\"$dinnerInfoArrToStr\"
       style=\"visibility:hidden;\">
   ";
+
+
+echo "
+    <div style=\"text-align:center;\">
+      <input type=\"submit\" class=\"buttonLinksTables\"
+      name=\"submit\"	
+      value=\"Send Emails\"/>	
+    </div>
+      <br />
+    </form>
+      <br />
+      <div class=\"buttonGroupContainer\">
+        <div class=\"buttonGroup\">
+          <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\">Dashboard</a>
+          <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\">Back To List</a>    
+        </div>
+      </div>
+    <br /><br />
+  </div>
+  ";
+
+include "../footer.php";
 ?>
-      
+
 <script>
 // this whole block is a toggle for the checkboxes. Toggles between checked and unchecked
 let toggleData = true;
@@ -156,26 +183,3 @@ function checkAll() {
   }
 };
 </script>
-
-<?PHP
-echo "
-      <div style=\"text-align:center;\">
-        <input type=\"submit\" class=\"buttonLinksTables\"
-        name=\"submit\"	
-        value=\"Send Emails\"/>	
-      </div>
-      <br />
-    </form>
-      <br />
-      <div class=\"buttonGroupContainer\">
-        <div class=\"buttonGroup\">
-          <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\">Dashboard</a>
-          <a href=\"admin-cancelReservationList.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\">Back To List</a>    
-        </div>
-      </div>
-    <br /><br />
-  </div>
-  ";
-
-include "../footer.php";
-?>

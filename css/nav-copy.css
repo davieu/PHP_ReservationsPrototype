@@ -157,7 +157,7 @@ nav .dropdown ul li:nth-child(n + 2) {
   margin-top: 1rem;
 }
 
-.dropdown ul {
+.dropdown ul.sidebar-drop {
   background-color: var(--main-app-color);
 }
 

@@ -48,7 +48,10 @@ if ($emailEnabled) {
     $currFirstName = $currWaitlist[1];
     $currLastName = $currWaitlist[2];
 
-    $message = "Hello " . $currFirstName . " " . $currLastName . ", we have great news regarding your dinner waitlist reservation.\nThe dinner reservation of $entree_name cuisine on $event_date has openings.\nWe hope to see you there and thank you for supporting the WCC Culinary Program.\nIf you have any questions feel free to contact the business office.";
+    $message = "Hello " . $currFirstName . " " . $currLastName . ", we have great news regarding your dinner 
+      waitlist reservation.\nThe dinner reservation of $entree_name cuisine on $event_date has 
+      openings.\nWe hope to see you there and thank you for supporting the WCC Culinary Program.\nIf you have any 
+      questions feel free to contact the business office.";
     $status = mail($currEmail, $subject, $message, $header);
   }
 }

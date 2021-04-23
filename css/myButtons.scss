@@ -377,3 +377,8 @@ form.moveReservationTable {
     width: 70%;
   }
 }
+
+// overwrite the bootstrap dropdown button focus.
+.dropdown-toggle:focus {
+  background-color: var(--main-app-color2);
+}

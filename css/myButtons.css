@@ -397,4 +397,8 @@ form.moveReservationTable .table-container {
     width: 70%;
   }
 }
+
+.dropdown-toggle:focus {
+  background-color: var(--main-app-color2);
+}
 /*# sourceMappingURL=myButtons.css.map */
