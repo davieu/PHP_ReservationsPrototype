@@ -223,7 +223,7 @@ echo "
     justify-content:space-evenly; margin-right:1rem; 
     margin-left:1rem;\"  class=\"btnGroupMoveReservation\">
 
-    <a href=\"admin-MoveReservationList.php?dinner_id=$dinner_id\" 
+    <a href=\"admin-moveReservationList.php?dinner_id=$dinner_id\" 
       class=\"buttonLinksTables\" >Back To List
     </a>
     <a href=\"admin-dashboard.php\" class=\"buttonLinksTables\">Dashboard</a>
