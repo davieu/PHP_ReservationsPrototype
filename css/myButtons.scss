@@ -289,6 +289,51 @@ form {
   border-radius: 12px;
 }
 
+form.login-form {
+  border-radius: 0px 12px 12px 12px;
+  width: 18rem;
+
+  input {
+    width: 9rem;
+  }
+
+  input:not([type='submit']) {
+    width: 8rem;
+  }
+}
+
+.login-choices-container {
+  display: flex;
+  width: 18rem;
+
+  .login-choices {
+    padding: 0.5rem;
+  }
+
+  .login-choices:nth-child(1):hover {
+    border-radius: 12px 0px 0px 0px;
+    background-color: rgb(238, 238, 238);
+  }
+
+  .login-choices:nth-child(2):hover {
+    border-radius: 0px 12px 0px 0px;
+    background-color: rgb(238, 238, 238);
+  }
+
+  .login-selected:nth-child(1) {
+    border-radius: 12px 0px 0px 0px;
+  }
+
+  .login-selected:nth-child(2) {
+    border-radius: 0px 12px 0px 0px;
+  }
+
+  .login-selected {
+    // border-radius: 12px 12px 0px 0px;
+    background-color: rgb(238, 238, 238);
+  }
+}
+
 .formTable {
   padding: 0px 0px 1rem 0px;
 }
@@ -337,6 +382,18 @@ form.moveReservationTable {
   }
   .info-card2 {
     width: 21rem;
+  }
+
+  form.login-form {
+    width: 23rem;
+
+    input:not([type='submit']) {
+      width: 12rem;
+    }
+  }
+
+  .login-choices-container {
+    width: 23rem;
   }
 }
 
