@@ -1,6 +1,7 @@
 <?php
 //Purpose: This page sends an emails to the customer of the resrvation notifying the customer that their reservation 
 // has been canceled. 
+// include "loginCheckForSID.php";
 
 // it's a global variable to enable sending emails or not.
 include "../globalVariable.php";

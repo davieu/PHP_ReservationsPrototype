@@ -1,5 +1,6 @@
 <?php
 include "account.php";
+include "loginCheckForSID.php";
 
 $dinner_id = $_GET['dinner_id'];
 $dinner_change_id = $_POST['dinner_change_id'];

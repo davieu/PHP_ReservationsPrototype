@@ -1,9 +1,10 @@
 <?php
 // Purpose: show a list of reservations/waitlist for a specific dinner event. click checkboxes to email confirmation.
-
-include "fileLinks.php";
 include "account.php";
+include "loginCheckForSID.php";
+include "fileLinks.php";
 include "../header.php";
+
 //simulates signed in
 $signedin = true;
 

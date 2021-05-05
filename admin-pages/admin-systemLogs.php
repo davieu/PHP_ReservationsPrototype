@@ -1,4 +1,6 @@
 <?php
+include "loginCheckForSID.php";
+
 include "fileLinks.php";
 include "../header.php";
 //simulates signed in

@@ -339,16 +339,17 @@ form.login-form input:not([type='submit']) {
 
 .login-choices-container .login-choices {
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 .login-choices-container .login-choices:nth-child(1):hover {
   border-radius: 12px 0px 0px 0px;
-  background-color: #eeeeee;
+  background-color: #d6d6d6;
 }
 
 .login-choices-container .login-choices:nth-child(2):hover {
   border-radius: 0px 12px 0px 0px;
-  background-color: #eeeeee;
+  background-color: #d6d6d6;
 }
 
 .login-choices-container .login-selected:nth-child(1) {
@@ -361,6 +362,10 @@ form.login-form input:not([type='submit']) {
 
 .login-choices-container .login-selected {
   background-color: #eeeeee;
+}
+
+.login-choices-container .hide-login-selected {
+  background-color: #f6f6f2;
 }
 
 .formTable {
@@ -485,5 +490,30 @@ form.moveReservationTable .table-container {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
+}
+
+.show-create-account {
+  display: block;
+}
+
+.hide-create-account {
+  display: none;
+}
+
+.show-login {
+  display: block;
+}
+
+.hide-login {
+  display: none;
+}
+
+.myModal {
+  font-weight: bold;
+  visibility: hidden;
+  color: #a11b1b;
+  padding: 0.5rem;
+  border-radius: 12px;
+  text-align: center;
 }
 /*# sourceMappingURL=myButtons.css.map */

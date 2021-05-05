@@ -1,4 +1,6 @@
 <?php
+// include "loginCheckForSID.php";
+
 //Purpose: Helper functions to quickly convert/pasrse data to desired format
 
 // will have certain functions for converting single items. Until whole site is formatted/refactored

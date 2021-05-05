@@ -1,4 +1,6 @@
 <?php
+// include "loginCheckForSID.php";
+
 // yyyy-mm-dd convert to readable format mm-dd-yyyy
 $event_dateArray = explode('-', $event_date);
 $event_dateYear = $event_dateArray[0];

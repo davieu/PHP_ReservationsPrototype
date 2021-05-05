@@ -151,7 +151,7 @@ if ($signedin == true) {
               <li><hr class=\"dropdown-divider\"></li>
               <li><a class=\"dropdown-item\" href=\"admin-systemLogs.php\">System Logs</a></li>
               <li><hr class=\"dropdown-divider\"></li>
-              <li><a class=\"dropdown-item\" href=\"../index.php\">Logout</a></li>
+              <li><a class=\"dropdown-item\" href=\"$logout\">Logout</a></li>
             </ul>
           </div>
         </li>
@@ -231,7 +231,7 @@ if ($signedin == true) {
               <li><hr class=\"dropdown-divider\"></li>
               <li><a class=\"dropdown-item\" href=\"admin-systemLogs.php\">System Logs</a></li>
               <li><hr class=\"dropdown-divider\"></li>
-              <li><a class=\"dropdown-item\" href=\"../index.php\">Logout</a></li>
+              <li><a class=\"dropdown-item\" href=\"$logout\">Logout</a></li>
             </ul>
           </div>
         </li>

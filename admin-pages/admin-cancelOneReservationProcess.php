@@ -3,6 +3,7 @@
 // was chosen
 
 include "account.php";
+include "loginCheckForSID.php";
 
 $successful = TRUE;
 // $dinner_id = $_GET['dinner_id'];
@@ -54,9 +55,9 @@ $waitlistRecordCount = $record[0];
 // redirect to the waitlist email page. If no waitlists then send back to reservation lists.
 if ($waitlistRecordCount > 0) {
   // send email to customer with canceled resrvation
-  header("Location: admin-emailWaitlist.php?dinner_id=$dinner_id");
+  // header("Location: admin-emailWaitlist.php?dinner_id=$dinner_id");
 }
 else {
-  header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
+  // header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
 }
 ?>

@@ -3,8 +3,10 @@
 // has an overview table
 
 /* include "admin-nav.php"; include "admin-dashboardHTML.html"; include "../footer.php"; */
+include "loginCheckForSID.php";
 
 include "fileLinks.php";
+
 include "../header.php";
 //simulates signed in
 $signedin = true;

@@ -2,6 +2,7 @@
 // Purpose: Fill out form to add a new dinner event
 
 include "account.php";
+include "loginCheckForSID.php";
 
 include "fileLinks.php";
 include "../header.php";

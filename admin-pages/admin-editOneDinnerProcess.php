@@ -2,6 +2,8 @@
 //Purpose: Processes the data from the admin-editOneDinner page/form. Will update the DB for that dinner
 
 include "account.php";
+include "loginCheckForSID.php";
+
 
 $dinner_id = $_GET['dinner_id'];
 $entree_name = $_POST['entree_name'];

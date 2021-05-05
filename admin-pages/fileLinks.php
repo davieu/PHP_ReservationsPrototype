@@ -1,4 +1,5 @@
 <?php
+
 // CUSTOMER PAGES Links
 $cssFiles = "        
 		<link rel=\"stylesheet\" href=\"../css/main.css\" />
@@ -16,4 +17,5 @@ $homeNavLink = "../index.php";
 $reserveTableNavLink = "../customer-pages/reserveTable.php";
 $loginNavLink = "../admin-pages/login.php";
 $adminDash = "../admin-pages/admin-dashboard.php";
+$logout = "logout.php";
 ?>

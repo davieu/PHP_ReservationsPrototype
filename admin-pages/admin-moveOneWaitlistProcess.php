@@ -1,5 +1,7 @@
 <?php
+
 include "account.php";
+include "loginCheckForSID.php";
 
 $successful = TRUE;
 

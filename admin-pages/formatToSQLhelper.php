@@ -1,4 +1,6 @@
 <?php
+// include "loginCheckForSID.php";
+
 date_default_timezone_set("America/New_York");
 
 $entree_name = $_POST['entree_name'];

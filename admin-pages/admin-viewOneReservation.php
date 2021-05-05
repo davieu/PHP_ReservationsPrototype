@@ -1,11 +1,12 @@
 <?php
 // purpose: view one reservation. 
+include "account.php";
+include "loginCheckForSID.php";
 
 include "fileLinks.php";
 include "../header.php";
 include "helperFunctions.php";
 
-include "account.php";
 //simulates signed in
 $signedin = true;
 

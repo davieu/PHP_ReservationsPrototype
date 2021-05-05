@@ -3,6 +3,7 @@
 // It is also for viewing reservations and waitlists
 
 include "account.php";
+// include "loginCheckForSID.php";
 
 // queries record count of total dinner records.
 $sql = "SELECT COUNT(`dinner_id`)

@@ -1,11 +1,13 @@
 <?php
 //Purpose: view a waitlist. data will be sent
 
+
+
+include "account.php";
+include "loginCheckForSID.php";
 include "fileLinks.php";
 include "../header.php";
 include "helperFunctions.php";
-
-include "account.php";
 //simulates signed in
 $signedin = true;
 

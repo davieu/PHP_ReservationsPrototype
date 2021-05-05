@@ -3,6 +3,7 @@
 // was chosen
 
 include "account.php";
+include "loginCheckForSID.php";
 
 $successful = TRUE;
 //$dinner_id = $_GET['dinner_id'];

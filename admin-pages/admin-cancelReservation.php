@@ -1,8 +1,10 @@
 <?php
 // Purpose: Shows the list of dinner events. Click on a dinner event to show reservations for that specific dinner
 
-include "fileLinks.php";
 include "account.php";
+include "loginCheckForSID.php";
+
+include "fileLinks.php";
 include "../header.php";
 //simulates signed in
 $signedin = true;

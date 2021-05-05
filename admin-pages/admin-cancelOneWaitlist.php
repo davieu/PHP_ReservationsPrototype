@@ -1,11 +1,13 @@
 <?php
 //Purpose: cancel a waitlist. data will be sent to admin-cancelOneWaitlistProcess
+include "account.php";
+include "loginCheckForSID.php";
+
 
 include "fileLinks.php";
 include "../header.php";
 include "helperFunctions.php";
 
-include "account.php";
 //simulates signed in
 $signedin = true;
 

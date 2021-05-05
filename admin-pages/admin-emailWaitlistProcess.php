@@ -2,6 +2,9 @@
 //Purpose: This page sends an emails to the waitlist of the specified dinner and notifies them that a spot/s are avaailable 
 
 // it's a global variable to enable sending emails or not.
+
+include "loginCheckForSID.php";
+
 include "../globalVariable.php";
 include "helperFunctions.php";
 

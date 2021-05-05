@@ -1,11 +1,12 @@
 <?php
 //Purpose: For editing a dinner. Gives you a form and you can edit the dinner propreties. 
 // Will send data to admin-editOneDinnerProcess
+include "account.php";
+include "loginCheckForSID.php";
 
 include "fileLinks.php";
 include "../header.php";
 
-include "account.php";
 //simulates signed in
 $signedin = true;
 $sqlEventDatesArray = array();

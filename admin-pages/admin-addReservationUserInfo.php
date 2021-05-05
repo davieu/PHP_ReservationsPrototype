@@ -1,8 +1,11 @@
 <?php
 //Purpose: This page gathers the form data to send to the admin-addResrvationProcess page.
 
-include "fileLinks.php";
 include "account.php";
+include "loginCheckForSID.php";
+
+
+include "fileLinks.php";
 include "../header.php";
 
 $dinner_id = $_GET['dinner_id'];

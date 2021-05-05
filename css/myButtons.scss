@@ -308,16 +308,17 @@ form.login-form {
 
   .login-choices {
     padding: 0.5rem;
+    cursor: pointer;
   }
 
   .login-choices:nth-child(1):hover {
     border-radius: 12px 0px 0px 0px;
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(214, 214, 214);
   }
 
   .login-choices:nth-child(2):hover {
     border-radius: 0px 12px 0px 0px;
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(214, 214, 214);
   }
 
   .login-selected:nth-child(1) {
@@ -331,6 +332,11 @@ form.login-form {
   .login-selected {
     // border-radius: 12px 12px 0px 0px;
     background-color: rgb(238, 238, 238);
+  }
+
+  .hide-login-selected {
+    // border-radius: 12px 12px 0px 0px;
+    background-color: rgb(246, 246, 242);
   }
 }
 
@@ -468,4 +474,31 @@ form.moveReservationTable {
     justify-content: space-evenly;
     flex-wrap: wrap;
   }
+}
+
+// FOR SIGN IN PAGE show and hide login/create
+.show-create-account {
+  display: block;
+}
+
+.hide-create-account {
+  display: none;
+}
+
+.show-login {
+  display: block;
+}
+
+.hide-login {
+  display: none;
+}
+
+.myModal {
+  font-weight: bold;
+  visibility: hidden;
+  // background-color: rgb(238, 238, 238);
+  color: rgb(161, 27, 27);
+  padding: 0.5rem;
+  border-radius: 12px;
+  text-align: center;
 }
