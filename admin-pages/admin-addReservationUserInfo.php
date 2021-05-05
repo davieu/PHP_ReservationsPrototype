@@ -188,9 +188,9 @@ if ($lowAvailableSeats) {
       <div class=\"collapse\" id=\"tooltip\" class=\"hint-boxesCentering collapse\">
         <div class=\"hint-boxes\">
           <span>
-            If you would like to reserve more seats than available for this customer please make another reservation a
-            nd it will be entered in the waitlist. On submit an email will be sent to the customer with confirmation
-             number and information regarding the reservation.
+            If you would like to reserve more seats than available for this customer please make another 
+            reservation and it will be entered in the waitlist. On submit an email will be sent to the customer 
+            with confirmation number and information regarding the reservation.
           </span>
         </div>
       </div>

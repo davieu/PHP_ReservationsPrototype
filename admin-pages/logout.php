@@ -17,23 +17,21 @@ include "../header.php";
 $signedin = false;
 include "../nav.php";
 echo "
-	<div class=\"container\">
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <h1 style=\"text-align: center\">Administrator Dashboard</h1>
-    <br />
-    <br />
-    <br />
-       <h1>
-           $title
-       </h1>
-       <h3>
-			<a href=\"../index.php\">Return to login page</a>
-       </h3>
-      </div> \n";
+    <div class=\"container\">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1 style=\"text-align: center\">Logout Confirmed</h1>
+        <br />
+        <br />
+        <br />
+        <h5>
+            $title
+        </h5>
+        <a href=\"../index.php\" class=\"buttonLinksTables\">Home</a>
+    </div> \n";
 include "../footer.php";
 ?>
