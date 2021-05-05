@@ -26,21 +26,22 @@ $record = mysqli_fetch_array($sql_results);
 
 if ($record[0] > 0) {
     header("Location: login.php?duplicate=true&email=$email");
+    return;
 }
 
 
 // Create SQL statement to insert into the user table
 $sql="INSERT INTO  `users` 
-(`account_id`, `first_name`, `last_name`, `email`, `phone_number`, `password_hash`) 
+(`account_id`, `first_name`, `last_name`, `email`, `phone_number`, `password_hash`, `session_id`) 
 VALUES 
-(NULL, '$first_name', '$last_name', '$email',  '$phone_number', '$password_hash')";
+(NULL, '$first_name', '$last_name', '$email',  '$phone_number', '$password_hash', '1')";
 // echo "$sql</br>";
 // connectToDB to insert into the phone table.
 include "connectToDBV2.php";
 
 if ($successful) {
     // // redirect back to index
-header("Location: login.php?email=$email");
+header("Location: login.php?email=$email&status=true");
 } 
 
 

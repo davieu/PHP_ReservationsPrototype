@@ -136,18 +136,12 @@ include "../footer.php";
     document.querySelector(".create-account").classList.add("show-create-account");
   }
 
-
-
   const duplicateFound = new URL(location.href).searchParams.get("duplicate"); //will be true or false
   const loginErrorFound = new URL(location.href).searchParams.get("error");
-
-
+  const accountCreatedsuccess = new URL(location.href).searchParams.get("status");
 
   function showError() {
     document.querySelector(".myModal").style.visibility = 'hidden';
-    // if (loginErrorFound) {
-      
-    // }
   }
 
   // will pop out if a duplicate email is entered when creating new account
@@ -159,9 +153,16 @@ include "../footer.php";
 
   // will pop out if wrong credentials are entered or non-existent credentials are entered
   if (loginErrorFound) {
-    // createActive()
     document.querySelector(".myModal").innerHTML = 'Error With Credentials: Try Again';
     document.querySelector(".myModal").style.visibility = 'visible'
+    setTimeout(showError, 4000);
+  }
+
+  // will pop out if accoutn created was success
+  if (accountCreatedsuccess) {
+    document.querySelector(".myModal").innerHTML = 'Account Created: Success!';
+    document.querySelector(".myModal").style.color = 'rgb(148, 226, 148)';
+    document.querySelector(".myModal").style.visibility = 'visible';
     setTimeout(showError, 4000);
   }
 
