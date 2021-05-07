@@ -32,13 +32,15 @@ echo "
 		</h1>
     <br />
     <br />
+    <div class=\"logging-container\">
+      <table>
 ";
 
 //    (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
 //    `dinner_id`, `timestamp`, `seats_reserved`,
 //     `action`, `isAdmin`, `user_email`) 
 while ($record = mysqli_fetch_array($sql_results)) {
-    $count = 1;
+    $logging_id = $record['logging_id'];
     $session_id = $record['session_id'];
     $first_name = $record['first_name'];
     $last_name = $record['last_name'];
@@ -51,18 +53,106 @@ while ($record = mysqli_fetch_array($sql_results)) {
     $action = $record['action'];
     $isAdmin = $record['isAdmin'];
     $user_email = $record['user_email'];
+    $specific_id = $record['specific_id'];
+    $details = $record['details'];
 
+    if ($action == 'Add_Reservation') {
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>RESERVATION_ID:</span>$specific_id|<span>SEATS:</span>$seats_reserved|<span>RESERVATION_TOTAL:</span>$$reservation_total|<span>NAME:</span>$first_name&nbsp$last_name|<span>EMAIL:</span>$email|<br /><span>PHONE:</span>$phone_number
+          </td>
+        </tr>
+      ";
+    }
+    if ($action == 'Add_Waitlist') {
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>WAITLIST_ID:</span>$specific_id|<span>SEATS:</span>$seats_reserved|<span>RESERVATION_TOTAL:</span>$$reservation_total|<span>NAME:</span>$first_name&nbsp$last_name|<span>EMAIL:</span>$email|<br /><span>PHONE:</span>$phone_number
+          </td>
+        </tr>
+      ";
+    }
+    if ($action == 'Add_Dinner') {
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>DATE:</span>$details|<span>SEATS:</span>$seats_reserved|<span>PRICE:</span>$$reservation_total
+          </td>
+        </tr>
+      ";
+    }
+    if ($action == 'Edit_Dinner') {
+      $detailsArray = explode('|', $details);
+      $dateDetails = $detailsArray[1];
+      $entreeDetails = $detailsArray[0];
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>DATE:</span>$dateDetails|<span>ENTREE:</span>$entreeDetails|<span>SEATS:</span>$seats_reserved|<span>PRICE:</span>$$reservation_total
+          </td>
+        </tr>
+      ";
+    }
+    if ($action == 'Cancel_Reservation') {
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>CONFIRMATION_CODE:</span>$specific_id|<span>NAME:</span>$first_name&nbsp$last_name|<span>EMAIL:</span>$email|<span>SEATS:</span>$seats_reserved
+          </td>
+        </tr>
+      ";
+    }
+    if ($action == 'Cancel_Waitlist') {
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>WAITLIST_ID:</span>$specific_id|<span>NAME:</span>$first_name&nbsp$last_name|<span>EMAIL:</span>$email|<span>SEATS:</span>$seats_reserved
+          </td>
+        </tr>
+      ";
+    }
+    if ($action == 'Move_Reservation') {
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>NEW_DINNER_ID:</span>$details|<span>CONFIRMATION_CODE:</span>$specific_id|<span>NAME:</span>$first_name&nbsp$last_name|<span>EMAIL:</span>$email|<span>SEATS:</span>$seats_reserved
+          </td>
+        </tr>
+      ";
+    }
+    if ($action == 'Move_Waitlist_To_Reservation') {
+      $detailsArray = explode('|', $details);
+      $newDinnerIDDetails = $detailsArray[0];
+      $confirmationCodeDetails = $detailsArray[1];
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>NEW_DINNER_ID:</span>$newDinnerIDDetails|<span>CONFIRMATION_CODE:</span>$confirmationCodeDetails|<span>DELETED_WAITLIST_ID:</span>$specific_id|<span>NAME:</span>$first_name&nbsp$last_name|<span>EMAIL:</span>$email|<span>PHONE_NUMBER:</span>$phone_number|<span>SEATS:</span>$seats_reserved|<span>RESERVATION_TOTAL:</span>$$reservation_total
+          </td>
+        </tr>
+      ";
+    }
+    if ($action == 'Move_Waitlist_To_New_Waitlist') {
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DINNER_ID:</span>$dinner_id|<span>NEW_DINNER_ID:</span>$details|<span>WAITLIST_ID:</span>$specific_id|<span>NAME:</span>$first_name&nbsp$last_name|<span>EMAIL:</span>$email|<span>PHONE_NUMBER:</span>$phone_number|<span>SEATS:</span>$seats_reserved
+          </td>
+        </tr>
+      ";
+    }
 
-    echo "
-    <div class=\"logging-container\">
-      <p>
-        #$count|$timestamp|isAdmin:$isAdmin|$user_email|ACTION:$action|FOR:
-      </p>
-    </div>";
   }
 
 echo "
-</div>";
+      </table>
+    </div>
+    <br />
+    <br />
+    <br />
+  </div>";
 
 include "../footer.php";
 ?>

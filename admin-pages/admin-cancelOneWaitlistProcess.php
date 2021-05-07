@@ -18,6 +18,18 @@ $first_name = $reservationInfoArray[3];
 $last_name = $reservationInfoArray[4];
 $email = $reservationInfoArray[5];
 
+if (isset($_SESSION['email'])) {
+  $user_email = $_SESSION['email'];
+} else {
+  $user_email = '';
+}
+
+if (isset($_SESSION['email'])) {
+  $user_session_ID = session_id();
+} else {
+  $user_session_ID = '';
+}
+
 // delete the waitlist
 $sql = "DELETE FROM `waitlist` WHERE `waitlist_id`='$waitlist_id'";
 include "connectToDBV2.php";
@@ -28,7 +40,19 @@ if ($successful) {
     SET `waitlist_total_reserved` = `waitlist_total_reserved` - '$seats_reserved'
     WHERE `dinner_id` = '$dinner_id'";
   include "connectToDBV2.php";
-//echo "$sql<br />";
+  //echo "$sql<br />";
+
+  // SYSTEM LOGGING
+  $sql = "INSERT INTO `logging` 
+      (`logging_id`, `session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
+      `dinner_id`, `timestamp`, `seats_reserved`,
+      `action`, `isAdmin`, `user_email`, `specific_id`, `details`) 
+  VALUES 
+      (NULL, '$user_session_ID', '$first_name', '$last_name', 'null', '$email',
+      'null', '$dinner_id', NULL,
+      '$seats_reserved', 'Cancel_Waitlist', 'True', '$user_email', '$waitlist_id', 'null')";
+  echo "<br/>$sql";
+  include "connectToDB.php";
 }
 
 // send email to customer with canceled waitlist

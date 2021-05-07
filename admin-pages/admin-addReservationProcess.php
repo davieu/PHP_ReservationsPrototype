@@ -1,5 +1,6 @@
 <?php
-// Purpose: This page processes the data from the admin-addResrvationUserInfo and puts in the DB to create a reservation
+// Purpose: This page processes the data from the admin-addResrvationUserInfo and puts
+// in the DB to create a reservation
 
 include "account.php";
 include "loginCheckForSID.php";
@@ -34,14 +35,25 @@ $record = mysqli_fetch_array($sql_results);
 // most current data for total seats reserved for chosen dinner
 $total_seats_reserved = $record['total_seats_reserved'];
 
-// current seats resrved in SQL db for this dinner and adding the amount that is being resrved for this reservation.
+// current seats resrved in SQL db for this dinner and adding the amount that is being
+// resrved for this reservation.
 $currentTotalSeatsReserved = $total_seats_reserved + $seats_reserved;
 
 //to make custom confirmation code 
 $random_hash = substr(md5(uniqid(rand(), true)), 16, 16);
 echo "$dinner_info<br />$currentTotalSeatsReserved<br />";
 
+if (isset($_SESSION['email'])) {
+  $user_email = $_SESSION['email'];
+} else {
+  $user_email = '';
+}
 
+if (isset($_SESSION['email'])) {
+  $user_session_ID = session_id();
+} else {
+  $user_session_ID = '';
+}
 
 if ($currentTotalSeatsReserved <= $seats) {
   // for logging
@@ -85,13 +97,13 @@ if ($currentTotalSeatsReserved <= $seats) {
 
   // SYSTEM LOGGING
   $sql = "INSERT INTO `logging` 
-    (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
+    (`logging_id`, `session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
      `dinner_id`, `timestamp`, `seats_reserved`,
-      `action`, `isAdmin`, `user_email`) 
+      `action`, `isAdmin`, `user_email`, `specific_id`) 
     VALUES 
-    ('$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email',
+    (NULL, '$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email',
      '$reservation_total', '$dinner_id', '$timestamp',
-      '$seats_reserved', 'Add_Reservation', 'True', '$user_email')";
+      '$seats_reserved', 'Add_Reservation', 'True', '$user_email', '$last_id')";
   echo "<br/>$sql";
   include "connectToDB.php";
 
@@ -102,16 +114,30 @@ else {
   //ADD to WAITLIST if no available seats
   echo "wait";
   $sql = "INSERT INTO `waitlist` 
-    (`dinner_id`, `waitlist_id`, `first_name`, `last_name`, `phone_number`, `email`, `timestamp`, `seats_reserved`) 
+    (`dinner_id`, `waitlist_id`, `first_name`, `last_name`, `phone_number`,
+     `email`, `timestamp`, `seats_reserved`) 
     VALUES 
-    ('$dinner_id', NULL, '$first_name', '$last_name', '$phone_number', '$email', '$timestamp', '$seats_reserved')";
+    ('$dinner_id', NULL, '$first_name', '$last_name', '$phone_number',
+     '$email', '$timestamp', '$seats_reserved')";
   // echo "$sql</br>$last_id:$random_hash";
-  include "connectToDB.php";
+  include "connectToDBID.php";
 
   // does arithmetic to keep track of total seats reserved for waitlist
   $sql = "UPDATE `dinners` 
     SET `waitlist_total_reserved` = `waitlist_total_reserved` + '$seats_reserved'
     WHERE `dinner_id` = '$dinner_id'";
+  include "connectToDB.php";
+
+    // SYSTEM LOGGING
+  $sql = "INSERT INTO `logging` 
+    (`logging_id`, `session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
+     `dinner_id`, `timestamp`, `seats_reserved`,
+      `action`, `isAdmin`, `user_email`, `specific_id`) 
+    VALUES 
+    (NULL, '$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email',
+     '$reservation_total', '$dinner_id', '$timestamp',
+      '$seats_reserved', 'Add_Waitlist', 'True', '$user_email', '$last_id')";
+  echo "<br/>$sql";
   include "connectToDB.php";
 
   // emails the customer with reseervation related data/confirmation code

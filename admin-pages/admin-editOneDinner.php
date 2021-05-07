@@ -78,7 +78,6 @@ echo "
           ";
 
 
-
 echo "
   <select name=\"event_date\" id=\"event_date\" class=\"inputText\" size=\"6\" required>
 ";
@@ -157,6 +156,9 @@ echo "
               <input type=\"number\" 
               name=\"dinner_id\"	
               id=\"dinner_id\" class=\"\" value=\"$dinner_id\" style=\"visibility:hidden;\"required/>
+              <input type=\"text\" 
+              name=\"previous_data\"	
+              id=\"previous_data\" class=\"\" value=\"Entree:$entree_name|event_date:$event_dateFormatted|start:$start_time|end:$end_time|seats:$seats|price:$price\" style=\"visibility:hidden;\"required/>
 
 
         <div 

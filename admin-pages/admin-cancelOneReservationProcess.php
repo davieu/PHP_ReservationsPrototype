@@ -18,8 +18,19 @@ $first_name = $reservationInfoArray[3];
 $last_name = $reservationInfoArray[4];
 $email = $reservationInfoArray[5];
 
-// delete the reservation
+if (isset($_SESSION['email'])) {
+  $user_email = $_SESSION['email'];
+} else {
+  $user_email = '';
+}
 
+if (isset($_SESSION['email'])) {
+  $user_session_ID = session_id();
+} else {
+  $user_session_ID = '';
+}
+
+// delete the reservation
 $sql = "DELETE FROM `reservations` WHERE `confirmation_code`='$confirmation_code'";
 include "connectToDBV2.php";
 
@@ -36,7 +47,19 @@ if ($successful) {
     SET `total_seats_reserved` = `total_seats_reserved` - '$seats_reserved'
     WHERE `dinner_id` = '$dinner_id'";
   include "connectToDBV2.php";
-//echo "$sql<br />";
+  //echo "$sql<br />";
+
+  // SYSTEM LOGGING
+  $sql = "INSERT INTO `logging` 
+      (`logging_id`, `session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
+      `dinner_id`, `timestamp`, `seats_reserved`,
+      `action`, `isAdmin`, `user_email`, `specific_id`, `details`) 
+  VALUES 
+      (NULL, '$user_session_ID', '$first_name', '$last_name', 'null', '$email',
+      'null', '$dinner_id', NULL,
+      '$seats_reserved', 'Cancel_Reservation', 'True', '$user_email', '$confirmation_code', 'null')";
+  echo "<br/>$sql";
+  include "connectToDB.php";
 }
 
 
@@ -51,13 +74,14 @@ include "connectToDB.php";
 $record = mysqli_fetch_array($sql_results);
 $waitlistRecordCount = $record[0];
 
+
 // looks at the waitlist record count for a dinner with the specified ID. If waitlist records found then
 // redirect to the waitlist email page. If no waitlists then send back to reservation lists.
 if ($waitlistRecordCount > 0) {
   // send email to customer with canceled resrvation
-  // header("Location: admin-emailWaitlist.php?dinner_id=$dinner_id");
+  header("Location: admin-emailWaitlist.php?dinner_id=$dinner_id");
 }
 else {
-  // header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
+  header("Location: admin-cancelReservationList.php?dinner_id=$dinner_id");
 }
 ?>

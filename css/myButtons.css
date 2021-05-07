@@ -388,6 +388,23 @@ form.moveReservationTable .table-container {
   width: 100%;
 }
 
+.logging-container {
+  width: 100%;
+  overflow-x: auto;
+  text-align: left;
+}
+
+.logging-container td {
+  font-size: 14px;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.logging-container span {
+  text-align: left;
+  color: #0400ff;
+}
+
 @media screen and (min-width: 499px) {
   .btnGroupMoveReservation {
     width: 25rem;
