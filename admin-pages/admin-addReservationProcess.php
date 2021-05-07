@@ -99,11 +99,11 @@ if ($currentTotalSeatsReserved <= $seats) {
   $sql = "INSERT INTO `logging` 
     (`logging_id`, `session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
      `dinner_id`, `timestamp`, `seats_reserved`,
-      `action`, `isAdmin`, `user_email`, `specific_id`) 
+      `action`, `isAdmin`, `user_email`, `specific_id`, `details`) 
     VALUES 
     (NULL, '$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email',
      '$reservation_total', '$dinner_id', '$timestamp',
-      '$seats_reserved', 'Add_Reservation', 'True', '$user_email', '$last_id')";
+      '$seats_reserved', 'Add_Reservation', 'True', '$user_email', '$last_id', 'null')";
   echo "<br/>$sql";
   include "connectToDB.php";
 
@@ -132,11 +132,11 @@ else {
   $sql = "INSERT INTO `logging` 
     (`logging_id`, `session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
      `dinner_id`, `timestamp`, `seats_reserved`,
-      `action`, `isAdmin`, `user_email`, `specific_id`) 
+      `action`, `isAdmin`, `user_email`, `specific_id`, `details`) 
     VALUES 
     (NULL, '$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email',
      '$reservation_total', '$dinner_id', '$timestamp',
-      '$seats_reserved', 'Add_Waitlist', 'True', '$user_email', '$last_id')";
+      '$seats_reserved', 'Add_Waitlist', 'True', '$user_email', '$last_id', 'null')";
   echo "<br/>$sql";
   include "connectToDB.php";
 

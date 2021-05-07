@@ -143,6 +143,15 @@ while ($record = mysqli_fetch_array($sql_results)) {
         </tr>
       ";
     }
+    if ($action == 'Delete_Dinner') {
+      echo "
+        <tr>
+          <td>
+            <span>#$logging_id</span>|$timestamp|<span>ACTION:</span>$action|<span>isAdmin:</span>$isAdmin|<span>USER_EMAIL:</span>$user_email|<span>SESSION:</span>$session_id|<span>DELETED_DINNER_ID:</span>$dinner_id
+          </td>
+        </tr>
+      ";
+    }
 
   }
 

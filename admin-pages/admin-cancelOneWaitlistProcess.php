@@ -49,7 +49,7 @@ if ($successful) {
       `action`, `isAdmin`, `user_email`, `specific_id`, `details`) 
   VALUES 
       (NULL, '$user_session_ID', '$first_name', '$last_name', 'null', '$email',
-      'null', '$dinner_id', NULL,
+      '0', '$dinner_id', NULL,
       '$seats_reserved', 'Cancel_Waitlist', 'True', '$user_email', '$waitlist_id', 'null')";
   echo "<br/>$sql";
   include "connectToDB.php";
