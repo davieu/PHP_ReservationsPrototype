@@ -16,8 +16,6 @@ $emailValue = (true ? $email : '');
 echo "
   <div class=\"container\">
   <h1 style=\"text-align: center\">Sign-in</h1>
-  <br />
-  <br />
 ";
 
   // the tab above the forms for displaying the login or create account

@@ -44,13 +44,14 @@ echo "$dinner_info<br />$currentTotalSeatsReserved<br />";
 
 
 if ($currentTotalSeatsReserved <= $seats) {
+  $user_session_ID = session_id();
   // include "formatToSQLhelper.php";
   echo "yesyyyy";
   // add a reservation to SQL DB
   $sql = "INSERT INTO `reservations` 
     (`dinner_id`, `reservation_index`, `session_id`, `confirmation_code`, `seats_reserved`, `timestamp`) 
     VALUES 
-    ('$dinner_id', NULL, '1', '1', '$seats_reserved', '$timestamp')";
+    ('$dinner_id', NULL, '$user_session_ID', '1', '$seats_reserved', '$timestamp')";
   // echo "$sql</br>";
   include "connectToDBID.php";
 
@@ -61,7 +62,7 @@ if ($currentTotalSeatsReserved <= $seats) {
   $sql = "INSERT INTO `customers` 
     (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`, `reservation_index`, `confirmation_code`, `dinner_id`, `timestamp`, `seats_reserved`) 
     VALUES 
-    ('1', '$first_name', '$last_name', '$phone_number', '$email', '$reservation_total', '$last_id', '$confirmation_code', '$dinner_id', '$timestamp', '$seats_reserved')";
+    ('$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email', '$reservation_total', '$last_id', '$confirmation_code', '$dinner_id', '$timestamp', '$seats_reserved')";
   echo "$sql</br>$last_id:$random_hash";
   include "connectToDB.php";
 

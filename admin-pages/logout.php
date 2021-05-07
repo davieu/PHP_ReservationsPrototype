@@ -5,10 +5,11 @@
 $filename="logout.php";
 $title="You have been logged out";
 session_start();
-if (isset($_SESSION['username']))
+if (isset($_SESSION['email']))
 	{
-			$_SESSION['username'] = "error";
-			unset($_SESSION['username']);
+        $_SESSION['email'] = "error";
+        unset($_SESSION['email']);
+        session_unset();
 	}
 session_destroy();
 include "fileLinks.php";
@@ -32,6 +33,8 @@ echo "
             $title
         </h5>
         <a href=\"../index.php\" class=\"buttonLinksTables\">Home</a>
+        <br />
+        <br />
     </div> \n";
 include "../footer.php";
 ?>

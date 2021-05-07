@@ -117,7 +117,20 @@ $navState = "
 ";
 
 // signed in
-if ($signedin == true) {
+if (isset($_SESSION['email']) && $signedin == true) {
+  // separates the email name from the @ portion. So I can just get the email name
+  $navEmailArray = explode('@', $_SESSION['email']);
+  // doing a substring in case a name is too big it will only show a portion of it followed by "..."
+  $navName = $navEmailArray[0];
+  if (strlen($navName) > 18) {
+    $navName = substr($navName,0, 18) . "...";
+  }
+  //substr("Hello world",6);
+
+  // $name = '';
+  // if (isset($_SESSION['email'])) {
+  //   $name = $_SESSION['email']);
+  // }
   $navState = "        
       <ul class=\"nav-links-desktop\">
         <li class=\"desktop-link\">
@@ -136,7 +149,7 @@ if ($signedin == true) {
           <div class=\"dropdown\">
             <a class=\" dropdown-toggle dropdown\" id=\"dropdownMenuButton\" 
             data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
-              <div class=\"tops\"></div><span style=\"cursor: pointer;\">Daumana101</span>
+              <div class=\"tops\"></div><span style=\"cursor: pointer;\">$navName</span>
             </a>
             <ul class=\"dropdown-menu sidebar-drop\" aria-labelledby=\"dropdownMenuButton\">
               <li><a class=\"dropdown-item\" href=\"admin-dashboard.php\">Dashboard</a></li>
@@ -202,7 +215,15 @@ $sideBarNav = "
 ";
 
 // signed in
-if ($signedin == true) {
+if (isset($_SESSION['email']) && $signedin == true) {
+  // separates the email name from the @ portion. So I can just get the email name
+  $navEmailArray = explode('@', $_SESSION['email']);
+  // doing a substring in case a name is too big it will only show a portion of it followed by "..."
+  $navName = $navEmailArray[0];
+  if (strlen($navName) > 8) {
+    $navName = substr($navName,0, 8) . "...";
+  }
+
   $sideBarNav = "  
     <div class=\"side-bar\">
       <div class=\"links-wrapper\">
@@ -216,7 +237,7 @@ if ($signedin == true) {
           <div class=\"dropdown\">
             <a class=\" dropdown-toggle dropdown\" id=\"dropdownMenuButton\" 
             data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
-              <div class=\"tops\"></div><span style=\"cursor: pointer;\">Daumana101</span>
+              <div class=\"tops\"></div><span style=\"cursor: pointer;\">$navName</span>
             </a>
             <ul class=\"dropdown-menu sidebar-drop\" aria-labelledby=\"dropdownMenuButton\">
               <li><a class=\"dropdown-item\" href=\"admin-dashboard.php\">Dashboard</a></li>

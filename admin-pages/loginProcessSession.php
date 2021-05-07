@@ -22,6 +22,12 @@ if (isset($_POST['email']) && !empty($_POST['email']) &&
 			&& ($record['password_hash'] == $hashVal)) {
 				// session stuff here
 				session_start();
+				// Some bug was happening where seesion_id was not changing on login/logout
+				// added session)regenerate to fix that
+				$_SESSION['destroyed'] = time();
+				session_regenerate_id();
+				unset($_SESSION['destroyed']);
+
 				$session_id=session_id();
 				$_SESSION['email'] = $email;
 				$sql = "UPDATE `users`
