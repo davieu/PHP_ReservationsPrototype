@@ -36,8 +36,10 @@ $record = mysqli_fetch_array($sql_results);
 $dinnerRecordCount = $record[0];
 
 
+$today = date("Y-m-d");
 // query for event dates in ordered form (ascending)
 $sql = "SELECT * FROM dinners
+        WHERE `event_date` >= '$today'
         ORDER BY event_date";
 include "connectToDB.php";
 
