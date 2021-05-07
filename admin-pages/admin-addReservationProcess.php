@@ -44,6 +44,8 @@ echo "$dinner_info<br />$currentTotalSeatsReserved<br />";
 
 
 if ($currentTotalSeatsReserved <= $seats) {
+  // for logging
+  $user_email = $_SESSION['email'];
   $user_session_ID = session_id();
   // include "formatToSQLhelper.php";
   echo "yesyyyy";
@@ -60,9 +62,11 @@ if ($currentTotalSeatsReserved <= $seats) {
   $confirmation_code = "$last_id:$random_hash";
   //echo "<br/>ssssss---$confirmation_code <br/>";
   $sql = "INSERT INTO `customers` 
-    (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`, `reservation_index`, `confirmation_code`, `dinner_id`, `timestamp`, `seats_reserved`) 
+    (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
+     `reservation_index`, `confirmation_code`, `dinner_id`, `timestamp`, `seats_reserved`) 
     VALUES 
-    ('$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email', '$reservation_total', '$last_id', '$confirmation_code', '$dinner_id', '$timestamp', '$seats_reserved')";
+    ('$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email', '$reservation_total',
+     '$last_id', '$confirmation_code', '$dinner_id', '$timestamp', '$seats_reserved')";
   echo "$sql</br>$last_id:$random_hash";
   include "connectToDB.php";
 
@@ -77,6 +81,18 @@ if ($currentTotalSeatsReserved <= $seats) {
   $sql = "UPDATE `dinners` 
       SET `total_seats_reserved` = `total_seats_reserved` + '$seats_reserved'
       WHERE `dinner_id` = '$dinner_id'";
+  include "connectToDB.php";
+
+  // SYSTEM LOGGING
+  $sql = "INSERT INTO `logging` 
+    (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
+     `dinner_id`, `timestamp`, `seats_reserved`,
+      `action`, `isAdmin`, `user_email`) 
+    VALUES 
+    ('$user_session_ID', '$first_name', '$last_name', '$phone_number', '$email',
+     '$reservation_total', '$dinner_id', '$timestamp',
+      '$seats_reserved', 'Add_Reservation', 'True', '$user_email')";
+  echo "<br/>$sql";
   include "connectToDB.php";
 
   // emails the customer with reseervation related data/confirmation code

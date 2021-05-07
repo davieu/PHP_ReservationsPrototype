@@ -111,9 +111,10 @@ $dinnerstRecordCount = $record[0];
 // by the rservation than only show the dinners that will be able to fit that reservation.
 // for example. Curr resrvation has 3 seats reserved. Look through the dinners table and find any with at least availability for 
 // 3 seats.
+$today = date("Y-m-d");
 $sql = "SELECT *   
         FROM `dinners`
-        WHERE (`seats` - `total_seats_reserved`) >= '$seats_reserved'
+        WHERE (`seats` - `total_seats_reserved`) >= '$seats_reserved' AND `event_date` >= '$today'
         ORDER BY event_date";
 include "connectToDB.php";
 

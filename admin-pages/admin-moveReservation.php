@@ -10,10 +10,10 @@ $signedin = true;
 
 include "../nav.php";
 
-$stopMonth = 13;
-include "../dateGenerator.php";
-
+$today = date("Y-m-d");
+// query for event dates in ordered form (ascending)
 $sql = "SELECT * FROM dinners
+        WHERE `event_date` >= '$today'
         ORDER BY event_date";
 include "connectToDB.php";
 

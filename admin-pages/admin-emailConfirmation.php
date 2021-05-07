@@ -15,9 +15,10 @@ include "../nav.php";
 // $stopMonth = 13;
 // include "../dateGenerator.php";
 
+$today = date("Y-m-d");
 // Will only display reservations with reservations/customers
 $sql = "SELECT * FROM dinners
-        WHERE `total_seats_reserved` > '0'
+        WHERE `total_seats_reserved` > '0' AND `event_date` >= '$today'
         ORDER BY event_date";
 include "connectToDB.php";
 
