@@ -92,10 +92,10 @@ echo "
           <th>Entrée&nbspType</th>
           <th>Date</th>
           <th>Seats</th>
+          <th>Price</th>
           <th>
             Available&nbspSeats
           </th>
-          <th>Total&nbspReserved</th>
         </tr>
         <tr>
           <td>$entree_name</td>
@@ -105,10 +105,10 @@ echo "
             $endTime
           </td>
           <td>$seats</td>
+          <td>$$price</td>
           <td $inlineStyleAvailabiltyColor style=\"width:10rem\">
             $tdAvailableSeats
           </td>
-          <td>$totalReserved</td>
         </tr>
       </table>
     </div>

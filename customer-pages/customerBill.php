@@ -7,6 +7,8 @@ include "fileLinks.php";
 include "../header.php";
 
 $dinner_id = $_GET['dinner_id'];
+$seats_reserved = $_POST['seats_reserved'];
+
 
 $sql = "SELECT * FROM dinners
         WHERE dinner_id = $dinner_id";
@@ -84,6 +86,8 @@ if (!$waitlisted) {
       Waitlist:&nbsp$waitlistReservedSeats";
 }
 
+$price_total = $price * $seats_reserved;
+
 // START of current dinner Table
 echo "  
     <div class=\"table-container\">
@@ -91,11 +95,12 @@ echo "
         <tr>
           <th>Entrée&nbspType</th>
           <th>Date</th>
-          <th>Seats</th>
+          <th>Price</th>
           <th>
             Available&nbspSeats
           </th>
-          <th>Total&nbspReserved</th>
+          <th>Seats&nbspReserved</th>
+          <th>Total</th>
         </tr>
         <tr>
           <td>$entree_name</td>
@@ -104,11 +109,12 @@ echo "
             $startTime-<br />
             $endTime
           </td>
-          <td>$seats</td>
+          <td>$$price</td>
           <td $inlineStyleAvailabiltyColor style=\"width:10rem\">
             $tdAvailableSeats
           </td>
-          <td>$totalReserved</td>
+          <td>$seats_reserved</td>
+          <td>$$price_total</td>
         </tr>
       </table>
     </div>
@@ -124,7 +130,7 @@ echo "
   <br />
   <form style=\"\" name=\"addDinner\" 
     class=\"formUserInfo\"
-    action=\"transactionComplete.php?dinner_id=$dinner_id\"
+    action=\"transactionComplete.php?dinner_id=$dinner_id&seats_reserved=$seats_reserved&price_total=$price_total\"
     method=\"POST\">
 
       <input type=\"text\" 
@@ -149,11 +155,20 @@ echo "
           name=\"cvv\"	
           id=\"cvv\" class=\"inputText\" required/>
       </div>
+      <br />
+      <div style=\"\">
+        <span>Price Per Seat: $$price</span>
+      </div>
+      <div style=\"\">
+        <span>Seats Reserved: $seats_reserved</span>
+      </div>
+      <div style=\"\">
+        <span>Transaction Total: $$price_total</span>
+      </div>
   ";
 
 
 echo "
-      <br />
       <hr /> 
       <br />
       <div 
@@ -163,7 +178,7 @@ echo "
 
         <input type=\"submit\" class=\"buttonLinksTables\"
         name=\"submit\"	
-        value=\"Submit\" />	
+        value=\"Pay Amount\" />	
         <input type=\"reset\" class=\"buttonLinksTables\"
         name=\"reset\"	
         value=\"Clear\"/>
