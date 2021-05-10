@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-addDinnerProcess.php ---------
+
 // Purpose: proccess the form data from the admin-addDinner.php page to add into the DB
 
 include "account.php";

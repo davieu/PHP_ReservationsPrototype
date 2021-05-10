@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-emailWaitlist.php ---------
+
 // purpose: menu for displaying the list of waitlist for a specified dinner. Uses checkboxes to determine who on the wait;ist to email
 
 include "account.php";

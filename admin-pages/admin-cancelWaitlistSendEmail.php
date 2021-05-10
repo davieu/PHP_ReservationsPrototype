@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-cancelWaitlistSendEmail.php ---------
+
 //Purpose: This page sends an emails to the customer of the resrvation notifying the customer that their reservation 
 // has been canceled. 
 

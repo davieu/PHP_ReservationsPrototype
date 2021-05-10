@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-emailConfirmation.php ---------
+
 // Purpose: email confirmation. Shows list of dinners. When a dinner is clicked it will take to the list of 
 // resrvations to email the confirmation
 

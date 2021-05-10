@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-editOneDinner.php ---------
+
 //Purpose: For editing a dinner. Gives you a form and you can edit the dinner propreties. 
 // Will send data to admin-editOneDinnerProcess
 include "account.php";

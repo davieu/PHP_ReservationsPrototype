@@ -1,5 +1,6 @@
 <?php
-// Author: Davis Umana
+// --------FILENAME: admin-pages/loginProcessSession.php ---------
+
 // Purpose: main page - processes login credentials
 
 include "account.php";

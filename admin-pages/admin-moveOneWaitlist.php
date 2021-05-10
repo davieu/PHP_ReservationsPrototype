@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-moveOneWaitlist.php ---------
+
 //Purpose: view a waitlist. data will be sent
 include "account.php";
 include "loginCheckForSID.php";

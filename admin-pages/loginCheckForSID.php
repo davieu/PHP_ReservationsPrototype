@@ -1,6 +1,5 @@
 <?php
-// Filename: checkForSID.php
-// Author: Davis Umana
+// --------FILENAME: admin-pages/loginCheckForSID.php ---------
 // Purpose: confirm session ID
 
 include "account.php";

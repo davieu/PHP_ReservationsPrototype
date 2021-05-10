@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-emailConfirmationList.php ---------
+
 // Purpose: show a list of reservations/waitlist for a specific dinner event. click checkboxes to email confirmation.
 include "account.php";
 include "loginCheckForSID.php";

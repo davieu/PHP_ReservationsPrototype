@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-viewReservationList.php ---------
+
 // Purpose: show a list of reservations/waitlist for a specific dinner event. Click on a resrvation to view it
 
 include "account.php";

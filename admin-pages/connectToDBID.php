@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/connectToDBID.php ---------
+
 $conn = mysqli_connect($host, $dbusername, $dbpassword, $database);
 
 // Check connection

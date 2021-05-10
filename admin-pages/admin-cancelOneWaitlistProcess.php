@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-cancelOneWaitlistProcess.php ---------
+
 //Purpose: Takes in the data from the admin-cancelOneWaitlist page and processes it to cancel a specific waitlist that
 // was chosen
 

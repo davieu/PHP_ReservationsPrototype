@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/sqlDataParser.php ---------
+
 // temp variable for PROTO. For the dashboard. Everything else is live from database
 // include "loginCheckForSID.php";
 

@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-dashboardTable.php ---------
+
 //Purpose: This is the table for the dashboard. Seperated to slim down the dashboard page.php.
 // It is also for viewing reservations and waitlists
 

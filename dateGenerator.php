@@ -43,7 +43,7 @@ for ($currMonthInt = (int)$currMonth; $currMonthInt < $stopMonth; $currMonthInt+
 
   // NESTED LOOP for the days. 
   for ($startDay; $startDay <= $numberOfDaysInMonth; $startDay++) {
-    include 'customerData.php';
+    // include 'customerData.php';
     // if loop is just for formatting the visual of the date. will add a '0' if the day is a single digit. 
     // ex. if the day 3 it will make it look like 03
     // $ddd will be used in the html. $dddParsed is just used for the date() method to parse

@@ -1,7 +1,7 @@
 <?php
+// --------FILENAME: admin-pages/admin-viewOneWaitlist.php ---------
+
 //Purpose: view a waitlist. data will be sent
-
-
 
 include "account.php";
 include "loginCheckForSID.php";

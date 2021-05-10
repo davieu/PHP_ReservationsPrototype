@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-cancelOneReservation.php ---------
+
 // purpose: cancel one reservation. data will be sent to admin-cancelOneResrvationProcess
 
 include "account.php";

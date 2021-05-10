@@ -1,6 +1,6 @@
 <?php
-// Filename: logout.php
-// Author: Davis Umana
+// --------FILENAME: admin-pages/logout.php ---------
+
 // Purpose: Allow logout
 $filename="logout.php";
 $title="You have been logged out";

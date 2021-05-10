@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-addReservationProcess.php ---------
+
 // Purpose: This page processes the data from the admin-addResrvationUserInfo and puts
 // in the DB to create a reservation
 

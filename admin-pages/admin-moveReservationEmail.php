@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-moveReservationEmail.php ---------
+
 //Purpose: This page sends an email to the customer of the resrvation that the admin has moved the resrvation
 // to a different dinner. 
 // sends data pertatining to the resrvation like date and confirmation code

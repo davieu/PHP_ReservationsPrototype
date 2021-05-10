@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-moveOneReservation.php ---------
+
 // purpose: Move a reservation to a different dinner event. shows the list of reservations available to move the 
 // current reservation into
 include "account.php";

@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-cancelReservationList.php ---------
+
 // Purpose: show a list of reservations/waitlist for a specific dinner event. Click on a resrvation to delete/cancel it
 include "account.php";
 include "loginCheckForSID.php";

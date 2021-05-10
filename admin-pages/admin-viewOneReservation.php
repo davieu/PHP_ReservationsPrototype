@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-viewOneReservation.php ---------
+
 // purpose: view one reservation. 
 include "account.php";
 include "loginCheckForSID.php";

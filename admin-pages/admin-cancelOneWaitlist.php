@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-cancelOneWaitlist.php ---------
+
 //Purpose: cancel a waitlist. data will be sent to admin-cancelOneWaitlistProcess
 include "account.php";
 include "loginCheckForSID.php";

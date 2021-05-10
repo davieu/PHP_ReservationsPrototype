@@ -1,4 +1,7 @@
 <?php
+// --------FILENAME: admin-pages/admin-delDinner.php ---------
+
+//purpose: process and delete the dinner from the database
 include "account.php";
 include "loginCheckForSID.php";
 

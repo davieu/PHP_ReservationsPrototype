@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-addReservation.php ---------
+
 // Purpose: Add a reservation. This page lets you choose from the list of dinners avaailable.
 include "account.php";
 include "loginCheckForSID.php";

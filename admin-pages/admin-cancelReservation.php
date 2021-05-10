@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-cancelReservation.php ---------
+
 // Purpose: Shows the list of dinner events. Click on a dinner event to show reservations for that specific dinner
 
 include "account.php";

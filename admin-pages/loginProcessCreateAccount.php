@@ -1,5 +1,5 @@
 <?php
-// Author: Davis Umana
+// --------FILENAME: admin-pages/loginProcessCreateAccount.php ---------
 // Purpose: create a login account from login page
 
 include "account.php";

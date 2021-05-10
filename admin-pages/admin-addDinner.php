@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-addDinner.php ---------
+
 // Purpose: Fill out form to add a new dinner event
 
 include "account.php";

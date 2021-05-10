@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: admin-pages/admin-moveReservation.php ---------
+
 //Purpose: Displays the dinner events. Click on a dinner event then it takes you to list of reservations for that dinner
 include "account.php";
 include "loginCheckForSID.php";
