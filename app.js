@@ -1,3 +1,5 @@
+// ------------FILENAME: app.js ----------------
+
 const navSlide = () => {
   const burgerLines = document.querySelector('.burger-lines');
   const burger = document.querySelector('.burger');

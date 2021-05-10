@@ -1,4 +1,5 @@
 <?php
+// ------------FILENAME: dateGenerator.php ----------------
 
 $datesArray = array();
 // sets default timezone for EST

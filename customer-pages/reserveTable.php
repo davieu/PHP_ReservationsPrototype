@@ -1,4 +1,6 @@
 <?php
+// --------FILENAME: customer-pages/reserveTable.php ---------
+
 //Purpose: Dashoboard for the admin. It is a portal to go to other admin actions like edit/add/delete data
 // has an overview table
 

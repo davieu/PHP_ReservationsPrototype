@@ -1,4 +1,6 @@
 <?php
+// ------------FILENAME: footer.php ----------------
+
 echo "
           <section id=\"section-d\">
             <div class=\"footer-wrap content-wrap\">

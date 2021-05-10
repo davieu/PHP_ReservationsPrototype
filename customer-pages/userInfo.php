@@ -1,4 +1,5 @@
 <?php
+// --------FILENAME: customer-pages/userInfo.php ---------
 //Purpose: This page gathers the form data to send to the admin-addResrvationProcess page.
 
 include "account.php";

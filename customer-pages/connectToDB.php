@@ -1,4 +1,5 @@
 <?php
+// --------FILENAME: customer-pages/connectToDB.php ---------
 $conn = mysqli_connect($host, $dbusername, $dbpassword, $database);
 
 // Check connection
