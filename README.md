@@ -14,3 +14,6 @@ install PHP Tools for VS code
 -get an activation code
 go to debugger and create a json startup file
 usually starts on its own. otherwise do http://localhost:<portnumber> use port number given in the json file
+
+code formatting for portfolio. Easy Code Formatter
+https://store.office.com/addinsinstallpage.aspx?rs=en-US&assetid=WA104382008&correlationId=24444841-5a66-4f60-b317-e9b6941f64fb
