@@ -7,15 +7,17 @@
 include "account.php";
 // include "loginCheckForSID.php";
 
+$today = date("Y-m-d");
 // queries record count of total dinner records.
 $sql = "SELECT COUNT(`dinner_id`)
-        FROM `dinners`";
+        FROM `dinners`
+        WHERE `event_date` >= '$today'";
 include "connectToDB.php";
 $record = mysqli_fetch_array($sql_results);
 $dinnerRecordCount = $record[0];
 
 
-$today = date("Y-m-d");
+
 // query for event dates in ordered form (ascending)
 $sql = "SELECT * FROM dinners
         WHERE `event_date` >= '$today'

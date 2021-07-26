@@ -98,12 +98,12 @@ echo "
     </div>
           ";
 // END of resrvation data card
-
+$today = date("Y-m-d");
 // queries record count of total dinner records that have a sufficient amount of seats available
 // in regards to current customer reservation seats reserved amount. Will not include the current dinner.
 $sql = "SELECT COUNT(`dinner_id`)
         FROM `dinners`
-        WHERE  (`seats` - `total_seats_reserved`) >= '$seats_reserved' AND `dinner_id` <> '$dinner_id' ";
+        WHERE  (`seats` - `total_seats_reserved`) >= '$seats_reserved' AND `dinner_id` <> '$dinner_id' AND `event_date` >= '$today'";
 include "connectToDB.php";
 $record = mysqli_fetch_array($sql_results);
 $dinnerstRecordCount = $record[0];
