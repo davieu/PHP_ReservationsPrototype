@@ -28,6 +28,7 @@ echo
 
 // table
 include "account.php";
+
 // include "loginCheckForSID.php";
 $today = date("Y-m-d");
 // queries record count of total dinner records.

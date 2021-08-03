@@ -217,19 +217,27 @@ echo "
       <br />
       <div 
       style=\"text-align:center; display:flex; 
-        justify-content:space-between; 
+        justify-content:center; 
         padding-right: 1rem; padding-left: 1rem\">
 
         <input type=\"submit\" class=\"buttonLinksTables\"
         name=\"submit\"	
         value=\"Submit\" />	
+      </div>
+      <br />
+      <div 
+      style=\"text-align:center; display:flex; 
+        justify-content:space-between; 
+        padding-right: 1rem; padding-left: 1rem\">
+
+        <a href=\"reserveTable.php\" class=\"buttonLinksTables\">Back</a>
         <input type=\"reset\" class=\"buttonLinksTables\"
         name=\"reset\"	
         value=\"Clear\"/>
-        <a href=\"reserveTable.php\" class=\"buttonLinksTables\">Back</a>
+        <a href=\"../index.php\" class=\"buttonLinksTables\">Home</a>
       </div>
       <div style=\"text-align:right; margin-top:1.5rem; padding-right: 1rem\">
-        <a href=\"../index.php\" class=\"buttonLinksTables\">Home</a>
+        
       </div>
 		</form>
     <br /><br /><br/>

@@ -9,6 +9,10 @@ include "../header.php";
 
 $dinner_id = $_GET['dinner_id'];
 $seats_reserved = $_POST['seats_reserved'];
+$first_name = $_POST['first_name'];
+$last_name = $_POST['last_name'];
+$phone_number = $_POST['phone_number'];
+$email = $_POST['email'];
 
 
 $sql = "SELECT * FROM dinners
@@ -37,7 +41,9 @@ $titleNAme = "";
 include "sqlDataParser.php";
 
 // has data for the dinner and will be sent as a pipe delimited data. Mainly for usage in process/emailing
-$dinner_info = $entree_name . "|" . $event_dateFormatted . "|" . $startTime . "|" . $endTime . "|" . $price . "|" . $total_seats_reserved . "|" . $seats;
+$dinner_info = $event_dateFormatted . "|" . $startTime . "|" . $endTime . "|" . $price . "|" . $total_seats_reserved . "|" . $seats;
+
+$customer_info = $seats_reserved . "|" . $first_name . "|" . $last_name . "|" . $phone_number . "|" . $email;
 
 // if current dinner is on waitlist
 if ($availabilityCount <= 0) {
@@ -122,12 +128,12 @@ echo "
   ";
 // END of current dinner table
 
-
 // START of form
 echo "
   <hr class=\"HRstyle\"/>
   <br />
   <p><strong>Card Information</strong></p>
+  $dinner_id $first_name $last_name $phone_number $email $seats_reserved
   <br />
   <form style=\"\" name=\"addDinner\" 
     class=\"formUserInfo\"
@@ -142,19 +148,22 @@ echo "
         Card Number:
         <input type=\"text\" 
           name=\"card_number\"	
-          id=\"card_number\" class=\"inputText\" required/>
+          id=\"card_number\" class=\"inputText\" value=\"4242 4242 4242 4242\" disabled required/>
+          <input type=\"text\" 
+              name=\"previous_data\"	
+              id=\"previous_data\" class=\"\" value=\"Entree:hjhj|event_date:hjhj|start:ghjj|end:ghjgj|seats:ghjgj|price:ggg\" style=\"visibility:hidden;\"required/>
       </div>
       <div style=\"margin-bottom:1rem;\">
         Expiration Date:
         <input type=\"text\" 
           expiration_date=\"last_name\"	
-          id=\"expiration_date\" class=\"inputText\" required/>
+          id=\"expiration_date\" class=\"inputText\" value=\"04/25\" required/>
       </div>
       <div style=\"margin-bottom:1rem;\">
         CVV:
         <input type=\"text\" 
           name=\"cvv\"	
-          id=\"cvv\" class=\"inputText\" required/>
+          id=\"cvv\" class=\"inputText\" value=\"333\" required/>
       </div>
       <br />
       <div style=\"\">
@@ -174,19 +183,27 @@ echo "
       <br />
       <div 
       style=\"text-align:center; display:flex; 
-        justify-content:space-between; 
+        justify-content:center; 
         padding-right: 1rem; padding-left: 1rem\">
 
         <input type=\"submit\" class=\"buttonLinksTables\"
         name=\"submit\"	
         value=\"Pay Amount\" />	
+      </div>
+      <br />
+      <div 
+      style=\"text-align:center; display:flex; 
+        justify-content:space-between; 
+        padding-right: 1rem; padding-left: 1rem\">
+
+        <a href=\"userInfo.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\">Back</a>
         <input type=\"reset\" class=\"buttonLinksTables\"
         name=\"reset\"	
         value=\"Clear\"/>
-        <a href=\"userInfo.php?dinner_id=$dinner_id\" class=\"buttonLinksTables\">Back</a>
+        <a href=\"../index.php\" class=\"buttonLinksTables\">Home</a>
       </div>
       <div style=\"text-align:right; margin-top:1.5rem; padding-right: 1rem\">
-        <a href=\"../index.php\" class=\"buttonLinksTables\">Home</a>
+
       </div>
 		</form>
     <br /><br /><br/>
