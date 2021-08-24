@@ -102,12 +102,6 @@ echo "
         <tr>
           <th>Entrée&nbspType</th>
           <th>Date</th>
-          <th>Price</th>
-          <th>
-            Available&nbspSeats
-          </th>
-          <th>Seats&nbspReserved</th>
-          <th>Total</th>
         </tr>
         <tr>
           <td>$entree_name</td>
@@ -116,12 +110,6 @@ echo "
             $startTime-<br />
             $endTime
           </td>
-          <td>$$price</td>
-          <td $inlineStyleAvailabiltyColor style=\"width:10rem\">
-            $tdAvailableSeats
-          </td>
-          <td>$seats_reserved</td>
-          <td>$$price_total</td>
         </tr>
       </table>
     </div>
@@ -133,25 +121,31 @@ echo "
   <hr class=\"HRstyle\"/>
   <br />
   <p><strong>Card Information</strong></p>
-  $dinner_id $first_name $last_name $phone_number $email $seats_reserved
   <br />
   <form style=\"\" name=\"addDinner\" 
     class=\"formUserInfo\"
-    action=\"transactionComplete.php?dinner_id=$dinner_id&seats_reserved=$seats_reserved&price_total=$price_total\"
+    action=\"transactionCompleteProcess.php?dinner_id=$dinner_id&seats_reserved=$seats_reserved&price_total=$price_total\"
     method=\"POST\">
+    ";
 
-      <input type=\"text\" 
-      name=\"dinner_info\"	
-      id=\"dinner_info\" style=\"display:none;\" value=\"$dinner_info\"/>
+// there are hidden fields that will be posted as data from the customer info. Nothing ppersonal will be sent
+echo "
+      <div style=\"display:none;\">
+        <input type=\"text\" 
+          name=\"dinner_info\"	
+          id=\"dinner_info\" value=\"$dinner_info\"/>
+
+        <input type=\"text\" 
+          name=\"previous_data\"	
+          id=\"previous_data\" value=\"$customer_info\"required/>
+      </div>
 
       <div style=\"margin-bottom:1rem;\">
         Card Number:
         <input type=\"text\" 
           name=\"card_number\"	
           id=\"card_number\" class=\"inputText\" value=\"4242 4242 4242 4242\" disabled required/>
-          <input type=\"text\" 
-              name=\"previous_data\"	
-              id=\"previous_data\" class=\"\" value=\"Entree:hjhj|event_date:hjhj|start:ghjj|end:ghjgj|seats:ghjgj|price:ggg\" style=\"visibility:hidden;\"required/>
+
       </div>
       <div style=\"margin-bottom:1rem;\">
         Expiration Date:
@@ -173,7 +167,7 @@ echo "
         <span>Seats Reserved: $seats_reserved</span>
       </div>
       <div style=\"\">
-        <span>Transaction Total: $$price_total</span>
+        <span>Transaction Total: <strong>$$price_total</strong></span>
       </div>
   ";
 
