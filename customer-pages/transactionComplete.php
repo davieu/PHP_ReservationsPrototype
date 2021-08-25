@@ -10,6 +10,7 @@ include "../header.php";
 $dinner_id = $_GET['dinner_id'];
 $price_total = $_GET['price_total'];
 $seats_reserved = $_GET['seats_reserved'];
+$dinnerWaitlisted = $_GET['dinnerWaitlisted'];
 
 //$currReservation = explode("|", $currData);
 

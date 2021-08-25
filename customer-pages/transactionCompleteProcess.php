@@ -1,11 +1,8 @@
 
 <?php
-$first_name = $_POST['previous_data'];
-echo "
-$first_name
-<br/>yoyo";
-/*
-// --------FILENAME: admin-pages/admin-addReservationProcess.php ---------
+
+
+
 
 // Purpose: This page processes the data from the admin-addResrvationUserInfo and puts
 // in the DB to create a reservation
@@ -14,21 +11,28 @@ include "account.php";
 
 date_default_timezone_set("America/New_York");
 
-// has the | pipe delimited data about the specific dinner
-//$entree_name|$event_dateFormatted|$startTime|$endTime|$price|$total_seats_reserved|$seats;
+//$dinner_info = $event_dateFormatted . "|" . $startTime . "|" . $endTime . "|" . $price . "|" . $total_seats_reserved . "|" . $seats;
+
+//$previous_data = $seats_reserved . "|" . $first_name . "|" . $last_name . "|" . $phone_number . "|" . $email;
 $dinner_info = $_POST['dinner_info'];
+// reservation info from customer
+$previous_data = $_POST['previous_data'];
 
 $dinnerInfoArray = explode("|", $dinner_info);
+$previous_data = explode("|", $previous_data);
 
 $dinner_id = $_GET['dinner_id'];
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$phone_number = $_POST['phone_number'];
-$email = $_POST['email'];
-//$reservation_total = $_POST['reservation_total'];
-$seats_reserved = $_POST['seats_reserved'];
-$price = $dinnerInfoArray[4];
-$seats = $dinnerInfoArray[6];
+// previous_data exploded
+$seats_reserved = $previous_data[0];
+$first_name = $previous_data[1];
+$last_name = $previous_data[2];
+$phone_number = $previous_data[3];
+$email = $previous_data[4];
+
+// dinnerInfoArray exploded
+$price = $dinnerInfoArray[3];
+$seats = $dinnerInfoArray[5];
+
 
 $reservation_total = $price * $seats_reserved;
 $timestamp = date('Y-m-d H:i:s');
@@ -49,25 +53,21 @@ $currentTotalSeatsReserved = $total_seats_reserved + $seats_reserved;
 //to make custom confirmation code 
 $random_hash = substr(md5(uniqid(rand(), true)), 16, 16);
 echo "$dinner_info<br />$currentTotalSeatsReserved<br />";
+// to log so that it is known reservation was made by a customer and not by an admin or employee
+$user_email = "c-" . $first_name . "_" . $last_name;
+$user_session_ID = "c-" . $random_hash;
 
-if (isset($_SESSION['email'])) {
-  $user_email = $_SESSION['email'];
-} else {
-  $user_email = '';
-}
+echo "$currentTotalSeatsReserved<br/>seats:$seats";
 
-if (isset($_SESSION['email'])) {
-  $user_session_ID = session_id();
+if ($currentTotalSeatsReserved <= $seats) {
+    $dinnerWaitlisted = "false";
 } else {
-  $user_session_ID = '';
+    $dinnerWaitlisted = "true";
 }
 
 if ($currentTotalSeatsReserved <= $seats) {
-  // for logging
-  $user_email = $_SESSION['email'];
-  $user_session_ID = session_id();
+
   // include "formatToSQLhelper.php";
-  echo "yesyyyy";
   // add a reservation to SQL DB
   $sql = "INSERT INTO `reservations` 
     (`dinner_id`, `reservation_index`, `session_id`, `confirmation_code`, `seats_reserved`, `timestamp`) 
@@ -77,8 +77,8 @@ if ($currentTotalSeatsReserved <= $seats) {
   include "connectToDBID.php";
 
   // create confirmation code. add customer into DB with a confirmation code
-
   $confirmation_code = "$last_id:$random_hash";
+
   //echo "<br/>ssssss---$confirmation_code <br/>";
   $sql = "INSERT INTO `customers` 
     (`session_id`, `first_name`, `last_name`, `phone_number`, `email`, `reservation_total`,
@@ -115,8 +115,9 @@ if ($currentTotalSeatsReserved <= $seats) {
   include "connectToDB.php";
 
   // emails the customer with reseervation related data/confirmation code
-  include "admin-addReservationSendEmail.php";
+  //include "admin-addReservationSendEmail.php";
 }
+
 else {
   //ADD to WAITLIST if no available seats
   echo "wait";
@@ -148,11 +149,16 @@ else {
   include "connectToDB.php";
 
   // emails the customer with reseervation related data/confirmation code
-  include "admin-addWaitlistSendEmail.php";
+  //include "admin-addWaitlistSendEmail.php";
 }
 
 
 //yyyy-mm-dd hh:mm:ss
-header('Location: admin-addReservation.php');
+if ($dinnerWaitlisted == "false") {
+    header("Location: transactionComplete.php?dinner_id=$dinner_id&seats_reserved=$seats_reserved&price_total=$reservation_total&dinnerWaitlisted=$dinnerWaitlisted&sessionID=$user_session_ID");
+} else {
+    header("Location: transactionComplete.php?dinner_id=$dinner_id&seats_reserved=$seats_reserved&price_total=$reservation_total&dinnerWaitlisted=$dinnerWaitlisted");
+}
+
 /* $timestamp = date('Y-m-d H:i:s'); echo $timestamp; //testing $sql = "INSERT INTO `time`  (`currTime`)  VALUES  ('$timestamp')"; include "../connectToDB.php"; */
 ?>

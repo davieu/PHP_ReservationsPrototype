@@ -124,7 +124,7 @@ echo "
   <br />
   <form style=\"\" name=\"addDinner\" 
     class=\"formUserInfo\"
-    action=\"transactionCompleteProcess.php?dinner_id=$dinner_id&seats_reserved=$seats_reserved&price_total=$price_total\"
+    action=\"transactionCompleteProcess.php?dinner_id=$dinner_id\"
     method=\"POST\">
     ";
 

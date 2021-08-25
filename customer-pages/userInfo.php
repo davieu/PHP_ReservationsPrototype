@@ -85,6 +85,12 @@ if (!$waitlisted) {
       Waitlist:&nbsp$waitlistReservedSeats";
 }
 
+$formActionURL = "customerBill.php?dinner_id=$dinner_id";
+// if no availability. basically doing a waitlist reservation then go straight to the transaction complete page
+if ($availabilityCount < 1) {
+  $formActionURL = "transactionCompleteProcess.php?dinner_id=$dinner_id&dinnerWaitlisted=$dinnerWaitlisted";
+}
+
 // START of current dinner Table
 echo "  
     <div class=\"table-container\">
@@ -125,7 +131,7 @@ echo "
   <br />
   <form style=\"\" name=\"addDinner\" 
     class=\"formUserInfo\"
-    action=\"customerBill.php?dinner_id=$dinner_id\"
+    action=\"$formActionURL\"
     method=\"POST\">
 
       <input type=\"text\" 
