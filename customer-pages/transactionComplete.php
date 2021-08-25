@@ -33,6 +33,8 @@ $waitlistActive = false;
 $buttonTipName = "";
 $titleNAme = "";
 
+
+
 // parses the dates into readable human form.
 //$rec[0]=dinner_id, $rec[1]=entree_name, $rec[2]=event_date, $rec[3]=start_time, $rec[4]=end_time, $rec[5]=seats, $rec[6]=price 
 // parses data from the sql and also helps with the table "Available Seats" column coloring.
@@ -122,7 +124,6 @@ echo "
     </div>
   ";
 // END of current dinner table
-
 
 // START of form
 echo "

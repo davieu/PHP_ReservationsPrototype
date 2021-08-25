@@ -22,6 +22,7 @@ $dinnerInfoArray = explode("|", $dinner_info);
 $previous_data = explode("|", $previous_data);
 
 $dinner_id = $_GET['dinner_id'];
+$dinnerWaitlisted = $_GET['dinnerWaitlisted'];
 // previous_data exploded
 $seats_reserved = $previous_data[0];
 $first_name = $previous_data[1];
@@ -32,6 +33,15 @@ $email = $previous_data[4];
 // dinnerInfoArray exploded
 $price = $dinnerInfoArray[3];
 $seats = $dinnerInfoArray[5];
+
+if ($dinnerWaitlisted == "true") {
+    $email = $_POST['email'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $phone_number = $_POST['phone_number'];
+    $seats_reserved = $_POST['seats_reserved'];
+    $price = $_GET['price'];
+}
 
 
 $reservation_total = $price * $seats_reserved;
